@@ -11,9 +11,23 @@
 		5378254521467B16009939DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378254421467B16009939DD /* ViewController.swift */; };
 		5378254721467B17009939DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5378254621467B17009939DD /* Assets.xcassets */; };
 		5378254A21467B17009939DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5378254821467B17009939DD /* Main.storyboard */; };
+		5378255321468ACC009939DD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378255221468ACC009939DD /* MenuViewController.swift */; };
+		53782555214694FD009939DD /* MenuFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53782554214694FD009939DD /* MenuFlowLayout.swift */; };
+		5378255A214699F5009939DD /* MenuViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53782558214699F5009939DD /* MenuViewItem.swift */; };
+		5378255B214699F5009939DD /* MenuViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53782559214699F5009939DD /* MenuViewItem.xib */; };
+		538073CE2146A7B0005CA6CD /* SelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538073CD2146A7B0005CA6CD /* SelectedView.swift */; };
+		538073D02146AE33005CA6CD /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538073CF2146AE33005CA6CD /* IndexViewController.swift */; };
+		538073D32146B12A005CA6CD /* IndexViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538073D12146B12A005CA6CD /* IndexViewItem.swift */; };
+		538073D42146B12A005CA6CD /* IndexViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538073D22146B12A005CA6CD /* IndexViewItem.xib */; };
+		538073D62146D003005CA6CD /* IndexHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538073D52146D003005CA6CD /* IndexHeaderView.swift */; };
+		538073D82146D037005CA6CD /* IndexHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538073D72146D037005CA6CD /* IndexHeaderView.xib */; };
+		538073DA2146D395005CA6CD /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538073D92146D395005CA6CD /* AppKit.framework */; };
+		538073DC2146D746005CA6CD /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538073DB2146D746005CA6CD /* ImageLoader.swift */; };
+		92B4E930DDA32A7FD6C1CF2A /* Pods_SKPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C578E9ECA3698486FE4057 /* Pods_SKPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AAC08D64DA57BD4C72E349C /* Pods-SKPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKPlayer/Pods-SKPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		5378253F21467B16009939DD /* SKPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5378254221467B16009939DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5378254421467B16009939DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -21,6 +35,20 @@
 		5378254921467B17009939DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5378254B21467B17009939DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5378254C21467B17009939DD /* SKPlayer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SKPlayer.entitlements; sourceTree = "<group>"; };
+		5378255221468ACC009939DD /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		53782554214694FD009939DD /* MenuFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFlowLayout.swift; sourceTree = "<group>"; };
+		53782558214699F5009939DD /* MenuViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewItem.swift; sourceTree = "<group>"; };
+		53782559214699F5009939DD /* MenuViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewItem.xib; sourceTree = "<group>"; };
+		538073CD2146A7B0005CA6CD /* SelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedView.swift; sourceTree = "<group>"; };
+		538073CF2146AE33005CA6CD /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		538073D12146B12A005CA6CD /* IndexViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewItem.swift; sourceTree = "<group>"; };
+		538073D22146B12A005CA6CD /* IndexViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexViewItem.xib; sourceTree = "<group>"; };
+		538073D52146D003005CA6CD /* IndexHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexHeaderView.swift; sourceTree = "<group>"; };
+		538073D72146D037005CA6CD /* IndexHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexHeaderView.xib; sourceTree = "<group>"; };
+		538073D92146D395005CA6CD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		538073DB2146D746005CA6CD /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		81D01F3ADFB7241236309A56 /* Pods-SKPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKPlayer/Pods-SKPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		98C578E9ECA3698486FE4057 /* Pods_SKPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				538073DA2146D395005CA6CD /* AppKit.framework in Frameworks */,
+				92B4E930DDA32A7FD6C1CF2A /* Pods_SKPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +69,8 @@
 			children = (
 				5378254121467B16009939DD /* SKPlayer */,
 				5378254021467B16009939DD /* Products */,
+				FDE864B81F6C6757B20CCDF3 /* Pods */,
+				69910F89292AFF1139A303E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,8 +91,37 @@
 				5378254821467B17009939DD /* Main.storyboard */,
 				5378254B21467B17009939DD /* Info.plist */,
 				5378254C21467B17009939DD /* SKPlayer.entitlements */,
+				5378255221468ACC009939DD /* MenuViewController.swift */,
+				53782554214694FD009939DD /* MenuFlowLayout.swift */,
+				53782558214699F5009939DD /* MenuViewItem.swift */,
+				538073CD2146A7B0005CA6CD /* SelectedView.swift */,
+				53782559214699F5009939DD /* MenuViewItem.xib */,
+				538073CF2146AE33005CA6CD /* IndexViewController.swift */,
+				538073D12146B12A005CA6CD /* IndexViewItem.swift */,
+				538073D22146B12A005CA6CD /* IndexViewItem.xib */,
+				538073D52146D003005CA6CD /* IndexHeaderView.swift */,
+				538073D72146D037005CA6CD /* IndexHeaderView.xib */,
+				538073DB2146D746005CA6CD /* ImageLoader.swift */,
 			);
 			path = SKPlayer;
+			sourceTree = "<group>";
+		};
+		69910F89292AFF1139A303E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				538073D92146D395005CA6CD /* AppKit.framework */,
+				98C578E9ECA3698486FE4057 /* Pods_SKPlayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDE864B81F6C6757B20CCDF3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2AAC08D64DA57BD4C72E349C /* Pods-SKPlayer.debug.xcconfig */,
+				81D01F3ADFB7241236309A56 /* Pods-SKPlayer.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -70,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5378254F21467B17009939DD /* Build configuration list for PBXNativeTarget "SKPlayer" */;
 			buildPhases = (
+				0C79BBDE47F2E86FB2776A3D /* [CP] Check Pods Manifest.lock */,
 				5378253B21467B16009939DD /* Sources */,
 				5378253C21467B16009939DD /* Frameworks */,
 				5378253D21467B16009939DD /* Resources */,
+				73CC1EBC04F0EC03A59C76BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -121,20 +184,78 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				538073D42146B12A005CA6CD /* IndexViewItem.xib in Resources */,
+				5378255B214699F5009939DD /* MenuViewItem.xib in Resources */,
 				5378254721467B17009939DD /* Assets.xcassets in Resources */,
 				5378254A21467B17009939DD /* Main.storyboard in Resources */,
+				538073D82146D037005CA6CD /* IndexHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C79BBDE47F2E86FB2776A3D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SKPlayer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73CC1EBC04F0EC03A59C76BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SKPlayer/Pods-SKPlayer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Ji/Ji.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Ji.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKPlayer/Pods-SKPlayer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5378253B21467B16009939DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				538073D32146B12A005CA6CD /* IndexViewItem.swift in Sources */,
+				5378255A214699F5009939DD /* MenuViewItem.swift in Sources */,
+				538073DC2146D746005CA6CD /* ImageLoader.swift in Sources */,
 				5378254521467B16009939DD /* ViewController.swift in Sources */,
+				5378255321468ACC009939DD /* MenuViewController.swift in Sources */,
+				53782555214694FD009939DD /* MenuFlowLayout.swift in Sources */,
+				538073D62146D003005CA6CD /* IndexHeaderView.swift in Sources */,
 				5378254321467B16009939DD /* AppDelegate.swift in Sources */,
+				538073D02146AE33005CA6CD /* IndexViewController.swift in Sources */,
+				538073CE2146A7B0005CA6CD /* SelectedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +388,7 @@
 		};
 		5378255021467B17009939DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AAC08D64DA57BD4C72E349C /* Pods-SKPlayer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SKPlayer/SKPlayer.entitlements;
@@ -285,6 +407,7 @@
 		};
 		5378255121467B17009939DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81D01F3ADFB7241236309A56 /* Pods-SKPlayer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SKPlayer/SKPlayer.entitlements;

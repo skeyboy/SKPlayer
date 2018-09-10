@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="IndexHeaderView" customModule="SKPlayer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="450" height="63"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField identifier="IndexHeaderView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5iY-25-9Wu">
+                    <rect key="frame" x="43" y="23" width="37" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Title" id="BAy-f2-uMN">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="5iY-25-9Wu" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="45" id="1G7-Pa-Ek4"/>
+                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="5iY-25-9Wu" secondAttribute="trailing" constant="372" id="5Ca-Y8-QJ7"/>
+                <constraint firstItem="5iY-25-9Wu" firstAttribute="top" relation="lessThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="top" constant="23" id="Bwg-Lu-K9y"/>
+                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="5iY-25-9Wu" secondAttribute="bottom" constant="23" id="ICM-Pw-vLn"/>
+                <constraint firstItem="5iY-25-9Wu" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="M7O-W9-txm"/>
+            </constraints>
+            <connections>
+                <outlet property="indexSectionHeaderView" destination="5iY-25-9Wu" id="VQ7-KU-Xzc"/>
+            </connections>
+            <point key="canvasLocation" x="115" y="63.5"/>
+        </customView>
+    </objects>
+</document>

@@ -7,13 +7,42 @@
 //
 
 import Cocoa
-
+import SnapKit
 class ViewController: NSViewController {
-
+    var menuVC : MenuViewController?
+    
+    @IBOutlet weak var contentView: NSView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.menuVC = self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("menu")) as? MenuViewController
+        self.addChildViewController(self.menuVC!)
+        self.menuVC?.removeFromParentViewController()
+        self.view.addSubview(self.menuVC!.view)
+        self.menuVC?.view.snp.makeConstraints({ (maker) in
+            maker.top.left.bottom.equalTo(self.view)
+            maker.width.equalTo(100)
+        })
+        
+        self.contentView.snp.makeConstraints { (maker) in
+            maker.top.right.bottom.equalTo(self.view)
+            maker.left.equalTo((self.menuVC?.view.snp.right)!)
+        }
+     let index =   self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("index"))
+     
+        addSubChildController(index as! NSViewController)
+        
+       
+    }
+    func addSubChildController(_ childController: NSViewController){
+        self.addChildViewController(childController)
+        self.contentView.addSubview(childController.view)
+        childController.view.snp.makeConstraints { (maker) in
+            maker.edges.equalTo(self.contentView.snp.edges)
+            maker.height.width.greaterThanOrEqualTo(300)
+        }
     }
 
     override var representedObject: Any? {
@@ -24,4 +53,5 @@ class ViewController: NSViewController {
 
 
 }
+extension NSViewController{}
 
