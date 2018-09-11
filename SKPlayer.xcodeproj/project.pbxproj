@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53043DD62147C248001019EA /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53043DD52147C248001019EA /* PlayerViewController.swift */; };
+		53043DD82147C8BD001019EA /* PlayerWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53043DD72147C8BD001019EA /* PlayerWindowController.swift */; };
+		53043DDA2147C8D4001019EA /* PlayerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53043DD92147C8D4001019EA /* PlayerWindow.swift */; };
+		53043DDC2147E7C5001019EA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53043DDB2147E7C5001019EA /* WebKit.framework */; };
 		5378254321467B16009939DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378254221467B16009939DD /* AppDelegate.swift */; };
 		5378254521467B16009939DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378254421467B16009939DD /* ViewController.swift */; };
 		5378254721467B17009939DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5378254621467B17009939DD /* Assets.xcassets */; };
@@ -38,6 +42,10 @@
 
 /* Begin PBXFileReference section */
 		2AAC08D64DA57BD4C72E349C /* Pods-SKPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKPlayer/Pods-SKPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		53043DD52147C248001019EA /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		53043DD72147C8BD001019EA /* PlayerWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWindowController.swift; sourceTree = "<group>"; };
+		53043DD92147C8D4001019EA /* PlayerWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWindow.swift; sourceTree = "<group>"; };
+		53043DDB2147E7C5001019EA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		5378253F21467B16009939DD /* SKPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5378254221467B16009939DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5378254421467B16009939DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53043DDC2147E7C5001019EA /* WebKit.framework in Frameworks */,
 				538073DA2146D395005CA6CD /* AppKit.framework in Frameworks */,
 				92B4E930DDA32A7FD6C1CF2A /* Pods_SKPlayer.framework in Frameworks */,
 			);
@@ -84,6 +93,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53043DD42147C22A001019EA /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				53043DD52147C248001019EA /* PlayerViewController.swift */,
+				53043DD72147C8BD001019EA /* PlayerWindowController.swift */,
+				53043DD92147C8D4001019EA /* PlayerWindow.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
 		5378253621467B16009939DD = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +153,7 @@
 		53EC894E21474C9A0056B7EB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				53043DD42147C22A001019EA /* Player */,
 				53F8A5C02147A0F300C18A9E /* Cloud */,
 				53EC8954214763E40056B7EB /* Detail */,
 				53EC894F21474C9A0056B7EB /* Index */,
@@ -204,6 +224,7 @@
 		69910F89292AFF1139A303E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				53043DDB2147E7C5001019EA /* WebKit.framework */,
 				538073D92146D395005CA6CD /* AppKit.framework */,
 				98C578E9ECA3698486FE4057 /* Pods_SKPlayer.framework */,
 			);
@@ -322,6 +343,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${PODS_ROOT}/VLCKit/VLCKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -331,6 +353,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VLCKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -344,15 +367,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53043DD82147C8BD001019EA /* PlayerWindowController.swift in Sources */,
 				53EC895B21476FEB0056B7EB /* DetailWindow.swift in Sources */,
 				53EC895321474CF00056B7EB /* Index.swift in Sources */,
 				53F8A5C22147A11A00C18A9E /* CloudPlayerController.swift in Sources */,
+				53043DDA2147C8D4001019EA /* PlayerWindow.swift in Sources */,
 				538073D32146B12A005CA6CD /* IndexViewItem.swift in Sources */,
 				5378255A214699F5009939DD /* MenuViewItem.swift in Sources */,
 				53EC895F2147779E0056B7EB /* Parser.swift in Sources */,
 				53EC89572147656E0056B7EB /* DetailViewController.swift in Sources */,
 				53EC895921476EDC0056B7EB /* DetailWindowController.swift in Sources */,
 				538073DC2146D746005CA6CD /* ImageLoader.swift in Sources */,
+				53043DD62147C248001019EA /* PlayerViewController.swift in Sources */,
 				5378254521467B16009939DD /* ViewController.swift in Sources */,
 				5378255321468ACC009939DD /* MenuViewController.swift in Sources */,
 				53782555214694FD009939DD /* MenuFlowLayout.swift in Sources */,

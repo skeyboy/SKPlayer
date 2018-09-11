@@ -24,11 +24,11 @@ class IndexViewController: NSViewController {
 //        layout.minimumItemSize = NSSize(width: 150, height: 100)
 //
          let layout:NSCollectionViewFlowLayout = NSCollectionViewFlowLayout()
-        layout.itemSize = NSSize(width: 150, height: 100)
-        layout.estimatedItemSize = NSSize(width: 150, height: 100)
+        layout.itemSize = NSSize(width: 100, height: 200)
+        layout.estimatedItemSize = NSSize(width: 100, height: 200)
         layout.sectionHeadersPinToVisibleBounds = true
 
-
+        layout.sectionHeadersPinToVisibleBounds = true
         self.indexCollection.collectionViewLayout = layout
         
         
@@ -86,6 +86,16 @@ extension IndexViewController: NSCollectionViewDataSource{
 //        NSApp.runModal(for: detailWin.window!)
     }
     
+    func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSView {
+        
+        
+      let view =  collectionView.makeSupplementaryView(ofKind: NSCollectionView.SupplementaryElementKind.sectionHeader,
+                                             withIdentifier: NSUserInterfaceItemIdentifier.init("index_header"), for: indexPath)
+        
+        return view
+    }
+    
+  
 }
 extension IndexViewController : NSCollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {

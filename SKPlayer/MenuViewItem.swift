@@ -18,7 +18,7 @@ class MenuViewItem: NSCollectionViewItem {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        titleView.stringValue = "\(arc4random())"
+//        titleView.stringValue = "\(arc4random())"
     }
  
 }

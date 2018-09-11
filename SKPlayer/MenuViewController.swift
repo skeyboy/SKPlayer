@@ -7,9 +7,15 @@
 //
 
 import Cocoa
+import Ji
 
+class Menu {
+    var menuHref: String?
+    var menuTitle: String?
+    
+}
 class MenuViewController: NSViewController {
-    let menuItems:[String] = [String]()
+    var menuItems:[Menu] = [Menu]()
     @IBOutlet weak var menuCollection: NSCollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +32,27 @@ class MenuViewController: NSViewController {
         self.menuCollection.collectionViewLayout = flowLayout
         self.menuCollection.reloadData()
         self.menuCollection.backgroundColors = [NSColor.gray]
+        self.parser(HOST_URL) { (ji, resp, error) in
+            let menus:[JiNode] = (ji?.xPath("//div[@class='head02 lf']/ul/li/a"))!
+            for node in menus {
+                let menu: Menu = Menu()
+                
+                let title = node.xPath("./text()").first?.rawContent!
+                let href = node.attributes["href"]
+                
+                menu.menuHref = href
+                menu.menuTitle = title
+                
+                self.menuItems.append(menu)
+            }
+            self.menuCollection.reloadData()
+        }
     }
     
 
     
 }
+extension MenuViewController: Parser{}
 extension MenuViewController: NSCollectionViewDelegate{
  
 }
@@ -38,7 +60,7 @@ extension MenuViewController: NSCollectionViewDataSource{
    
     // 1
     func numberOfSections(in collectionView: NSCollectionView) -> Int {
-        return 11
+        return   self.menuItems.count
     }
     
     // 2
@@ -47,16 +69,21 @@ extension MenuViewController: NSCollectionViewDataSource{
     }
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
-    
-    // 3
-   
-        // 4
-        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MenuViewItem"), for: indexPath)
-        guard let collectionViewItem = item as? MenuViewItem else {return item}
+        let item: MenuViewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MenuViewItem"), for: indexPath) as! MenuViewItem
+        guard item is MenuViewItem else {return item}
+        let menu: Menu = self.menuItems[indexPath.section]
+        
+        item.titleView.stringValue = menu.menuTitle ?? "未知"
         
       item.isSelected = false
         return item
     }
     
+    func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath) {
+        (item as! MenuViewItem).isSelected = false
+    }
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        
+    }
     
 }

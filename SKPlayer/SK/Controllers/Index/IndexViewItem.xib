@@ -15,14 +15,14 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView identifier="IndexViewItem" id="Hz6-mo-xeY" customClass="SelectedView" customModule="SKPlayer" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qy6-dD-KMA">
-                    <rect key="frame" x="-3" y="22" width="106" height="81"/>
+                    <rect key="frame" x="-3" y="22" width="106" height="181"/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="FxV-TQ-CmI"/>
-                        <constraint firstAttribute="height" constant="75" id="nLV-HS-N5S"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="FxV-TQ-CmI"/>
+                        <constraint firstAttribute="height" constant="175" id="nLV-HS-N5S"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" imageFrameStyle="groove" id="XSQ-aC-TtP"/>
                 </imageView>

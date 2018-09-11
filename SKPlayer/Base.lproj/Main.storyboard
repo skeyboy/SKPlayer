@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -762,11 +763,11 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Wf6-qt-Kcl">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Wf6-qt-Kcl">
                                     <rect key="frame" x="1" y="144" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="uyy-VB-DSM">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="uyy-VB-DSM">
                                     <rect key="frame" x="234" y="1" width="15" height="143"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -817,11 +818,11 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="lMe-Fb-FzA">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="lMe-Fb-FzA">
                                     <rect key="frame" x="1" y="144" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Tyj-MN-uwX">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Tyj-MN-uwX">
                                     <rect key="frame" x="77" y="1" width="15" height="157"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -967,28 +968,29 @@
                         <outlet property="titleView" destination="GpC-we-DcW" id="32f-YB-C3J"/>
                         <outlet property="updateView" destination="dtk-ci-gFN" id="yIE-3U-Zcb"/>
                         <outlet property="yearView" destination="5Pm-uW-8pX" id="tQg-2Y-vZn"/>
+                        <segue destination="B2N-dU-lEd" kind="modal" identifier="show_player" id="moe-HN-khc"/>
                     </connections>
                 </viewController>
                 <customObject id="Dzc-Zc-ORM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="102" y="1611"/>
+            <point key="canvasLocation" x="-738" y="1486"/>
         </scene>
         <!--资源列表-->
         <scene sceneID="9Hk-mf-AFx">
             <objects>
                 <viewController title="资源列表" storyboardIdentifier="cloud" id="xfr-fj-uJP" customClass="CloudPlayerController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="NgU-F1-T25">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kq-QV-wEx">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kq-QV-wEx">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
                                 <clipView key="contentView" id="9t0-3x-Nyp">
-                                    <rect key="frame" x="1" y="1" width="448" height="298"/>
+                                    <rect key="frame" x="1" y="1" width="448" height="148"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView selectable="YES" id="xFR-xp-bTI">
-                                            <rect key="frame" x="0.0" y="0.0" width="448" height="158"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="148"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="6Om-l9-RgY">
                                                 <size key="itemSize" width="50" height="50"/>
@@ -1002,12 +1004,12 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="xEg-P5-Bn6">
-                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="xEg-P5-Bn6">
+                                    <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="wZa-ne-ecu">
-                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="wZa-ne-ecu">
+                                    <rect key="frame" x="433" y="1" width="16" height="148"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1025,7 +1027,7 @@
                 </viewController>
                 <customObject id="kHu-Nh-HRA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="402" y="2487"/>
+            <point key="canvasLocation" x="402" y="2412"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="Gli-HD-VhB">
@@ -1034,7 +1036,7 @@
                     <window key="window" identifier="cloud_window" title="云播资源" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="PHJ-GE-4Ej">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="150"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                         <connections>
                             <outlet property="delegate" destination="3uu-ew-G8G" id="vTG-mn-e9D"/>
@@ -1048,8 +1050,62 @@
             </objects>
             <point key="canvasLocation" x="-294" y="2494"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="b30-Qv-Zdb">
+            <objects>
+                <windowController storyboardIdentifier="player_window" id="2d4-B1-SJe" customClass="PlayerWindowController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="视频播放" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="da8-aD-gSl" customClass="PlayerWindow" customModule="SKPlayer" customModuleProvider="target">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                        <connections>
+                            <outlet property="delegate" destination="2d4-B1-SJe" id="SYb-aJ-XJu"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="B2N-dU-lEd" kind="relationship" relationship="window.shadowedContentViewController" id="RY7-DB-etW"/>
+                    </connections>
+                </windowController>
+                <customObject id="7RH-s7-OhY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="620" y="1889"/>
+        </scene>
+        <!--视频播放-->
+        <scene sceneID="yQe-jF-EsA">
+            <objects>
+                <viewController title="视频播放" storyboardIdentifier="player" id="B2N-dU-lEd" customClass="PlayerViewController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="acM-zM-8pK">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <webView translatesAutoresizingMaskIntoConstraints="NO" id="C12-ac-raC">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <webPreferences key="preferences" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0">
+                                    <nil key="identifier"/>
+                                </webPreferences>
+                            </webView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="C12-ac-raC" secondAttribute="trailing" id="4OY-fd-CG9"/>
+                            <constraint firstItem="C12-ac-raC" firstAttribute="leading" secondItem="acM-zM-8pK" secondAttribute="leading" id="K07-gO-uqi"/>
+                            <constraint firstItem="C12-ac-raC" firstAttribute="top" secondItem="acM-zM-8pK" secondAttribute="top" id="TOA-nK-joh"/>
+                            <constraint firstAttribute="bottom" secondItem="C12-ac-raC" secondAttribute="bottom" id="ftD-by-Jwi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="C12-ac-raC" id="WRn-Rn-q6B"/>
+                    </connections>
+                </viewController>
+                <customObject id="nBe-su-hzU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="620" y="1446"/>
+        </scene>
     </scenes>
     <resources>
         <image name="veer" width="192" height="108"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="RY7-DB-etW"/>
+    </inferredMetricsTieBreakers>
 </document>

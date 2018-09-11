@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import VLCKit
 let HOST_URL = "http://www.btbtdy.net"
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -15,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        VLCLibrary.shared()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
