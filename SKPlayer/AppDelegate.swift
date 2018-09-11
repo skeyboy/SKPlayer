@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-
+let HOST_URL = "http://www.btbtdy.net"
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
