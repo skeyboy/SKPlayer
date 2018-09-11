@@ -13,6 +13,18 @@ class Detail{
     var coverSrc: String?
     var title: String?
     var year: String?
+    var update: String?
+    var des: String?
+    var resources: Resuorces = Resuorces()
+}
+class Resuorces{
+    var cloudPlayer: [CloudPlayer] = [CloudPlayer]()
+
+}
+class CloudPlayer{
+    var link: String?
+    var title: String?
+    
 }
 typealias DetailResult = (Detail)->Void
 class DetailParser: Parser{
@@ -31,8 +43,46 @@ class DetailParser: Parser{
                 return  NSMutableString.init(string: souceValue).substring(with: result.range)
             }).first
             
-            result(detail)
+            detail.des = ji?.xPath("//div[@class='c05']/span/text()")?.first?.rawContent ?? "暂无简介"
             
+            self.detailParseVidlist(query, cloudResults: { (coluds) in
+                detail.resources.cloudPlayer.append(contentsOf: coluds)
+                result(detail)
+
+            })
+            
+            
+        }
+    }
+    func detailParseVidlist(_ lastPathComponent: String, cloudResults:@escaping ([CloudPlayer])->Void) ->Void{
+
+     
+//        vidlist/13243.html
+        let pathComponent =    digitalFrom(stringValue: lastPathComponent) {  (souceValue, result) -> String in
+            
+            return  NSMutableString.init(string: souceValue).substring(with: result.range).appending(".html")
+        }.first!
+        let url: String = HOST_URL + "/vidlist/" + pathComponent
+        parser(url) { (ji, resp, error) in
+            var clouds:[CloudPlayer] = [CloudPlayer]()
+
+            if ji == nil {
+                cloudResults(clouds)
+                
+            }else{
+            var cloudNodes:[JiNode]? = (ji?.xPath("//ul[@class='p_list_03']/li/a"))
+            if(cloudNodes != nil){
+                for cloudNode in cloudNodes! {
+                    let cloudPlayer: CloudPlayer = CloudPlayer()
+                    cloudPlayer.link = cloudNode.attributes["href"]
+                    cloudPlayer.title = cloudNode.attributes["title"]
+                    clouds.append(cloudPlayer)
+                }
+                cloudResults(clouds)
+                }
+                
+            }
+
         }
     }
 }

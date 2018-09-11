@@ -846,7 +846,7 @@
             <objects>
                 <windowController storyboardIdentifier="detail_window" id="YW1-58-WgS" customClass="DetailWindowController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="rM2-9O-nOU" customClass="DetailWindow" customModule="SKPlayer" customModuleProvider="target">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
@@ -867,16 +867,16 @@
             <objects>
                 <viewController title="详情" storyboardIdentifier="detail" id="LaS-M2-WvI" customClass="DetailViewController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="3sE-mI-YEJ">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="znY-va-ISA">
-                                <rect key="frame" x="0.0" y="116" width="289" height="384"/>
+                                <rect key="frame" x="0.0" y="5" width="268" height="345"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="veer" id="EJU-Ug-wVE"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GpC-we-DcW">
-                                <rect key="frame" x="295" y="464" width="386" height="27"/>
+                                <rect key="frame" x="295" y="314" width="386" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="前任3：再见前任前任3：再见前任 (2017)" id="TxE-mj-z4Y">
                                     <font key="font" size="19" name=".PingFangSC-Regular"/>
@@ -885,7 +885,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dtk-ci-gFN">
-                                <rect key="frame" x="307" y="436" width="381" height="25"/>
+                                <rect key="frame" x="307" y="286" width="381" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="更新:2018-03-23 21:16" id="EYQ-Rh-aWu">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -894,7 +894,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KkV-MH-bop">
-                                <rect key="frame" x="307" y="411" width="356" height="25"/>
+                                <rect key="frame" x="307" y="261" width="356" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="类型:电影 / 喜剧 / 爱情" id="2Lm-AN-ZCC">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -903,7 +903,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hq3-C4-950">
-                                <rect key="frame" x="307" y="385" width="356" height="25"/>
+                                <rect key="frame" x="307" y="235" width="356" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="地区" id="hsp-nf-neU">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -912,7 +912,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BbU-8O-iLI">
-                                <rect key="frame" x="307" y="358" width="356" height="25"/>
+                                <rect key="frame" x="307" y="208" width="356" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="语言:" id="Gv8-hd-Q16">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -921,7 +921,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5pR-R0-YyD">
-                                <rect key="frame" x="307" y="333" width="356" height="25"/>
+                                <rect key="frame" x="307" y="183" width="356" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="imdb" id="CHT-DW-alh">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -930,7 +930,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XZ4-cp-f0E">
-                                <rect key="frame" x="307" y="300" width="356" height="34"/>
+                                <rect key="frame" x="307" y="150" width="356" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="b3K-Ok-4ex">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -941,7 +941,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yDQ-MQ-15W">
-                                <rect key="frame" x="307" y="116" width="304" height="192"/>
+                                <rect key="frame" x="307" y="-34" width="304" height="192"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="VNU-pw-PSj">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -951,7 +951,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Pm-uW-8pX">
-                                <rect key="frame" x="677" y="471" width="35" height="17"/>
+                                <rect key="frame" x="677" y="321" width="35" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="2018" id="aS0-FT-q7F">
                                     <font key="font" metaFont="system"/>
@@ -963,13 +963,90 @@
                     </view>
                     <connections>
                         <outlet property="coverImageView" destination="znY-va-ISA" id="I5A-Mw-OXi"/>
+                        <outlet property="desView" destination="yDQ-MQ-15W" id="5vy-aE-9Oj"/>
                         <outlet property="titleView" destination="GpC-we-DcW" id="32f-YB-C3J"/>
+                        <outlet property="updateView" destination="dtk-ci-gFN" id="yIE-3U-Zcb"/>
                         <outlet property="yearView" destination="5Pm-uW-8pX" id="tQg-2Y-vZn"/>
                     </connections>
                 </viewController>
                 <customObject id="Dzc-Zc-ORM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="102" y="1611"/>
+        </scene>
+        <!--资源列表-->
+        <scene sceneID="9Hk-mf-AFx">
+            <objects>
+                <viewController title="资源列表" storyboardIdentifier="cloud" id="xfr-fj-uJP" customClass="CloudPlayerController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="NgU-F1-T25">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kq-QV-wEx">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <clipView key="contentView" id="9t0-3x-Nyp">
+                                    <rect key="frame" x="1" y="1" width="448" height="298"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView selectable="YES" id="xFR-xp-bTI">
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="158"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="6Om-l9-RgY">
+                                                <size key="itemSize" width="50" height="50"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="xfr-fj-uJP" id="IL0-aE-cSA"/>
+                                                <outlet property="delegate" destination="xfr-fj-uJP" id="oh6-o5-Yev"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="xEg-P5-Bn6">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="wZa-ne-ecu">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8kq-QV-wEx" secondAttribute="trailing" id="9e1-fh-6PD"/>
+                            <constraint firstAttribute="bottom" secondItem="8kq-QV-wEx" secondAttribute="bottom" id="Mfb-xl-reQ"/>
+                            <constraint firstItem="8kq-QV-wEx" firstAttribute="top" secondItem="NgU-F1-T25" secondAttribute="top" id="YIW-Af-INa"/>
+                            <constraint firstItem="8kq-QV-wEx" firstAttribute="leading" secondItem="NgU-F1-T25" secondAttribute="leading" id="gow-Tb-LxT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resourceCollectionView" destination="xFR-xp-bTI" id="cJI-Pg-GpK"/>
+                    </connections>
+                </viewController>
+                <customObject id="kHu-Nh-HRA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="402" y="2487"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="Gli-HD-VhB">
+            <objects>
+                <windowController storyboardIdentifier="cloud_window" id="3uu-ew-G8G" customClass="CloudPlayerWindowController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" identifier="cloud_window" title="云播资源" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="PHJ-GE-4Ej">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                        <connections>
+                            <outlet property="delegate" destination="3uu-ew-G8G" id="vTG-mn-e9D"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="xfr-fj-uJP" kind="relationship" relationship="window.shadowedContentViewController" id="b4E-RD-8tK"/>
+                    </connections>
+                </windowController>
+                <customObject id="c02-yl-Xsj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-294" y="2494"/>
         </scene>
     </scenes>
     <resources>

@@ -13,7 +13,7 @@ protocol Parser {
     
 }
 extension Parser{
-    public func digitalFrom<T>(stringValue: String, pattern: String = "\\d{4}", callBack:(String, NSTextCheckingResult)->T ) -> [T] {
+    public func digitalFrom<T>(stringValue: String, pattern: String = "\\d{1,100}", callBack:(String, NSTextCheckingResult)->T ) -> [T] {
         
         //        let pattern = "\\d/\\d&nbsp"
         

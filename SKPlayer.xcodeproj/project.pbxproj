@@ -29,6 +29,10 @@
 		53EC895B21476FEB0056B7EB /* DetailWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EC895A21476FEB0056B7EB /* DetailWindow.swift */; };
 		53EC895D214777480056B7EB /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EC895C214777480056B7EB /* Detail.swift */; };
 		53EC895F2147779E0056B7EB /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EC895E2147779E0056B7EB /* Parser.swift */; };
+		53F8A5C22147A11A00C18A9E /* CloudPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F8A5C12147A11900C18A9E /* CloudPlayerController.swift */; };
+		53F8A5C52147A18400C18A9E /* CloudViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F8A5C32147A18400C18A9E /* CloudViewItem.swift */; };
+		53F8A5C62147A18400C18A9E /* CloudViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53F8A5C42147A18400C18A9E /* CloudViewItem.xib */; };
+		53F8A5C82147A99C00C18A9E /* CloudPlayerWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F8A5C72147A99C00C18A9E /* CloudPlayerWindowController.swift */; };
 		92B4E930DDA32A7FD6C1CF2A /* Pods_SKPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C578E9ECA3698486FE4057 /* Pods_SKPlayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +63,10 @@
 		53EC895A21476FEB0056B7EB /* DetailWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWindow.swift; sourceTree = "<group>"; };
 		53EC895C214777480056B7EB /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		53EC895E2147779E0056B7EB /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		53F8A5C12147A11900C18A9E /* CloudPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudPlayerController.swift; sourceTree = "<group>"; };
+		53F8A5C32147A18400C18A9E /* CloudViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudViewItem.swift; sourceTree = "<group>"; };
+		53F8A5C42147A18400C18A9E /* CloudViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CloudViewItem.xib; sourceTree = "<group>"; };
+		53F8A5C72147A99C00C18A9E /* CloudPlayerWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudPlayerWindowController.swift; sourceTree = "<group>"; };
 		81D01F3ADFB7241236309A56 /* Pods-SKPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKPlayer/Pods-SKPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		98C578E9ECA3698486FE4057 /* Pods_SKPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,6 +134,7 @@
 		53EC894E21474C9A0056B7EB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				53F8A5C02147A0F300C18A9E /* Cloud */,
 				53EC8954214763E40056B7EB /* Detail */,
 				53EC894F21474C9A0056B7EB /* Index */,
 			);
@@ -179,6 +188,17 @@
 				53EC895C214777480056B7EB /* Detail.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		53F8A5C02147A0F300C18A9E /* Cloud */ = {
+			isa = PBXGroup;
+			children = (
+				53F8A5C12147A11900C18A9E /* CloudPlayerController.swift */,
+				53F8A5C32147A18400C18A9E /* CloudViewItem.swift */,
+				53F8A5C42147A18400C18A9E /* CloudViewItem.xib */,
+				53F8A5C72147A99C00C18A9E /* CloudPlayerWindowController.swift */,
+			);
+			path = Cloud;
 			sourceTree = "<group>";
 		};
 		69910F89292AFF1139A303E1 /* Frameworks */ = {
@@ -262,6 +282,7 @@
 				538073D42146B12A005CA6CD /* IndexViewItem.xib in Resources */,
 				5378255B214699F5009939DD /* MenuViewItem.xib in Resources */,
 				5378254721467B17009939DD /* Assets.xcassets in Resources */,
+				53F8A5C62147A18400C18A9E /* CloudViewItem.xib in Resources */,
 				5378254A21467B17009939DD /* Main.storyboard in Resources */,
 				538073D82146D037005CA6CD /* IndexHeaderView.xib in Resources */,
 			);
@@ -325,6 +346,7 @@
 			files = (
 				53EC895B21476FEB0056B7EB /* DetailWindow.swift in Sources */,
 				53EC895321474CF00056B7EB /* Index.swift in Sources */,
+				53F8A5C22147A11A00C18A9E /* CloudPlayerController.swift in Sources */,
 				538073D32146B12A005CA6CD /* IndexViewItem.swift in Sources */,
 				5378255A214699F5009939DD /* MenuViewItem.swift in Sources */,
 				53EC895F2147779E0056B7EB /* Parser.swift in Sources */,
@@ -338,7 +360,9 @@
 				53EC895D214777480056B7EB /* Detail.swift in Sources */,
 				5378254321467B16009939DD /* AppDelegate.swift in Sources */,
 				538073D02146AE33005CA6CD /* IndexViewController.swift in Sources */,
+				53F8A5C82147A99C00C18A9E /* CloudPlayerWindowController.swift in Sources */,
 				538073CE2146A7B0005CA6CD /* SelectedView.swift in Sources */,
+				53F8A5C52147A18400C18A9E /* CloudViewItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

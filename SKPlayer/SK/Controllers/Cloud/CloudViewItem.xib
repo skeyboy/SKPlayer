@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CloudViewItem" customModule="SKPlayer" customModuleProvider="target">
+            <connections>
+                <outlet property="itemView" destination="jP3-38-zFf" id="u2n-Xq-9P1"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView identifier="CloudViewItem" id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="jP3-38-zFf">
+                    <rect key="frame" x="0.0" y="17" width="50" height="17"/>
+                    <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" title="第一集" drawsBackground="YES" id="W4C-zD-Zhn">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="jP3-38-zFf" secondAttribute="bottom" constant="32" id="7CF-Ku-0zH"/>
+                <constraint firstAttribute="trailing" secondItem="jP3-38-zFf" secondAttribute="trailing" id="NF0-2D-vYl"/>
+                <constraint firstItem="jP3-38-zFf" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="aG7-bi-OrH"/>
+                <constraint firstItem="jP3-38-zFf" firstAttribute="top" relation="lessThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="32" id="d6N-p4-3qg"/>
+                <constraint firstItem="jP3-38-zFf" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="mW5-aT-FnZ"/>
+            </constraints>
+            <point key="canvasLocation" x="-64.5" y="56"/>
+        </customView>
+        <collectionViewItem identifier="CloudViewItem" id="Lxy-iy-Bep" customClass="CloudViewItem" customModule="SKPlayer" customModuleProvider="target">
+            <connections>
+                <outlet property="itemView" destination="jP3-38-zFf" id="CyN-Nq-fBf"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="1Cg-Ka-CVA"/>
+            </connections>
+        </collectionViewItem>
+    </objects>
+</document>

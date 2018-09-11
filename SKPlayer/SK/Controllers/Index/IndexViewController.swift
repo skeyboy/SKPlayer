@@ -11,7 +11,7 @@ import AppKit
 import Ji
 
 class IndexViewController: NSViewController {
-    
+    var session: NSApplication.ModalSession?
     var indexs:[[IndexItemModel]] = [[IndexItemModel]]()
     var indexSections:[Section] = [Section]()
     @IBOutlet weak var indexCollection: NSCollectionView!
@@ -70,6 +70,11 @@ extension IndexViewController: NSCollectionViewDataSource{
     }
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         print("items select")
+        if (self.session != nil) {
+            NSApp.modalWindow?.close()
+//            NSApp.endModalSession(self.session!)
+            self.session = nil;
+        }
     
       let indexPath = indexPaths.first!
         let section: Section = self.indexSections[indexPath.section]
@@ -77,7 +82,7 @@ extension IndexViewController: NSCollectionViewDataSource{
         let detailWin: DetailWindowController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("detail_window")) as! DetailWindowController
         let detailVC: DetailViewController = detailWin.contentViewController as! DetailViewController
         detailVC.model = section.sectionItems[indexPath.item]
-        NSApp.beginModalSession(for: detailWin.window!)
+       self.session = NSApp.beginModalSession(for: detailWin.window!)
 //        NSApp.runModal(for: detailWin.window!)
     }
     
