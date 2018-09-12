@@ -8,12 +8,12 @@
 
 import Cocoa
 import VLCKit
-typealias CloudPlayerSelectedResult = (String?)->Void
+typealias CloudPlayerSelectedResult = (CloudPlayer?)->Void
 class CloudPlayerController: NSViewController {
     var callBack: CloudPlayerSelectedResult?
     var session: NSApplication.ModalSession?
     @IBOutlet weak var resourceCollectionView: NSCollectionView!
-    var cloudResources: [CloudPlayer] = [CloudPlayer]()
+    var resources: Resuorces?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -26,25 +26,47 @@ extension CloudPlayerController: NSCollectionViewDelegate{
 }
 extension CloudPlayerController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.cloudResources.count
+        if section == 0{
+            return (self.resources?.cloudPlayer.count)!
+        }
+        if section == 1 {
+            return (self.resources?.cloudDown.count)!
+        }
+        return 0
     }
-    
+    func numberOfSections(in collectionView: NSCollectionView) -> Int {
+        
+        return 2
+    }
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let cloudViewItem: CloudViewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier.init("CloudViewItem"), for: indexPath) as! CloudViewItem
         
-        let cloudResource: CloudPlayer = self.cloudResources[indexPath.item]
-        cloudViewItem.player = cloudResource
+        var items: [CloudPlayer] = [CloudPlayer]()
+        if indexPath.section == 0 {
+            items = (self.resources?.cloudPlayer)!
+        }
+        if indexPath.section == 1 {
+            items = (self.resources?.cloudDown)!
+        }
+        
+        cloudViewItem.player = items[indexPath.item]
         return cloudViewItem
     }
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
       
-        
-        
-        
         let indexPath = indexPaths.first!
-        let cloudResource: CloudPlayer = self.cloudResources[indexPath.item]
+        var items: [CloudPlayer] = [CloudPlayer]()
+        if indexPath.section == 0 {
+            items = (self.resources?.cloudPlayer)!
+        }
+        if indexPath.section == 1 {
+            items = (self.resources?.cloudDown)!
+        }
+        
+        let cloudResource: CloudPlayer = items[indexPath.item]
       
-        callBack!(cloudResource.link)
+        callBack!(cloudResource)
+        
 //        self.performSegue(withIdentifier: NSStoryboardSegue.Identifier.init("show_player"), sender: nil)
 //        self.performSegue(withIdentifier: NSStoryboardSegue.Identifier.init("show_player")
 //        , sender: cloudResource)

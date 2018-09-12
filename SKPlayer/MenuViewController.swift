@@ -8,7 +8,7 @@
 
 import Cocoa
 import Ji
-
+let MainQueue = DispatchQueue.main
 class Menu {
     var menuHref: String?
     var menuTitle: String?
@@ -45,7 +45,10 @@ class MenuViewController: NSViewController {
                 
                 self.menuItems.append(menu)
             }
-            self.menuCollection.reloadData()
+            MainQueue.async {
+                self.menuCollection.reloadData()
+                
+            }
         }
     }
     
@@ -70,7 +73,6 @@ extension MenuViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
         let item: MenuViewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MenuViewItem"), for: indexPath) as! MenuViewItem
-        guard item is MenuViewItem else {return item}
         let menu: Menu = self.menuItems[indexPath.section]
         
         item.titleView.stringValue = menu.menuTitle ?? "未知"
@@ -85,5 +87,5 @@ extension MenuViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         
     }
-    
+
 }

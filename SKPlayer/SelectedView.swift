@@ -87,12 +87,6 @@ class SelectedView: NSView {
             fillColor = NSColor.white
             strokeColor = NSColor.red
         }
-//        if isHover {
-//            fillColor = NSColor.green
-//            strokeColor = NSColor.magenta
-//        }else {
-//
-//        }
         
         fillColor?.set()
         bPath.fill()

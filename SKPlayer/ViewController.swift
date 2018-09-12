@@ -55,3 +55,44 @@ class ViewController: NSViewController {
 }
 extension NSViewController{}
 
+@objc protocol CollectionViewMenu {
+    @objc optional  func collectionView( collectionView: NSCollectionView, menuForItems itmes:Set<IndexPath>) -> NSMenu
+    @objc optional func collection( collection: NSCollectionView, rightClickForItem item:IndexPath)
+}
+extension CollectionViewMenu where Self:NSCollectionView{
+    func menu(forEvent event:NSEvent) -> NSMenu? {
+        let location = self.convert(event.locationInWindow, from: nil)
+        let indexPath = self.indexPathForItem(at: location)
+        if let indexPath = indexPath, event.type == .rightMouseDown {
+            self.selectItems(at: [indexPath], scrollPosition: NSCollectionView.ScrollPosition.centeredHorizontally)
+            if self.responds(to: #selector(collectionView(collectionView:menuForItems:))){
+                return   self.collectionView(collectionView: self, menuForItems: [indexPath])
+            }
+        }
+        return self.superview?.menu(for: event)
+    }
+     func rightMouseDown(with event: NSEvent){
+        let location = self.convert(event.locationInWindow, from: nil)
+        let indexPath = self.indexPathForItem(at: location)
+        if  let indexPath = indexPath,  event.type == .rightMouseDown {
+            self.selectItems(at: [indexPath], scrollPosition: NSCollectionView.ScrollPosition.centeredHorizontally)
+            if self.responds(to: #selector(collection(collection:rightClickForItem:))){
+                return   self.collection(collection: self, rightClickForItem: indexPath)
+            }
+        }
+        self.superview?.rightMouseDown(with: event)
+    }
+    
+}
+
+extension NSCollectionView : CollectionViewMenu{
+    func collection(collection: NSCollectionView, rightClickForItem item: IndexPath) {
+        
+    }
+    func collectionView(collectionView: NSCollectionView, menuForItems itmes: Set<IndexPath>) -> NSMenu {
+        let menu: NSMenu = NSMenu(title: "Title")
+        let item = NSMenuItem(title: "查看", action: nil, keyEquivalent: "")
+        menu.addItem(item)
+        return menu
+    }
+}

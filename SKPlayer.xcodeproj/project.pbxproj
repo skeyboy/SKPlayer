@@ -527,6 +527,7 @@
 				CODE_SIGN_ENTITLEMENTS = SKPlayer/SKPlayer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QX5F9XSCJJ;
 				INFOPLIST_FILE = SKPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -546,6 +547,7 @@
 				CODE_SIGN_ENTITLEMENTS = SKPlayer/SKPlayer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QX5F9XSCJJ;
 				INFOPLIST_FILE = SKPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -57,6 +57,7 @@ extension IndexViewController: NSCollectionViewDataSource{
          let indexModel: IndexItemModel = (self.indexSections[indexPath.section] as Section).sectionItems[indexPath.item]
         item.indexModel = indexModel
         item.indexPath = indexPath
+        
         return item
     }
 

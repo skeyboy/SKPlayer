@@ -44,16 +44,21 @@ class DetailViewController: NSViewController {
     }
     internal func createCloudResourceWin(resources:Resuorces){
         let cloudPlayerVC: CloudPlayerController =   self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("cloud")) as! CloudPlayerController
-     cloudPlayerVC.cloudResources.append(contentsOf: resources.cloudPlayer)
-        cloudPlayerVC.callBack = {link in
+        cloudPlayerVC.resources = resources
+        cloudPlayerVC.callBack = {cloudPlayer in
             if self.session != nil {
                 NSApp.modalWindow?.close()
                 self.session = nil
             }
-            self.performSegue(withIdentifier: NSStoryboardSegue.Identifier.init("show_player"), sender: link)
+            
+            if cloudPlayer! is CloudDown {
+                (cloudPlayer as! CloudDown).open()
+                return
+            }
+            self.performSegue(withIdentifier: NSStoryboardSegue.Identifier.init("show_player"), sender: cloudPlayer?.link)
 return
             let playerWinVC:PlayerWindowController =    self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "player_window")) as! PlayerWindowController
-            (playerWinVC.contentViewController as! PlayerViewController).resourceUrl = link
+            (playerWinVC.contentViewController as! PlayerViewController).resourceUrl = cloudPlayer?.link
             
       self.session =       NSApp.beginModalSession(for: playerWinVC.window!)
         }
