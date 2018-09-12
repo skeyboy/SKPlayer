@@ -8,7 +8,7 @@
 
 import Foundation
 import Ji
-
+import Alamofire
 protocol Parser {
     
 }
@@ -34,13 +34,20 @@ typealias ParserResult = (Ji?, URLResponse?, Error?)-> Void
 extension Parser{
     func parser(_ url:String, result: @escaping ParserResult) -> Void {
         
-    URLSession.shared.dataTask(with: URL.init(string: url)!) { (data, resp, error) in
-      
-        let ji =  Ji.init(data: data, isXML: false)
-        
-        result(ji, resp, error)
-        
-        }.resume()
+        Alamofire.request(url).responseData { (resp) in
+            if resp.result.isSuccess {
+                let ji =  Ji.init(data: resp.result.value, isXML: false)
+                
+                result(ji, resp.response, resp.error)
+            }
+        }
+//    URLSession.shared.dataTask(with: URL.init(string: url)!) { (data, resp, error) in
+//
+//        let ji =  Ji.init(data: data, isXML: false)
+//
+//        result(ji, resp, error)
+//
+//        }.resume()
         
     }
 }

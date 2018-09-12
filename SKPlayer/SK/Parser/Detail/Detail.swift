@@ -30,14 +30,18 @@ typealias CloudDownFailure = ()->Void
 class CloudDown: CloudPlayer, Parser {
     
     //直接使用迅雷等可用的下载软件下载
-func open(_ failure:CloudDownFailure? = nil){
+    func open(success:@escaping ([String])->Void, failure:CloudDownFailure? = nil){
     parser(HOST_URL+link!.replacingOccurrences(of: "down", with: "downlist")) { (ji, resp, error) in
 //            /html/body/p[2]
+        var bts:[String] = [String]()
+        
         if let magnent = ji?.xPath("//div[@class='down123']/a"){
             for item in magnent {
                 let btURL =  item.attributes["href"]
                 if btURL!.hasPrefix("thunder") || btURL!.hasPrefix("magnet"){
-                    NSWorkspace.shared.open(URL.init(string: btURL!)!)
+//                    NSWorkspace.shared.open(URL.init(string: btURL!)!)
+                    bts.append(btURL!)
+                    success(bts)
                 }
             }
         }else{

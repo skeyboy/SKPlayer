@@ -10,7 +10,7 @@ import Cocoa
 import VLCKit
 typealias CloudPlayerSelectedResult = (CloudPlayer?)->Void
 class CloudPlayerController: NSViewController {
-    var callBack: CloudPlayerSelectedResult?
+    var prepareCallBack: CloudPlayerSelectedResult?
     var session: NSApplication.ModalSession?
     @IBOutlet weak var resourceCollectionView: NSCollectionView!
     var resources: Resuorces?
@@ -39,19 +39,39 @@ extension CloudPlayerController: NSCollectionViewDataSource{
         return 2
     }
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let cloudViewItem: CloudViewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier.init("CloudViewItem"), for: indexPath) as! CloudViewItem
-        
-        var items: [CloudPlayer] = [CloudPlayer]()
-        if indexPath.section == 0 {
-            items = (self.resources?.cloudPlayer)!
+            if indexPath.section == 0 {
+                
+                let cloudViewItem: CloudViewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier.init( "CloudViewItem"), for: indexPath) as! CloudViewItem
+                
+                var items: [CloudPlayer] = [CloudPlayer]()
+                if indexPath.section == 0 {
+                    items = (self.resources?.cloudPlayer)!
+                }
+                if indexPath.section == 1 {
+                    items = (self.resources?.cloudDown)!
+                }
+                
+                cloudViewItem.player = items[indexPath.item]
+                return cloudViewItem
+            }else{
+                
+                
+                let cloudViewItem: CloudViewBTItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier.init( "CloudViewBTItem"), for: indexPath) as! CloudViewBTItem
+                
+                var items: [CloudPlayer] = [CloudPlayer]()
+                if indexPath.section == 0 {
+                    items = (self.resources?.cloudPlayer)!
+                }
+                if indexPath.section == 1 {
+                    items = (self.resources?.cloudDown)!
+                }
+                
+                cloudViewItem.player = items[indexPath.item]
+                return cloudViewItem
+                
         }
-        if indexPath.section == 1 {
-            items = (self.resources?.cloudDown)!
-        }
-        
-        cloudViewItem.player = items[indexPath.item]
-        return cloudViewItem
     }
+    
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
       
         let indexPath = indexPaths.first!
@@ -65,14 +85,15 @@ extension CloudPlayerController: NSCollectionViewDataSource{
         
         let cloudResource: CloudPlayer = items[indexPath.item]
       
-        callBack!(cloudResource)
+        if indexPath.section == 0 {
+            self.prepareCallBack!(cloudResource)
+        }else{
+            open(resource: cloudResource)
+        }
         
-//        self.performSegue(withIdentifier: NSStoryboardSegue.Identifier.init("show_player"), sender: nil)
-//        self.performSegue(withIdentifier: NSStoryboardSegue.Identifier.init("show_player")
-//        , sender: cloudResource)
-    }
  
-  
+    }
+    
 }
 extension CloudPlayerController: NSViewControllerPresentationAnimator{
     func animateDismissal(of viewController: NSViewController, from fromViewController: NSViewController) {
@@ -103,14 +124,42 @@ extension CloudPlayerController: NSViewControllerPresentationAnimator{
         }) {
             viewController.view.removeFromSuperview()
         }
-        
-      
+    }
+
+  
+}
+extension CloudPlayerController: NSCollectionViewDelegateFlowLayout{
+    @available(OSX 10.11, *)
+    public func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize{
+        if indexPath.section == 0 {
+            return CGSize(width: 80, height: 50)
+        }
+        return CGSize(width: self.view.bounds.size.width/2, height: 50)
     }
 }
-extension CloudPlayerController: VLCMediaDelegate{
-    
-}
 
-extension CloudPlayerController: Parser{
-   
+
+// MARK: - 打开资源
+extension CloudPlayerController{
+    
+    
+    func open(bts BTs:[String]) -> Void {
+        for btn in BTs {
+            if !NSWorkspace.shared.open(URL.init(string: btn)!) {
+                print("无法打开资源文件")
+            }
+        }
+    }
+    func open(resource cloudPlayer:CloudPlayer) -> Void {
+        if cloudPlayer is CloudDown {
+            (cloudPlayer as! CloudDown).open(success: { (bts) in
+                
+                self.open(bts: bts)
+            })
+            
+        }else{
+           assert(cloudPlayer is CloudDown, "\(type(of: cloudPlayer))")
+        }
+        
+    }
 }
