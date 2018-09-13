@@ -13,6 +13,8 @@
 		53043DDC2147E7C5001019EA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53043DDB2147E7C5001019EA /* WebKit.framework */; };
 		531D0EEC2148F1E600BAF27F /* CloudViewBTItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D0EEA2148F1E600BAF27F /* CloudViewBTItem.swift */; };
 		531D0EED2148F1E600BAF27F /* CloudViewBTItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 531D0EEB2148F1E600BAF27F /* CloudViewBTItem.xib */; };
+		5360D37A2149FC24003516B5 /* BTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5360D3792149FC24003516B5 /* BTViewController.swift */; };
+		5360D37D2149FF76003516B5 /* BT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5360D37C2149FF76003516B5 /* BT.swift */; };
 		5378254321467B16009939DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378254221467B16009939DD /* AppDelegate.swift */; };
 		5378254521467B16009939DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378254421467B16009939DD /* ViewController.swift */; };
 		5378254721467B17009939DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5378254621467B17009939DD /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 		538073D82146D037005CA6CD /* IndexHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538073D72146D037005CA6CD /* IndexHeaderView.xib */; };
 		538073DA2146D395005CA6CD /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538073D92146D395005CA6CD /* AppKit.framework */; };
 		538073DC2146D746005CA6CD /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538073DB2146D746005CA6CD /* ImageLoader.swift */; };
+		53E99B6521491242001DE9CC /* MacClickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E99B6221491242001DE9CC /* MacClickView.m */; };
+		53E99B6621491242001DE9CC /* MacProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E99B6421491242001DE9CC /* MacProgressHUD.m */; };
 		53EC895321474CF00056B7EB /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EC895221474CF00056B7EB /* Index.swift */; };
 		53EC89572147656E0056B7EB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EC89562147656E0056B7EB /* DetailViewController.swift */; };
 		53EC895921476EDC0056B7EB /* DetailWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EC895821476EDC0056B7EB /* DetailWindowController.swift */; };
@@ -50,6 +54,8 @@
 		53043DDB2147E7C5001019EA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		531D0EEA2148F1E600BAF27F /* CloudViewBTItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudViewBTItem.swift; sourceTree = "<group>"; };
 		531D0EEB2148F1E600BAF27F /* CloudViewBTItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CloudViewBTItem.xib; sourceTree = "<group>"; };
+		5360D3792149FC24003516B5 /* BTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTViewController.swift; sourceTree = "<group>"; };
+		5360D37C2149FF76003516B5 /* BT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BT.swift; sourceTree = "<group>"; };
 		5378253F21467B16009939DD /* SKPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5378254221467B16009939DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5378254421467B16009939DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +75,10 @@
 		538073D72146D037005CA6CD /* IndexHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexHeaderView.xib; sourceTree = "<group>"; };
 		538073D92146D395005CA6CD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		538073DB2146D746005CA6CD /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		53E99B6121491242001DE9CC /* MacClickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacClickView.h; sourceTree = "<group>"; };
+		53E99B6221491242001DE9CC /* MacClickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacClickView.m; sourceTree = "<group>"; };
+		53E99B6321491242001DE9CC /* MacProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacProgressHUD.h; sourceTree = "<group>"; };
+		53E99B6421491242001DE9CC /* MacProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacProgressHUD.m; sourceTree = "<group>"; };
 		53EC895221474CF00056B7EB /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
 		53EC89562147656E0056B7EB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		53EC895821476EDC0056B7EB /* DetailWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWindowController.swift; sourceTree = "<group>"; };
@@ -105,6 +115,22 @@
 				53043DD92147C8D4001019EA /* PlayerWindow.swift */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		5360D3782149FB02003516B5 /* BT */ = {
+			isa = PBXGroup;
+			children = (
+				5360D3792149FC24003516B5 /* BTViewController.swift */,
+			);
+			path = BT;
+			sourceTree = "<group>";
+		};
+		5360D37B2149FF6D003516B5 /* BT */ = {
+			isa = PBXGroup;
+			children = (
+				5360D37C2149FF76003516B5 /* BT.swift */,
+			);
+			path = BT;
 			sourceTree = "<group>";
 		};
 		5378253621467B16009939DD = {
@@ -145,9 +171,21 @@
 			path = SKPlayer;
 			sourceTree = "<group>";
 		};
+		53E99B6021491242001DE9CC /* MacProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				53E99B6121491242001DE9CC /* MacClickView.h */,
+				53E99B6221491242001DE9CC /* MacClickView.m */,
+				53E99B6321491242001DE9CC /* MacProgressHUD.h */,
+				53E99B6421491242001DE9CC /* MacProgressHUD.m */,
+			);
+			path = MacProgressHUD;
+			sourceTree = "<group>";
+		};
 		53EC894D21474C9A0056B7EB /* SK */ = {
 			isa = PBXGroup;
 			children = (
+				53E99B6021491242001DE9CC /* MacProgressHUD */,
 				53EC895021474CC70056B7EB /* Parser */,
 				53EC894E21474C9A0056B7EB /* Controllers */,
 			);
@@ -157,6 +195,7 @@
 		53EC894E21474C9A0056B7EB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5360D3782149FB02003516B5 /* BT */,
 				53043DD42147C22A001019EA /* Player */,
 				53F8A5C02147A0F300C18A9E /* Cloud */,
 				53EC8954214763E40056B7EB /* Detail */,
@@ -180,6 +219,7 @@
 		53EC895021474CC70056B7EB /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				5360D37B2149FF6D003516B5 /* BT */,
 				53EC8955214763FA0056B7EB /* Detail */,
 				53EC895121474CE30056B7EB /* Index */,
 				53EC895E2147779E0056B7EB /* Parser.swift */,
@@ -347,6 +387,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Ji/Ji.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MLHudAlert/MLHudAlert.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -357,6 +398,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Ji.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLHudAlert.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -374,9 +416,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53E99B6621491242001DE9CC /* MacProgressHUD.m in Sources */,
 				53043DD82147C8BD001019EA /* PlayerWindowController.swift in Sources */,
 				53EC895B21476FEB0056B7EB /* DetailWindow.swift in Sources */,
 				53EC895321474CF00056B7EB /* Index.swift in Sources */,
+				5360D37A2149FC24003516B5 /* BTViewController.swift in Sources */,
 				53F8A5C22147A11A00C18A9E /* CloudPlayerController.swift in Sources */,
 				53043DDA2147C8D4001019EA /* PlayerWindow.swift in Sources */,
 				538073D32146B12A005CA6CD /* IndexViewItem.swift in Sources */,
@@ -392,7 +436,9 @@
 				53782555214694FD009939DD /* MenuFlowLayout.swift in Sources */,
 				538073D62146D003005CA6CD /* IndexHeaderView.swift in Sources */,
 				53EC895D214777480056B7EB /* Detail.swift in Sources */,
+				5360D37D2149FF76003516B5 /* BT.swift in Sources */,
 				5378254321467B16009939DD /* AppDelegate.swift in Sources */,
+				53E99B6521491242001DE9CC /* MacClickView.m in Sources */,
 				538073D02146AE33005CA6CD /* IndexViewController.swift in Sources */,
 				53F8A5C82147A99C00C18A9E /* CloudPlayerWindowController.swift in Sources */,
 				538073CE2146A7B0005CA6CD /* SelectedView.swift in Sources */,

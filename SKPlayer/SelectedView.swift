@@ -29,7 +29,7 @@ extension Shakeable where Self: NSView{
 
 extension NSView{
     var center: CGPoint{
-      let centerX =  (self.frame.origin.x + self.frame.width)/2
+        let centerX =  (self.frame.origin.x + self.frame.width)/2
         let centerY = (self.frame.origin.y + self.frame.height)/2
         return CGPoint(x: centerX, y: centerY)
     }
@@ -74,7 +74,7 @@ class SelectedView: NSView {
         
     }
     override func draw(_ dirtyRect: NSRect) {
-
+        
         // Drawing code here.
         let bPath = NSBezierPath(roundedRect: self.frame,
                                  xRadius: 0, yRadius: 0)
@@ -92,7 +92,7 @@ class SelectedView: NSView {
         bPath.fill()
         strokeColor?.set()
         super.draw(dirtyRect)
-
+        
     }
     
 }

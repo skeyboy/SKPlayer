@@ -14,6 +14,7 @@ class DetailWindow: NSWindow {
         if let session = modalSession {
             NSApp.endModalSession(session)
         }
+        NSApp.stopModal()
         title = "详情"
         super.close()
     }

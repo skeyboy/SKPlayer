@@ -24,8 +24,8 @@ class IndexViewItem: NSCollectionViewItem {
         super.viewDidLoad()
         // Do view setup here.
         self.indexCoverImageView.image = NSImage.init(contentsOf: URL.init(string: "https://goss.veer.com/creative/vcg/veer/800water/veer-152382107.jpg")!)
-      
-
+        
+        
     }
     
 }

@@ -38,8 +38,8 @@ class PlayerViewController: NSViewController {
         NSWorkspace.shared.open(rURL)
         dismissViewController(self)
         return
-
-        self.view.addSubview(self.playerView)
+            
+            self.view.addSubview(self.playerView)
         self.playerView.frame = self.view.bounds
         self.playerView.autoresizingMask = [.width, .height]
         self.playerView.fillScreen = true

@@ -18,20 +18,10 @@ class ImageLoader{
         
     }
     public func load(url: String, into imageView:  NSImageView) {
-    
+        
         let rURL: URL = URL.init(string: url) ?? URL.init(string: ImgHolderURL)!
-
+        
         imageView.kf.setImage(with: rURL)
         
-        return
-     let _ =  semp.wait(wallTimeout: DispatchWallTime.now()+30)
-        URLSession.shared.dataTask(with: rURL) { (data, resp, error) in
-            DispatchQueue.main.async {
-                
-            imageView.image = NSImage.init(data: data!)
-            }
-            self.semp.signal()
-            
-        }.resume()
     }
 }

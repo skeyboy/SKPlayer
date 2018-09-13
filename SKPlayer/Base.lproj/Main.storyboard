@@ -846,7 +846,7 @@
         <scene sceneID="ORf-51-5Bd">
             <objects>
                 <windowController storyboardIdentifier="detail_window" id="YW1-58-WgS" customClass="DetailWindowController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="rM2-9O-nOU" customClass="DetailWindow" customModule="SKPlayer" customModuleProvider="target">
+                    <window key="window" title="资源简介" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" titlebarAppearsTransparent="YES" id="rM2-9O-nOU" customClass="DetailWindow" customModule="SKPlayer" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -861,12 +861,12 @@
                 </windowController>
                 <customObject id="fdz-hi-P5K" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-657" y="1860"/>
+            <point key="canvasLocation" x="-974" y="1807"/>
         </scene>
-        <!--详情-->
+        <!--资源简介-->
         <scene sceneID="6xV-Yr-Kfg">
             <objects>
-                <viewController title="详情" storyboardIdentifier="detail" id="LaS-M2-WvI" customClass="DetailViewController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="资源简介" storyboardIdentifier="detail" id="LaS-M2-WvI" customClass="DetailViewController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="3sE-mI-YEJ">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -876,19 +876,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="veer" id="EJU-Ug-wVE"/>
                             </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GpC-we-DcW">
-                                <rect key="frame" x="295" y="314" width="386" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="前任3：再见前任前任3：再见前任 (2017)" id="TxE-mj-z4Y">
-                                    <font key="font" size="19" name=".PingFangSC-Regular"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dtk-ci-gFN">
                                 <rect key="frame" x="307" y="286" width="381" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="更新:2018-03-23 21:16" id="EYQ-Rh-aWu">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="加载中" id="EYQ-Rh-aWu">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -897,7 +888,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KkV-MH-bop">
                                 <rect key="frame" x="307" y="261" width="356" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="类型:电影 / 喜剧 / 爱情" id="2Lm-AN-ZCC">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="加载中" id="2Lm-AN-ZCC">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -906,7 +897,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hq3-C4-950">
                                 <rect key="frame" x="307" y="235" width="356" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="地区" id="hsp-nf-neU">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="加载中" id="hsp-nf-neU">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -915,7 +906,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BbU-8O-iLI">
                                 <rect key="frame" x="307" y="208" width="356" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="语言:" id="Gv8-hd-Q16">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="加载中" id="Gv8-hd-Q16">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -924,7 +915,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5pR-R0-YyD">
                                 <rect key="frame" x="307" y="183" width="356" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="imdb" id="CHT-DW-alh">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="加载中" id="CHT-DW-alh">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -933,20 +924,17 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XZ4-cp-f0E">
                                 <rect key="frame" x="307" y="150" width="356" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="b3K-Ok-4ex">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="加载中" id="b3K-Ok-4ex">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
-                                    <string key="title">主演:
-</string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yDQ-MQ-15W">
-                                <rect key="frame" x="307" y="-34" width="304" height="192"/>
+                                <rect key="frame" x="307" y="0.0" width="303" height="158"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="VNU-pw-PSj">
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="加载中" id="VNU-pw-PSj">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
-                                    <string key="title">剧情介绍：一对好基友孟云（韩庚 饰）和余飞（郑恺 饰）跟女友都因为一点小事宣告分手，并且“拒绝挽回，死不认错”。两人在夜店、派对与交友软件上放飞人生第二春，大肆庆祝“黄金单身期”，从而引发了一系列好笑的故事。孟云与女友同甘共苦却难逃“五年之痒”，余飞与女友则棋逢敌手相爱相杀无绝期。然而现实的“打脸”却来得猝不及防：一对推拉纠结零往来，一对纠缠互怼全交代。两对恋人都将面对最终的选择：是再次相见？还是再也不见？</string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -954,10 +942,19 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Pm-uW-8pX">
                                 <rect key="frame" x="677" y="321" width="35" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="2018" id="aS0-FT-q7F">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="2018" placeholderString="加载中" id="aS0-FT-q7F">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GpC-we-DcW">
+                                <rect key="frame" x="307" y="314" width="386" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="加载中" id="TxE-mj-z4Y">
+                                    <font key="font" size="19" name=".PingFangSC-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                         </subviews>
@@ -965,6 +962,11 @@
                     <connections>
                         <outlet property="coverImageView" destination="znY-va-ISA" id="I5A-Mw-OXi"/>
                         <outlet property="desView" destination="yDQ-MQ-15W" id="5vy-aE-9Oj"/>
+                        <outlet property="imbdView" destination="5pR-R0-YyD" id="BhX-wt-Dib"/>
+                        <outlet property="kindView" destination="hq3-C4-950" id="QFy-3y-1MF"/>
+                        <outlet property="langView" destination="BbU-8O-iLI" id="9Z2-Xe-mRe"/>
+                        <outlet property="mainsView" destination="XZ4-cp-f0E" id="u9L-SU-Bjt"/>
+                        <outlet property="stateView" destination="KkV-MH-bop" id="DLK-gP-mC1"/>
                         <outlet property="titleView" destination="GpC-we-DcW" id="32f-YB-C3J"/>
                         <outlet property="updateView" destination="dtk-ci-gFN" id="yIE-3U-Zcb"/>
                         <outlet property="yearView" destination="5Pm-uW-8pX" id="tQg-2Y-vZn"/>
@@ -973,7 +975,7 @@
                 </viewController>
                 <customObject id="Dzc-Zc-ORM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-738" y="1486"/>
+            <point key="canvasLocation" x="-623" y="1328"/>
         </scene>
         <!--资源列表-->
         <scene sceneID="9Hk-mf-AFx">
@@ -1028,6 +1030,161 @@
                 <customObject id="kHu-Nh-HRA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="402" y="2412"/>
+        </scene>
+        <!--BT-->
+        <scene sceneID="y2B-ua-LfQ">
+            <objects>
+                <viewController title="BT" storyboardIdentifier="BT" id="Mma-pl-bGz" customClass="BTViewController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Shr-iH-6ww">
+                        <rect key="frame" x="0.0" y="0.0" width="550" height="400"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="X4e-Tf-OtA">
+                                <rect key="frame" x="50" y="50" width="450" height="300"/>
+                                <subviews>
+                                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" scrollerKnobStyle="light" translatesAutoresizingMaskIntoConstraints="NO" id="gPA-n2-UDK">
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                        <clipView key="contentView" focusRingType="exterior" drawsBackground="NO" copiesOnScroll="NO" id="3GI-me-Cjl">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="hmI-A1-Ace">
+                                                    <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <size key="intercellSpacing" width="3" height="2"/>
+                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                    <tableColumns>
+                                                        <tableColumn identifier="title" width="118" minWidth="40" maxWidth="1000" id="JWh-Up-dPX">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="类型">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="rm3-gS-vuS">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                            <prototypeCellViews>
+                                                                <tableCellView id="7ji-m5-khQ">
+                                                                    <rect key="frame" x="1" y="1" width="118" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <subviews>
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S4G-Xi-Xu4">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="118" height="17"/>
+                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="aF9-Gf-sjH">
+                                                                                <font key="font" metaFont="system"/>
+                                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                            </textFieldCell>
+                                                                        </textField>
+                                                                    </subviews>
+                                                                    <connections>
+                                                                        <outlet property="textField" destination="S4G-Xi-Xu4" id="q0Q-uk-R0w"/>
+                                                                    </connections>
+                                                                </tableCellView>
+                                                            </prototypeCellViews>
+                                                        </tableColumn>
+                                                        <tableColumn identifier="kind" width="326" minWidth="40" maxWidth="1000" id="jKK-IU-enL">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="链接">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="FDo-Fe-wf4">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                            <prototypeCellViews>
+                                                                <tableCellView id="w3K-pi-FtP">
+                                                                    <rect key="frame" x="122" y="1" width="326" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <subviews>
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJ3-5Q-jro">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="326" height="17"/>
+                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="LQs-02-mMi">
+                                                                                <font key="font" metaFont="system"/>
+                                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                            </textFieldCell>
+                                                                        </textField>
+                                                                    </subviews>
+                                                                    <connections>
+                                                                        <outlet property="textField" destination="rJ3-5Q-jro" id="2wV-52-ogP"/>
+                                                                    </connections>
+                                                                </tableCellView>
+                                                            </prototypeCellViews>
+                                                        </tableColumn>
+                                                    </tableColumns>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="Mma-pl-bGz" id="lqk-37-GH3"/>
+                                                        <outlet property="delegate" destination="Mma-pl-bGz" id="OHj-L2-gLF"/>
+                                                    </connections>
+                                                </tableView>
+                                            </subviews>
+                                            <nil key="backgroundColor"/>
+                                        </clipView>
+                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="B4P-Br-MbS">
+                                            <rect key="frame" x="1" y="116" width="232.39033508300781" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="mX6-iQ-CwZ">
+                                            <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                    </scrollView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gPA-n2-UDK" firstAttribute="top" secondItem="X4e-Tf-OtA" secondAttribute="top" id="6h2-N1-CpU"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="450" id="7Rh-Il-a92"/>
+                                    <constraint firstItem="gPA-n2-UDK" firstAttribute="leading" secondItem="X4e-Tf-OtA" secondAttribute="leading" id="AhZ-xr-B9A"/>
+                                    <constraint firstAttribute="trailing" secondItem="gPA-n2-UDK" secondAttribute="trailing" id="J1H-34-f7h"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="KT0-RH-YKT"/>
+                                    <constraint firstAttribute="bottom" secondItem="gPA-n2-UDK" secondAttribute="bottom" id="ufi-ww-8mA"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="X4e-Tf-OtA" secondAttribute="trailing" constant="50" id="1bn-o7-ofD"/>
+                            <constraint firstItem="X4e-Tf-OtA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Shr-iH-6ww" secondAttribute="leading" constant="50" id="JM5-sl-kZj"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="X4e-Tf-OtA" secondAttribute="bottom" constant="50" id="UnF-rM-FdP"/>
+                            <constraint firstItem="X4e-Tf-OtA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Shr-iH-6ww" secondAttribute="top" constant="50" id="ew0-hm-N7H"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btTableView" destination="hmI-A1-Ace" id="icY-Bx-XCh"/>
+                    </connections>
+                </viewController>
+                <customObject id="SnN-zV-XT0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-333" y="2889"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="OHU-QU-nDF">
+            <objects>
+                <windowController storyboardIdentifier="BT_WIN" id="VB9-d4-Joh" sceneMemberID="viewController">
+                    <window key="window" title="BT" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="lJj-zr-rV2">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                        <connections>
+                            <outlet property="delegate" destination="VB9-d4-Joh" id="Y2a-Ds-x9O"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="Mma-pl-bGz" kind="relationship" relationship="window.shadowedContentViewController" id="IhE-u6-UIg"/>
+                    </connections>
+                </windowController>
+                <customObject id="V2d-es-Dkt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-974" y="2898"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="Gli-HD-VhB">

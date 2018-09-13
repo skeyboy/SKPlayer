@@ -46,26 +46,26 @@ func indexParser(_ url: String = "http://www.btbtdy.net/", results:@escaping ([S
                 innerSection.title = title.rawContent!
                 
                 let contentsItems = (itemsContents[index] as JiNode).xPath("./ul[@class='cts_list list_lis']")
-                    for li in contentsItems {
-                        let lis = li.xPath("./li")
-                            for lisItem in lis {
-                                let indexItemModel: IndexItemModel = IndexItemModel()
-                                var linkPicUrl =      lisItem.xPath(".//*/img").first?.attributes["src"]
-                                if linkPicUrl == nil {
-                                    linkPicUrl = lisItem.xPath(".//*/img").first?.attributes["data-original"]
-                                }
-                                if linkPicUrl == nil {
-                                    linkPicUrl = lisItem.xPath(".//img").first?.attributes["data-src"]
-                                }
-                                let link =  lisItem.xPath("./div[@class='liimg']/a[@class='pic_link']").first?.attributes["href"]
-                                let title =   lisItem.xPath("./div[@class='liimg']/a[@class='pic_link']").first?.attributes["title"]
-                                indexItemModel.linkPicUrl = linkPicUrl
-                                indexItemModel.link = link
-                                indexItemModel.title = title
-                                innerSection.sectionItems.append(indexItemModel)
-                            }
-                        
+                for li in contentsItems {
+                    let lis = li.xPath("./li")
+                    for lisItem in lis {
+                        let indexItemModel: IndexItemModel = IndexItemModel()
+                        var linkPicUrl =      lisItem.xPath(".//*/img").first?.attributes["src"]
+                        if linkPicUrl == nil {
+                            linkPicUrl = lisItem.xPath(".//*/img").first?.attributes["data-original"]
+                        }
+                        if linkPicUrl == nil {
+                            linkPicUrl = lisItem.xPath(".//img").first?.attributes["data-src"]
+                        }
+                        let link =  lisItem.xPath("./div[@class='liimg']/a[@class='pic_link']").first?.attributes["href"]
+                        let title =   lisItem.xPath("./div[@class='liimg']/a[@class='pic_link']").first?.attributes["title"]
+                        indexItemModel.linkPicUrl = linkPicUrl
+                        indexItemModel.link = link
+                        indexItemModel.title = title
+                        innerSection.sectionItems.append(indexItemModel)
                     }
+                    
+                }
                 sectionResults.append(innerSection)
                 
                 index = index + 1

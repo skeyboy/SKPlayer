@@ -52,15 +52,15 @@ class MenuViewController: NSViewController {
         }
     }
     
-
+    
     
 }
 extension MenuViewController: Parser{}
 extension MenuViewController: NSCollectionViewDelegate{
- 
+    
 }
 extension MenuViewController: NSCollectionViewDataSource{
-   
+    
     // 1
     func numberOfSections(in collectionView: NSCollectionView) -> Int {
         return   self.menuItems.count
@@ -77,7 +77,7 @@ extension MenuViewController: NSCollectionViewDataSource{
         
         item.titleView.stringValue = menu.menuTitle ?? "未知"
         
-      item.isSelected = false
+        item.isSelected = false
         return item
     }
     
@@ -87,5 +87,5 @@ extension MenuViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         
     }
-
+    
 }
