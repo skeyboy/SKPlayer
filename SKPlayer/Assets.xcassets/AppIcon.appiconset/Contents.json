@@ -3,61 +3,61 @@
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "WechatIMG2.jpeg",
+      "filename" : "Mac-16.png",
       "scale" : "1x"
     },
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "WechatIMG2-1.jpeg",
+      "filename" : "Mac-16@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "WechatIMG2-2.jpeg",
+      "filename" : "Mac-32.png",
       "scale" : "1x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "WechatIMG2-3.jpeg",
+      "filename" : "Mac-32@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "WechatIMG2-4.jpeg",
+      "filename" : "Mac-128.png",
       "scale" : "1x"
     },
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "WechatIMG2-5.jpeg",
+      "filename" : "Mac-128@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "WechatIMG2-6.jpeg",
+      "filename" : "Mac-256.png",
       "scale" : "1x"
     },
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "WechatIMG2-7.jpeg",
+      "filename" : "Mac-256@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "WechatIMG2-8.jpeg",
+      "filename" : "Mac-512.png",
       "scale" : "1x"
     },
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "WechatIMG2-9.jpeg",
+      "filename" : "App Store-512@2x.png",
       "scale" : "2x"
     }
   ],

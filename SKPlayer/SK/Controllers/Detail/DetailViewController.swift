@@ -42,7 +42,7 @@ class DetailViewController: NSViewController {
                     }catch{
                         print("unwrap出错")
                     }
-                    if detail.resources.cloudPlayer.count > 0 {
+                    if  detail.isNotEmpty  {
                         self.createCloudResourceWin(resources: detail.resources)
                     }
                     

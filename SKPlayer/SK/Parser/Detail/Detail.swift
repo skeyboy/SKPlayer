@@ -22,6 +22,14 @@ class Detail{
     var des: String?
     var resources: Resuorces = Resuorces()
 }
+extension Detail{
+    var isEmpty: Bool {
+        return  !isNotEmpty
+    }
+    var isNotEmpty: Bool{
+        return !resources.cloudPlayer.isEmpty || !resources.cloudDown.isEmpty
+    }
+}
 class Resuorces{
     var cloudPlayer: [CloudPlayer] = [CloudPlayer]()
     var cloudDown: [CloudDown] = [CloudDown]()
