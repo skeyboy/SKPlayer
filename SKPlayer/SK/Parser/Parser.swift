@@ -9,7 +9,6 @@
 import Foundation
 import Ji
 import Alamofire
-import MLHudAlert
 protocol Parser {
     
 }
@@ -35,14 +34,13 @@ typealias ParserResult = (Ji?, URLResponse?, Error?)-> Void
 extension Parser{
     func parser(_ url:String, result: @escaping ParserResult) -> Void {
         
-        MLHudAlert.alert(with:NSApp.keyWindow, type: MLHudAlertType(MLHudAlertTypeLoading), message: "加载数据")
+        
         Alamofire.request(url).responseData { (resp) in
             if resp.result.isSuccess {
                 let ji =  Ji.init(data: resp.result.value, isXML: false)
                 
                 result(ji, resp.response, resp.error)
-                MLHudAlert.dismisWindow()
-            }
+             }
             }.downloadProgress { (progress) in
                 
         }
