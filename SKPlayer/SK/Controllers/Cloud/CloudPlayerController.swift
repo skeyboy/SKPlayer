@@ -73,7 +73,7 @@ extension CloudPlayerController: NSCollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
-        
+        collectionView.deselectItems(at: indexPaths)
         let indexPath = indexPaths.first!
         var items: [CloudPlayer] = [CloudPlayer]()
         if indexPath.section == 0 {

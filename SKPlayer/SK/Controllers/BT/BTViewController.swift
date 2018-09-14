@@ -102,18 +102,35 @@ extension BTViewController{
         NSWorkspace.shared.open(URL.init(string: bt.bt)!)
         finish()
     }
-    
+    @objc func watchBySafariOrChrome(sender: AnyObject){
+        queryDownloadMagnet(sender: sender)
+    }
   
 }
 
 extension BTViewController: ContextMenu{
     @objc func tableView(_ tableView: NSTableView, menuForRows rows:IndexSet)->NSMenu?{
+        let bt: BT = self.bts![self.btTableView.selectedRow]
+        if bt.isLink {
+            
+            let menu = NSMenu.init(title: "在线资源")
+            let copy: NSMenuItem = NSMenuItem(title: "复制", action: #selector(copyToPasteboard(sender:)), keyEquivalent: "")
+            let watchLink: NSMenuItem = NSMenuItem(title: "浏览器打开", action: #selector(watchBySafariOrChrome(sender:)), keyEquivalent: "")
+            menu.addItem(copy)
+            menu.addItem(watchLink)
+            
+        }
+        
         let menu = NSMenu.init(title: "BT资源")
+
+        var downLoadBT:NSMenuItem? = nil
+       
+          downLoadBT = NSMenuItem(title: "下载", action: #selector(queryDownloadMagnet(sender:)), keyEquivalent: "")
         let copy: NSMenuItem = NSMenuItem(title: "复制", action: #selector(copyToPasteboard(sender:)), keyEquivalent: "")
-        let downLoadBT: NSMenuItem = NSMenuItem(title: "下载", action: #selector(queryDownloadMagnet(sender:)), keyEquivalent: "")
+      
         
         menu.addItem(copy)
-        menu.addItem(downLoadBT)
+        menu.addItem(downLoadBT!)
         return menu
     }
     @objc func tableView(_ tableView: NSTableView, clickForRow row: Int) -> Void {

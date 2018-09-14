@@ -52,11 +52,10 @@ class CloudDown: CloudPlayer, Parser {
                     
                     let btURL =  item.attributes["href"]
                     let title = item.xPath("./text()").first?.rawContent!
-                    if btURL!.hasPrefix("thunder") || btURL!.hasPrefix("magnet"){
-                        //                    NSWorkspace.shared.open(URL.init(string: btURL!)!)
+                  
                         let bt: BT = BT.init(title: title!, bt: btURL!)
                         bts.append(bt)
-                    }
+                    
                 }
                 success(bts)
             }else{

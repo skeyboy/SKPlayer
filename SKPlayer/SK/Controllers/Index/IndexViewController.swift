@@ -71,7 +71,8 @@ extension IndexViewController: NSCollectionViewDataSource{
     }
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         print("items select")
-        
+        collectionView.deselectItems(at: indexPaths)
+
         
         let indexPath = indexPaths.first!
         let section: Section = self.indexSections[indexPath.section]

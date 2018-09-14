@@ -85,7 +85,7 @@ extension MenuViewController: NSCollectionViewDataSource{
         (item as! MenuViewItem).isSelected = false
     }
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
-        
+        collectionView.deselectItems(at: indexPaths)
     }
     
 }

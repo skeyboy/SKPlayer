@@ -16,10 +16,42 @@ class BT{
     var bt: String
 }
 extension BT {
+    var isBt: Bool{
+    return bt.hasPrefix("thunder")
+    }
+    var isMagnet: Bool{
+        return bt.hasPrefix("magnet")
+    }
+    var isLink: Bool{
+        return !(isBt || isMagnet || isMiWifiMagnent)
+    }
+    var isMiWifiMagnent: Bool{
+       return bt.hasPrefix("https://d.miwifi") ||  bt.hasPrefix("http://d.miwifi")
+    }
+    
     var btTitle: String{
-        if title.hasPrefix("magnet") {
+        if isMagnet {
             return "磁力链接"
         }
-        return "种子"
+        if isBt {
+            return "BT资源"
+        }
+        if isMiWifiMagnent {
+            return "小米路由资源"
+        }
+        return "其他"
+    }
+}
+
+extension BT: Parser{
+    func openMiWifi( mWifi:@escaping (BT)->Void) -> Void {
+        parser(bt) { (ji, resp, error) in
+        
+            if let miWifiBt =  ji?.xPath("//span[@class='file-info-content']/text()")?.first?.rawContent {
+                self.bt = miWifiBt
+                mWifi(self)
+            }
+        
+        }
     }
 }
