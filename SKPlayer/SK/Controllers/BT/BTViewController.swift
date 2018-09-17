@@ -111,6 +111,7 @@ extension BTViewController{
 extension BTViewController: ContextMenu{
     @objc func tableView(_ tableView: NSTableView, menuForRows rows:IndexSet)->NSMenu?{
         let bt: BT = self.bts![self.btTableView.selectedRow]
+        
         if bt.isLink {
             
             let menu = NSMenu.init(title: "在线资源")

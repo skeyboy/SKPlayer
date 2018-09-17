@@ -61,11 +61,7 @@ extension IndexViewController: NSCollectionViewDataSource{
         return item
     }
     
-    private func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> NSView {
-        let view: IndexHeaderView = collectionView.makeSupplementaryView(ofKind: NSCollectionView.SupplementaryElementKind.sectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IndexHeaderView"), for: indexPath) as! IndexHeaderView
-        view.indexSectionHeaderView.stringValue = self.indexSections[indexPath.section].title  ?? "未知"
-        return view
-    }
+    
     func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
         return true
     }
@@ -93,18 +89,25 @@ extension IndexViewController: NSCollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSView {
-        
-        
-        let view =  collectionView.makeSupplementaryView(ofKind: NSCollectionView.SupplementaryElementKind.sectionHeader,
-                                                         withIdentifier: NSUserInterfaceItemIdentifier.init("index_header"), for: indexPath)
-        
+        let view: IndexHeaderView = collectionView.makeSupplementaryView(ofKind: NSCollectionView.SupplementaryElementKind.sectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IndexHeaderView"), for: indexPath) as! IndexHeaderView
+        view.indexSectionHeaderView.stringValue = self.indexSections[indexPath.section].title  ?? "未知"
         return view
     }
     
+   
+
     
 }
-extension IndexViewController : NSCollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
-        return self.indexSections.count == 0 ? NSZeroSize : NSSize(width: 450, height: 65)
+ 
+extension NSCollectionViewItem{
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        // 1
+        view.layer?.borderColor = NSColor.white.cgColor
+        // 2
+        view.layer?.borderWidth = 0.0
+        
+        self.addObserver(self, forKeyPath: "self.isSelected", options: .new, context: nil)
     }
+   
 }

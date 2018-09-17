@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class IndexHeaderView: NSView {
+class IndexHeaderView: SelectedView {
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -17,3 +17,4 @@ class IndexHeaderView: NSView {
     @IBOutlet weak var indexSectionHeaderView: NSTextField!
     
 }
+

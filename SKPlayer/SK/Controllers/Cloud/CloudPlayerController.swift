@@ -17,6 +17,7 @@ class CloudPlayerController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        self.resourceCollectionView.isSelectable = true
         self.resourceCollectionView.reloadData()
     }
     
@@ -93,7 +94,20 @@ extension CloudPlayerController: NSCollectionViewDataSource{
         
     }
     
+    func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSView {
+        let view: IndexHeaderView = collectionView.makeSupplementaryView(ofKind: NSCollectionView.SupplementaryElementKind.sectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IndexHeaderView"), for: indexPath) as! IndexHeaderView
+        view.indexSectionHeaderView.stringValue = indexPath.section == 0  ? "在线资源": "种子资源"
+        return view
+    }
+    
 }
+
+extension IndexViewController : NSCollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
+        return self.indexSections.count == 0 ? NSZeroSize : NSSize(width: 450, height: 45)
+    }
+}
+
 extension CloudPlayerController: NSViewControllerPresentationAnimator{
     func animateDismissal(of viewController: NSViewController, from fromViewController: NSViewController) {
         

@@ -43,7 +43,9 @@ func indexParser(_ url: String = "http://www.btbtdy.net/", results:@escaping ([S
                 }
                 let innerSection: Section = Section()
                 
-                innerSection.title = title.rawContent!
+                innerSection.title = titleItems.map({ (node) -> String  in
+                    return node.rawContent!
+                }).joined(separator: "\t")
                 
                 let contentsItems = (itemsContents[index] as JiNode).xPath("./ul[@class='cts_list list_lis']")
                 for li in contentsItems {

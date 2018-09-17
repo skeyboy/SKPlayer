@@ -9,24 +9,36 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView identifier="index_header" id="c22-O7-iKe" customClass="IndexHeaderView" customModule="SKPlayer" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="450" height="63"/>
+            <rect key="frame" x="0.0" y="0.0" width="450" height="45"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField identifier="IndexHeaderView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5iY-25-9Wu">
-                    <rect key="frame" x="43" y="23" width="37" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Title" id="BAy-f2-uMN">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
+                <visualEffectView autoresizesSubviews="NO" focusRingType="exterior" appearanceType="vibrantLight" blendingMode="behindWindow" material="light" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="byz-Pn-GZE">
+                    <rect key="frame" x="0.0" y="0.0" width="450" height="45"/>
+                    <subviews>
+                        <textField identifier="IndexHeaderView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5iY-25-9Wu">
+                            <rect key="frame" x="40" y="8" width="91" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="87" id="KS3-gz-uxo"/>
+                            </constraints>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Title" id="BAy-f2-uMN">
+                                <font key="font" metaFont="system" size="25"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="5iY-25-9Wu" secondAttribute="trailing" constant="321" id="8JW-Nn-H0M"/>
+                        <constraint firstItem="5iY-25-9Wu" firstAttribute="leading" secondItem="byz-Pn-GZE" secondAttribute="leading" constant="42" id="FM4-BY-elO"/>
+                        <constraint firstItem="5iY-25-9Wu" firstAttribute="top" secondItem="byz-Pn-GZE" secondAttribute="top" constant="7" id="Hon-Q5-akz"/>
+                        <constraint firstItem="5iY-25-9Wu" firstAttribute="height" secondItem="byz-Pn-GZE" secondAttribute="height" constant="-15" id="fuZ-uJ-ndK"/>
+                    </constraints>
+                </visualEffectView>
             </subviews>
             <constraints>
-                <constraint firstItem="5iY-25-9Wu" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="45" id="1G7-Pa-Ek4"/>
-                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="5iY-25-9Wu" secondAttribute="trailing" constant="372" id="5Ca-Y8-QJ7"/>
-                <constraint firstItem="5iY-25-9Wu" firstAttribute="top" relation="lessThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="top" constant="23" id="Bwg-Lu-K9y"/>
-                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="5iY-25-9Wu" secondAttribute="bottom" constant="23" id="ICM-Pw-vLn"/>
-                <constraint firstItem="5iY-25-9Wu" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="M7O-W9-txm"/>
+                <constraint firstAttribute="trailing" secondItem="byz-Pn-GZE" secondAttribute="trailing" id="3vw-Hw-8XG"/>
+                <constraint firstItem="byz-Pn-GZE" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="f6F-HK-iqU"/>
+                <constraint firstItem="byz-Pn-GZE" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="w7g-Ag-952"/>
             </constraints>
             <connections>
                 <outlet property="indexSectionHeaderView" destination="5iY-25-9Wu" id="VQ7-KU-Xzc"/>

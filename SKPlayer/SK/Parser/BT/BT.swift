@@ -44,14 +44,17 @@ extension BT {
 }
 
 extension BT: Parser{
-    func openMiWifi( mWifi:@escaping (BT)->Void) -> Void {
-        parser(bt) { (ji, resp, error) in
+    func openMiWifi( mWifi:@escaping (BT)->Void)  -> Void {
         
-            if let miWifiBt =  ji?.xPath("//span[@class='file-info-content']/text()")?.first?.rawContent {
-                self.bt = miWifiBt
-                mWifi(self)
+            parser(bt)  { (ji, resp, error) in
+                
+                if let miWifiBt =  ji?.xPath("//span[@class='file-info-content']/text()")?.first?.rawContent {
+                    self.bt = miWifiBt
+                    mWifi(self)
+                    
+                }
+                
             }
         
-        }
     }
 }

@@ -15,9 +15,21 @@ class CloudViewBTItem: NSCollectionViewItem {
         }
     }
     @IBOutlet weak var itemView: NSTextField!
+    
+    override var isSelected: Bool {
+        didSet {
+            view.layer?.borderWidth = isSelected ? 5.0 : 0.0
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        // 1
+        view.layer?.borderColor = NSColor.yellow.cgColor
+        // 2
+        view.layer?.borderWidth = 0.0
     }
     
 }
