@@ -26,6 +26,9 @@ extension Shakeable where Self: NSView{
         layer?.add(animation, forKey: "pasition")
     }
 }
+protocol Hoverable {
+    
+}
 
 extension NSView{
     var center: CGPoint{

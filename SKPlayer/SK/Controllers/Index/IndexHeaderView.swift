@@ -27,11 +27,13 @@ class IndexHeaderView: NSView {
     }
     var sectionTitles:[String]?{
         didSet{
+            for sub in self.subviews {
+                sub.removeFromSuperview()
+            }
             var index = 0
             var tmpBtn: NSButton?
             for title in self.sectionTitles ?? [String]() {
                 let btn:NSButton = NSButton(title: title, target: self, action: #selector(sectionHeaderSelcted(sender:)))
-
                 btn.frame = CGRect.zero
                 btn.highlight(self.currentIndex == index)
                 if self.currentIndex == index {
@@ -60,8 +62,35 @@ class IndexHeaderView: NSView {
                 btn.tag = index
                 tmpBtn = btn
                 index += 1
+                subItemsUI.append(btn)
+              
             }
             
+            let trackArea: NSTrackingArea = NSTrackingArea(rect: self.visibleRect,
+                                                           options: [NSTrackingArea.Options.activeInActiveApp, .mouseEnteredAndExited, .mouseMoved ], owner: self, userInfo: nil)
+            self.addTrackingArea(trackArea)
+        }
+    }
+    override func mouseExited(with event: NSEvent) {
+
+     }
+    override func mouseEntered(with event: NSEvent) {
+        
+    }
+    override func mouseMoved(with event: NSEvent) {
+        
+        let location = self.convert(event.locationInWindow, from: nil)
+        for btn in self.subItemsUI {
+            if NSPointInRect(location, btn.frame) && btn.state == NSControl.StateValue.off {
+                sectionHeaderSelcted(sender: btn)
+            }
+//            else{
+//                if btn.state == NSControl.StateValue.on {
+//                    btn.state = NSControl.StateValue.off
+//                    btn.highlight(false)
+//                }
+//
+//            }
         }
     }
     override func draw(_ dirtyRect: NSRect) {
