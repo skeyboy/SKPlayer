@@ -26,10 +26,10 @@ class CloudViewBTItem: NSCollectionViewItem {
         super.viewDidLoad()
         // Do view setup here.
         
-        // 1
-        view.layer?.borderColor = NSColor.yellow.cgColor
-        // 2
-        view.layer?.borderWidth = 0.0
+        view.wantsLayer = true
+        view.layer?.borderWidth = 1
+        view.layer?.borderColor = NSColor.lightGray.cgColor
+        
     }
     
 }

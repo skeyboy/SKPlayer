@@ -71,11 +71,11 @@ extension BTViewController: NSTableViewDelegate{
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
-        return
         let tableView = notification.object as! NSTableView
         let row = tableView.selectedRow
         let bt: BT = bts![row]
-       finish()
+        tableView.menu = self.menus(forTables: tableView, item: bt)
+//       finish()
     }
 }
 extension BTViewController: NSTableViewDataSource{
@@ -85,7 +85,30 @@ extension BTViewController: NSTableViewDataSource{
         }
         return 0
     }
-    
+    func menus(forTables: NSTableView, item bt: BT) -> NSMenu?{
+        
+        if bt.isLink {
+            
+            let menu = NSMenu.init(title: "在线资源")
+            let copy: NSMenuItem = NSMenuItem(title: "复制", action: #selector(copyToPasteboard(sender:)), keyEquivalent: "")
+            let watchLink: NSMenuItem = NSMenuItem(title: "浏览器打开", action: #selector(watchBySafariOrChrome(sender:)), keyEquivalent: "")
+            menu.addItem(copy)
+            menu.addItem(watchLink)
+            
+        }
+        
+        let menu = NSMenu.init(title: "BT资源")
+        
+        var downLoadBT:NSMenuItem? = nil
+        
+        downLoadBT = NSMenuItem(title: "下载", action: #selector(queryDownloadMagnet(sender:)), keyEquivalent: "")
+        let copy: NSMenuItem = NSMenuItem(title: "复制", action: #selector(copyToPasteboard(sender:)), keyEquivalent: "")
+        
+        
+        menu.addItem(copy)
+        menu.addItem(downLoadBT!)
+        return menu
+    }
     
 }
 
@@ -99,8 +122,17 @@ extension BTViewController{
     }
     @objc func queryDownloadMagnet(sender: AnyObject){
         let bt: BT = self.bts![self.btTableView.selectedRow]
-        NSWorkspace.shared.open(URL.init(string: bt.bt)!)
-        finish()
+        
+        if bt.isMiWifiMagnent {
+            //由于之前的VC使用的model for循环阻断了后续的，因此想再次发送请求必须要要使用endModalSession结束
+            self.finish()
+            bt.openMiWifi { (b) in
+                NSWorkspace.shared.open(URL.init(string: b)!)
+            }
+        }else{
+            NSWorkspace.shared.open(URL.init(string: bt.bt)!)
+            finish()
+        }
     }
     @objc func watchBySafariOrChrome(sender: AnyObject){
         queryDownloadMagnet(sender: sender)
@@ -112,27 +144,8 @@ extension BTViewController: ContextMenu{
     @objc func tableView(_ tableView: NSTableView, menuForRows rows:IndexSet)->NSMenu?{
         let bt: BT = self.bts![self.btTableView.selectedRow]
         
-        if bt.isLink {
-            
-            let menu = NSMenu.init(title: "在线资源")
-            let copy: NSMenuItem = NSMenuItem(title: "复制", action: #selector(copyToPasteboard(sender:)), keyEquivalent: "")
-            let watchLink: NSMenuItem = NSMenuItem(title: "浏览器打开", action: #selector(watchBySafariOrChrome(sender:)), keyEquivalent: "")
-            menu.addItem(copy)
-            menu.addItem(watchLink)
-            
-        }
-        
-        let menu = NSMenu.init(title: "BT资源")
-
-        var downLoadBT:NSMenuItem? = nil
-       
-          downLoadBT = NSMenuItem(title: "下载", action: #selector(queryDownloadMagnet(sender:)), keyEquivalent: "")
-        let copy: NSMenuItem = NSMenuItem(title: "复制", action: #selector(copyToPasteboard(sender:)), keyEquivalent: "")
       
-        
-        menu.addItem(copy)
-        menu.addItem(downLoadBT!)
-        return menu
+        return self.menus(forTables: tableView, item: bt)
     }
     @objc func tableView(_ tableView: NSTableView, clickForRow row: Int) -> Void {
         
@@ -180,7 +193,12 @@ extension NSTableView {
         }
         return super.mouseDown(with: event)
     }
-    
+    open override func mouseEntered(with event: NSEvent) {
+        var btInfo:BTInfo = BTInfo()
+    }
+    open override func mouseExited(with event: NSEvent) {
+        
+    }
 }
 
 

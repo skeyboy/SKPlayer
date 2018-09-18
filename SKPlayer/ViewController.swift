@@ -11,12 +11,13 @@ import SnapKit
 class ViewController: NSViewController {
     var menuVC : MenuViewController?
     
+    @IBOutlet weak var searchView: NSSearchField!
     @IBOutlet weak var contentView: NSView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        self.searchView.delegate = self
         self.menuVC = self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("menu")) as? MenuViewController
         self.addChildViewController(self.menuVC!)
         self.menuVC?.removeFromParentViewController()
@@ -25,11 +26,11 @@ class ViewController: NSViewController {
             maker.top.left.bottom.equalTo(self.view)
             maker.width.equalTo(100)
         })
-        
-        self.contentView.snp.makeConstraints { (maker) in
-            maker.top.right.bottom.equalTo(self.view)
-            maker.left.equalTo((self.menuVC?.view.snp.right)!)
-        }
+//
+//        self.contentView.snp.makeConstraints { (maker) in
+//            maker.top.right.bottom.equalTo(self.view)
+//            maker.left.equalTo((self.menuVC?.view.snp.right)!)
+//        }
         let index =   self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("index"))
         
         addSubChildController(index as! NSViewController)
@@ -52,5 +53,16 @@ class ViewController: NSViewController {
     }
     
     
+}
+extension ViewController: NSSearchFieldDelegate{
+    override func controlTextDidChange(_ obj: Notification) {
+        
+    }
+    override func controlTextDidBeginEditing(_ obj: Notification) {
+        
+    }
+    func searchFieldDidEndSearching(_ sender: NSSearchField) {
+        
+    }
 }
 extension NSViewController{}
