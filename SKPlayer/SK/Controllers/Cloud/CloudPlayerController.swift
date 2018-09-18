@@ -102,11 +102,7 @@ extension CloudPlayerController: NSCollectionViewDataSource{
     
 }
 
-extension IndexViewController : NSCollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
-        return self.indexSections.count == 0 ? NSZeroSize : NSSize(width: 450, height: 45)
-    }
-}
+
 
 extension CloudPlayerController: NSViewControllerPresentationAnimator{
     func animateDismissal(of viewController: NSViewController, from fromViewController: NSViewController) {

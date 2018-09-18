@@ -9,11 +9,11 @@
 import Cocoa
 import AppKit
 import Ji
-
+let IndexSectionSize = NSSize(width: 216, height: 352)
 class IndexViewController: NSViewController {
     var session: NSApplication.ModalSession?
     var indexs:[[IndexItemModel]] = [[IndexItemModel]]()
-    var indexSections:[Section] = [Section]()
+    var indexParts:[Part] = [Part]()
     @IBOutlet weak var indexCollection: NSCollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +24,8 @@ class IndexViewController: NSViewController {
         //        layout.minimumItemSize = NSSize(width: 150, height: 100)
         //
         let layout:NSCollectionViewFlowLayout = NSCollectionViewFlowLayout()
-        layout.itemSize = NSSize(width: 100, height: 200)
-        layout.estimatedItemSize = NSSize(width: 100, height: 200)
+        layout.itemSize = IndexSectionSize
+        layout.estimatedItemSize = IndexSectionSize
         layout.sectionHeadersPinToVisibleBounds = true
         
         layout.sectionHeadersPinToVisibleBounds = true
@@ -34,7 +34,7 @@ class IndexViewController: NSViewController {
         
         indexParser("http://www.btbtdy.net/") { (results) in
             
-            self.indexSections.insert(contentsOf: results, at: 0)
+            self.indexParts.insert(contentsOf: results, at: 0)
             self.indexCollection.reloadData()
         }
     }
@@ -44,17 +44,24 @@ class IndexViewController: NSViewController {
 extension IndexViewController: NSCollectionViewDelegate{}
 extension IndexViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.indexSections[section].sectionItems.count
+        let currentSection: Section? = self.indexParts[section].currentSection
+        if let currentSection = currentSection {
+            return   currentSection.sectionItems.count
+        }
+        return 0
     }
     func numberOfSections(in collectionView: NSCollectionView) -> Int {
-        return indexSections.count
+        return indexParts.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
         
         let item:IndexViewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier.init("IndexViewItem"), for: indexPath) as! IndexViewItem
-        let indexModel: IndexItemModel = (self.indexSections[indexPath.section] as Section).sectionItems[indexPath.item]
+        
+        let currentSection: Section = self.indexParts[indexPath.section].currentSection!
+        
+        let indexModel: IndexItemModel = currentSection.sectionItems[indexPath.item]
         item.indexModel = indexModel
         item.indexPath = indexPath
         
@@ -68,10 +75,12 @@ extension IndexViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         print("items select")
         collectionView.deselectItems(at: indexPaths)
-
+        
         
         let indexPath = indexPaths.first!
-        let section: Section = self.indexSections[indexPath.section]
+        let currentSection: Section = self.indexParts[indexPath.section].currentSection!
+        
+        let section: Section = currentSection
         
         let detailWin: DetailWindowController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("detail_window")) as! DetailWindowController
         let detailVC: DetailViewController = detailWin.contentViewController as! DetailViewController
@@ -90,15 +99,30 @@ extension IndexViewController: NSCollectionViewDataSource{
     
     func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSView {
         let view: IndexHeaderView = collectionView.makeSupplementaryView(ofKind: NSCollectionView.SupplementaryElementKind.sectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IndexHeaderView"), for: indexPath) as! IndexHeaderView
-        view.indexSectionHeaderView.stringValue = self.indexSections[indexPath.section].title  ?? "未知"
+        view.indexPath = indexPath
+        view.currentIndex = self.indexParts[indexPath.section].currentIndex
+        view.headerCallBack = {(item, path) in
+            
+            self.indexParts[path.section].currentIndex = item
+            let sect =  IndexSet.init(integersIn: Range<Int>.init(NSMakeRange(path.section, 1))!)
+            self.indexCollection.reloadSections(sect)
+        }
+ 
+            view.sectionTitles = self.indexParts[indexPath.section].sections.map({ (s) -> String in
+                return s.title!
+            })
+        
         return view
     }
     
-   
-
-    
 }
- 
+
+extension IndexViewController : NSCollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
+        return self.indexParts[section].sections.isEmpty ? NSZeroSize : NSSize(width: 450, height: 45)
+    }
+}
+
 extension NSCollectionViewItem{
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,5 +133,5 @@ extension NSCollectionViewItem{
         
         self.addObserver(self, forKeyPath: "self.isSelected", options: .new, context: nil)
     }
-   
+    
 }
