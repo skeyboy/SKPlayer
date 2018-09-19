@@ -8,21 +8,28 @@
 
 import Cocoa
 typealias SelectedViewCallback = (Bool)->Void
-
+@objc
 protocol Shakeable {
-    
+   @objc optional func shakeBegin() -> Void
+ @objc   optional  func shakeEnd() ->Void
 }
 
 extension Shakeable where Self: NSView{
-    func shake(offSet: Float? = 5, repeatCount: Float? = 2, duration: CFTimeInterval? = 0.05) -> Void {
+    func shake(offSet: Float? = 2, repeatCount: Float? = 2, duration: CFTimeInterval? = 0.05) -> Void {
         layer?.removeAnimation(forKey: "position")
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = duration!
         animation.repeatCount = repeatCount!
         animation.autoreverses = true
         animation.fromValue = NSValue.init(point: NSPoint(x: CGFloat(self.center.x - CGFloat(offSet!)), y: self.center.y))
+        if let shakeBegin =  shakeBegin{
+            shakeBegin()
+        }
         animation.toValue = NSValue.init(point: NSPoint(x: CGFloat(self.center.x +
             CGFloat(offSet!)), y: self.center.y))
+        if let shakeEnd = shakeEnd {
+            shakeEnd()
+        }
         layer?.add(animation, forKey: "pasition")
     }
 }
@@ -32,8 +39,8 @@ protocol Hoverable {
 
 extension NSView{
     var center: CGPoint{
-        let centerX =  (self.frame.origin.x + self.frame.width)/2
-        let centerY = (self.frame.origin.y + self.frame.height)/2
+        let centerX =  (self.bounds.origin.x + self.bounds.width)/2
+        let centerY = (self.bounds.origin.y + self.bounds.height)/2
         return CGPoint(x: centerX, y: centerY)
     }
 }
@@ -62,16 +69,22 @@ class SelectedView: NSView {
         let trackArea: NSTrackingArea = NSTrackingArea(rect: self.visibleRect,
                                                        options: [NSTrackingArea.Options.activeInActiveApp, .mouseEnteredAndExited, .mouseMoved ], owner: self, userInfo: nil)
         self.addTrackingArea(trackArea)
+        self.wantsLayer = true
+        self.layer?.borderColor = NSColor.magenta.cgColor
+
     }
     override func mouseExited(with event: NSEvent) {
         
         self.isHover = false
+        self.layer?.borderWidth = 0
+
     }
     override func mouseEntered(with event: NSEvent) {
         if self.isHover == false{
             self.isHover = true
-            self.shake()
+             self.shake()
         }
+        self.layer?.borderWidth = 2
     }
     override func mouseMoved(with event: NSEvent) {
         
@@ -83,7 +96,7 @@ class SelectedView: NSView {
                                  xRadius: 0, yRadius: 0)
         var fillColor: NSColor?
         var strokeColor: NSColor?
-        if self.isSelected {
+        if self.isHover {
             fillColor = NSColor.gray
             strokeColor = NSColor.magenta
         } else {
@@ -98,6 +111,15 @@ class SelectedView: NSView {
         
     }
     
+    
 }
 
 extension SelectedView : Shakeable{}
+extension NSRect{
+    func scale(_ scale: Int) -> NSRect {
+     return   NSRect(x: Int(self.origin.x ) , y: Int(self.origin.y), width: Int(self.size.width) + scale, height: Int(self.size.height) + scale)
+    }
+    func diss(_ diss: Int) -> NSRect {
+        return scale(_:-diss)
+    }
+}

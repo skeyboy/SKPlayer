@@ -99,19 +99,19 @@ extension IndexViewController: NSCollectionViewDataSource{
     
     func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSView {
         let view: IndexHeaderView = collectionView.makeSupplementaryView(ofKind: NSCollectionView.SupplementaryElementKind.sectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IndexHeaderView"), for: indexPath) as! IndexHeaderView
-        view.indexPath = indexPath
+        
         view.currentIndex = self.indexParts[indexPath.section].currentIndex
+        let sectionTitles = self.indexParts[indexPath.section].sections.map({ (s) -> String in
+            return s.title!
+        })
+        
+        view.indexPath = indexPath
         view.headerCallBack = {(item, path) in
-            
             self.indexParts[path.section].currentIndex = item
             let sect =  IndexSet.init(integersIn: Range<Int>.init(NSMakeRange(path.section, 1))!)
             self.indexCollection.reloadSections(sect)
         }
- 
-            view.sectionTitles = self.indexParts[indexPath.section].sections.map({ (s) -> String in
-                return s.title!
-            })
-        
+        view.sectionTitles = sectionTitles
         return view
     }
     

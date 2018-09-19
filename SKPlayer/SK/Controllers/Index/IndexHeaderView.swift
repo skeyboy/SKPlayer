@@ -10,6 +10,7 @@ import Cocoa
 import SnapKit
 typealias HeaderCallBack = (Int, IndexPath)->Void
 class IndexHeaderView: NSView {
+    let lock: NSRecursiveLock = NSRecursiveLock.init()
     var indexPath: IndexPath?
     var currentIndex: Int = 0
     var subItemsUI:[NSButton] = [NSButton]()
@@ -17,11 +18,9 @@ class IndexHeaderView: NSView {
     @objc func sectionHeaderSelcted(sender: NSButton){
         sender.state = NSControl.StateValue.on
         sender.highlight(true)
-
-       if let headerCallBack = self.headerCallBack {
-            MainQueue.async {            
+        
+        if let headerCallBack = self.headerCallBack {
                 headerCallBack(sender.tag, self.indexPath!)
-            }
         }
         
     }
@@ -33,6 +32,7 @@ class IndexHeaderView: NSView {
             var index = 0
             var tmpBtn: NSButton?
             for title in self.sectionTitles ?? [String]() {
+                
                 let btn:NSButton = NSButton(title: title, target: self, action: #selector(sectionHeaderSelcted(sender:)))
                 btn.frame = CGRect.zero
                 btn.highlight(self.currentIndex == index)
@@ -52,7 +52,7 @@ class IndexHeaderView: NSView {
                         maker.left.equalTo(self.snp.left).offset(10)
                     }else{
                         maker.left.equalTo(tmpBtn!.snp.right).offset(10)
-
+                        
                     }
                     if index == self.sectionTitles!.count - 1 {
                         
@@ -63,40 +63,48 @@ class IndexHeaderView: NSView {
                 tmpBtn = btn
                 index += 1
                 subItemsUI.append(btn)
-              
+                
             }
             
-            let trackArea: NSTrackingArea = NSTrackingArea(rect: self.visibleRect,
-                                                           options: [NSTrackingArea.Options.activeInActiveApp, .mouseEnteredAndExited, .mouseMoved ], owner: self, userInfo: nil)
-            self.addTrackingArea(trackArea)
+            
         }
     }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        let trackArea: NSTrackingArea = NSTrackingArea(rect: self.visibleRect,
+                                                       options: [NSTrackingArea.Options.activeInActiveApp, .mouseEnteredAndExited, .mouseMoved ], owner: self, userInfo: nil)
+        self.addTrackingArea(trackArea)
+    }
     override func mouseExited(with event: NSEvent) {
-
-     }
+        
+    }
     override func mouseEntered(with event: NSEvent) {
         
     }
     override func mouseMoved(with event: NSEvent) {
-        
+        let hover = isHover(by: event)
+        if hover.0 {
+            lock.lock()
+            self.sectionHeaderSelcted(sender: hover.1!)
+            lock.unlock()
+        }else{
+            
+        }
+    }
+    func isHover(by event: NSEvent) -> (Bool, NSButton?) {
         let location = self.convert(event.locationInWindow, from: nil)
         for btn in self.subItemsUI {
+            
             if NSPointInRect(location, btn.frame) && btn.state == NSControl.StateValue.off {
-                sectionHeaderSelcted(sender: btn)
+               return (true, btn)
             }
-//            else{
-//                if btn.state == NSControl.StateValue.on {
-//                    btn.state = NSControl.StateValue.off
-//                    btn.highlight(false)
-//                }
-//
-//            }
         }
+        return (false, nil)
     }
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         NSColor(calibratedWhite: 0.8 , alpha: 0.8).set()
-     }
+    }
     @IBOutlet weak var indexSectionHeaderView: NSTextField!
     
 }
