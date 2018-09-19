@@ -32,6 +32,12 @@
 		538073D82146D037005CA6CD /* IndexHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538073D72146D037005CA6CD /* IndexHeaderView.xib */; };
 		538073DA2146D395005CA6CD /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538073D92146D395005CA6CD /* AppKit.framework */; };
 		538073DC2146D746005CA6CD /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538073DB2146D746005CA6CD /* ImageLoader.swift */; };
+		53B0B05021522A1400E892D1 /* HoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0B04F21522A1400E892D1 /* HoverView.swift */; };
+		53B0B0522152349700E892D1 /* QXSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0B0512152349700E892D1 /* QXSearchField.swift */; };
+		53B0B05521523B1600E892D1 /* LatestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0B05421523B1600E892D1 /* LatestViewController.swift */; };
+		53B0B058215246A100E892D1 /* Latest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0B057215246A100E892D1 /* Latest.swift */; };
+		53B0B05D215253C700E892D1 /* LatestViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0B05B215253C700E892D1 /* LatestViewItem.swift */; };
+		53B0B05E215253C700E892D1 /* LatestViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53B0B05C215253C700E892D1 /* LatestViewItem.xib */; };
 		53E99B6521491242001DE9CC /* MacClickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E99B6221491242001DE9CC /* MacClickView.m */; };
 		53E99B6621491242001DE9CC /* MacProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E99B6421491242001DE9CC /* MacProgressHUD.m */; };
 		53EC895321474CF00056B7EB /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EC895221474CF00056B7EB /* Index.swift */; };
@@ -79,6 +85,12 @@
 		538073D72146D037005CA6CD /* IndexHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexHeaderView.xib; sourceTree = "<group>"; };
 		538073D92146D395005CA6CD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		538073DB2146D746005CA6CD /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		53B0B04F21522A1400E892D1 /* HoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverView.swift; sourceTree = "<group>"; };
+		53B0B0512152349700E892D1 /* QXSearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QXSearchField.swift; sourceTree = "<group>"; };
+		53B0B05421523B1600E892D1 /* LatestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestViewController.swift; sourceTree = "<group>"; };
+		53B0B057215246A100E892D1 /* Latest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Latest.swift; sourceTree = "<group>"; };
+		53B0B05B215253C700E892D1 /* LatestViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestViewItem.swift; sourceTree = "<group>"; };
+		53B0B05C215253C700E892D1 /* LatestViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LatestViewItem.xib; sourceTree = "<group>"; };
 		53E99B6121491242001DE9CC /* MacClickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacClickView.h; sourceTree = "<group>"; };
 		53E99B6221491242001DE9CC /* MacClickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacClickView.m; sourceTree = "<group>"; };
 		53E99B6321491242001DE9CC /* MacProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacProgressHUD.h; sourceTree = "<group>"; };
@@ -174,6 +186,8 @@
 				538073CD2146A7B0005CA6CD /* SelectedView.swift */,
 				53782559214699F5009939DD /* MenuViewItem.xib */,
 				538073DB2146D746005CA6CD /* ImageLoader.swift */,
+				53B0B04F21522A1400E892D1 /* HoverView.swift */,
+				53B0B0512152349700E892D1 /* QXSearchField.swift */,
 			);
 			path = SKPlayer;
 			sourceTree = "<group>";
@@ -183,6 +197,24 @@
 			children = (
 			);
 			path = BT;
+			sourceTree = "<group>";
+		};
+		53B0B05321523B0100E892D1 /* Latest */ = {
+			isa = PBXGroup;
+			children = (
+				53B0B05421523B1600E892D1 /* LatestViewController.swift */,
+				53B0B05B215253C700E892D1 /* LatestViewItem.swift */,
+				53B0B05C215253C700E892D1 /* LatestViewItem.xib */,
+			);
+			path = Latest;
+			sourceTree = "<group>";
+		};
+		53B0B0562152468D00E892D1 /* Latest */ = {
+			isa = PBXGroup;
+			children = (
+				53B0B057215246A100E892D1 /* Latest.swift */,
+			);
+			path = Latest;
 			sourceTree = "<group>";
 		};
 		53E99B6021491242001DE9CC /* MacProgressHUD */ = {
@@ -210,6 +242,7 @@
 		53EC894E21474C9A0056B7EB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				53B0B05321523B0100E892D1 /* Latest */,
 				5360D3782149FB02003516B5 /* BT */,
 				53043DD42147C22A001019EA /* Player */,
 				53F8A5C02147A0F300C18A9E /* Cloud */,
@@ -234,6 +267,7 @@
 		53EC895021474CC70056B7EB /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				53B0B0562152468D00E892D1 /* Latest */,
 				5360D37B2149FF6D003516B5 /* BT */,
 				53EC8955214763FA0056B7EB /* Detail */,
 				53EC895121474CE30056B7EB /* Index */,
@@ -368,6 +402,7 @@
 			files = (
 				538073D42146B12A005CA6CD /* IndexViewItem.xib in Resources */,
 				5378255B214699F5009939DD /* MenuViewItem.xib in Resources */,
+				53B0B05E215253C700E892D1 /* LatestViewItem.xib in Resources */,
 				5378254721467B17009939DD /* Assets.xcassets in Resources */,
 				53F8A5C62147A18400C18A9E /* CloudViewItem.xib in Resources */,
 				5378254A21467B17009939DD /* Main.storyboard in Resources */,
@@ -433,11 +468,13 @@
 				53E99B6621491242001DE9CC /* MacProgressHUD.m in Sources */,
 				53043DD82147C8BD001019EA /* PlayerWindowController.swift in Sources */,
 				53EC895B21476FEB0056B7EB /* DetailWindow.swift in Sources */,
+				53B0B0522152349700E892D1 /* QXSearchField.swift in Sources */,
 				53EC895321474CF00056B7EB /* Index.swift in Sources */,
 				5360D37A2149FC24003516B5 /* BTViewController.swift in Sources */,
 				530D7D412150D0A600854DB8 /* BTInfo.m in Sources */,
 				53F8A5C22147A11A00C18A9E /* CloudPlayerController.swift in Sources */,
 				53043DDA2147C8D4001019EA /* PlayerWindow.swift in Sources */,
+				53B0B05021522A1400E892D1 /* HoverView.swift in Sources */,
 				538073D32146B12A005CA6CD /* IndexViewItem.swift in Sources */,
 				531D0EEC2148F1E600BAF27F /* CloudViewBTItem.swift in Sources */,
 				5378255A214699F5009939DD /* MenuViewItem.swift in Sources */,
@@ -447,7 +484,10 @@
 				538073DC2146D746005CA6CD /* ImageLoader.swift in Sources */,
 				53043DD62147C248001019EA /* PlayerViewController.swift in Sources */,
 				5378254521467B16009939DD /* ViewController.swift in Sources */,
+				53B0B05521523B1600E892D1 /* LatestViewController.swift in Sources */,
+				53B0B058215246A100E892D1 /* Latest.swift in Sources */,
 				5378255321468ACC009939DD /* MenuViewController.swift in Sources */,
+				53B0B05D215253C700E892D1 /* LatestViewItem.swift in Sources */,
 				53782555214694FD009939DD /* MenuFlowLayout.swift in Sources */,
 				538073D62146D003005CA6CD /* IndexHeaderView.swift in Sources */,
 				53EC895D214777480056B7EB /* Detail.swift in Sources */,

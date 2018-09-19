@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="LatestViewItem" customModule="SKPlayer" customModuleProvider="target">
+            <connections>
+                <outlet property="descView" destination="ilT-WH-eP1" id="muX-CL-fND"/>
+                <outlet property="infoView" destination="IlF-4C-Z1k" id="kfR-Yg-fOq"/>
+                <outlet property="picView" destination="vFc-S5-m38" id="SZl-Rn-Pof"/>
+                <outlet property="rtView" destination="oY2-r3-S93" id="8En-ta-hyi"/>
+                <outlet property="scoreView" destination="vhg-VY-R3a" id="Xbd-Tf-9cG"/>
+                <outlet property="titleView" destination="GQ2-hG-CFK" id="KoN-z2-G73"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView identifier="LatestViewItem" id="Hz6-mo-xeY" customClass="HoverView" customModule="SKPlayer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="169" height="283"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vFc-S5-m38">
+                    <rect key="frame" x="0.0" y="43" width="169" height="240"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="240" id="BmI-W9-cqC"/>
+                        <constraint firstAttribute="width" constant="169" id="Uie-1K-2nz"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Icon" id="rdH-ne-Q8A"/>
+                </imageView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="UYr-xu-qt8">
+                    <rect key="frame" x="0.0" y="0.0" width="169" height="42"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GQ2-hG-CFK">
+                            <rect key="frame" x="-2" y="25" width="95" height="17"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="法兰西 Yishion" id="Qok-tb-DsX">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vhg-VY-R3a">
+                            <rect key="frame" x="134" y="25" width="23" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="19" id="5h9-l6-f6E"/>
+                            </constraints>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="0.0" id="C1u-0n-UHP">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IlF-4C-Z1k">
+                            <rect key="frame" x="-2" y="5" width="93" height="15"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="2017欧美电视剧" id="63V-vW-2dA">
+                                <font key="font" size="12" name=".PingFangSC-Regular"/>
+                                <color key="textColor" red="0.58424812559999995" green="0.58435159920000002" blue="0.58424162859999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oY2-r3-S93">
+                            <rect key="frame" x="123" y="5" width="34" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="19" id="pek-Fe-leI"/>
+                            </constraints>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="111天" id="xeg-bs-Owd">
+                                <font key="font" metaFont="system" size="12"/>
+                                <color key="textColor" red="0.58424812559999995" green="0.58435159920000002" blue="0.58424162859999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="oY2-r3-S93" secondAttribute="trailing" constant="14" id="2tV-yn-O3H"/>
+                        <constraint firstItem="IlF-4C-Z1k" firstAttribute="leading" secondItem="UYr-xu-qt8" secondAttribute="leading" id="3Ue-g3-ifl"/>
+                        <constraint firstItem="GQ2-hG-CFK" firstAttribute="leading" secondItem="UYr-xu-qt8" secondAttribute="leading" id="F8v-lf-FcO"/>
+                        <constraint firstAttribute="trailing" secondItem="vhg-VY-R3a" secondAttribute="trailing" constant="14" id="Xgr-5c-czh"/>
+                        <constraint firstItem="oY2-r3-S93" firstAttribute="leading" relation="lessThanOrEqual" secondItem="IlF-4C-Z1k" secondAttribute="trailing" constant="103" id="Y8o-MZ-6Nf"/>
+                        <constraint firstItem="oY2-r3-S93" firstAttribute="centerY" secondItem="IlF-4C-Z1k" secondAttribute="centerY" id="bPA-op-C2y"/>
+                        <constraint firstAttribute="bottom" secondItem="IlF-4C-Z1k" secondAttribute="bottom" constant="5" id="cTv-eN-m4u"/>
+                        <constraint firstItem="vhg-VY-R3a" firstAttribute="leading" relation="lessThanOrEqual" secondItem="GQ2-hG-CFK" secondAttribute="trailing" constant="103" id="dCN-vp-5d0"/>
+                        <constraint firstItem="vhg-VY-R3a" firstAttribute="top" secondItem="UYr-xu-qt8" secondAttribute="top" id="suY-ZA-7hx"/>
+                        <constraint firstItem="GQ2-hG-CFK" firstAttribute="top" secondItem="UYr-xu-qt8" secondAttribute="top" id="tJ7-i0-oTb"/>
+                    </constraints>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ilT-WH-eP1">
+                    <rect key="frame" x="-2" y="53" width="173" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="HUU-zK-Ues"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="ri8-o5-sj3">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="vFc-S5-m38" secondAttribute="trailing" id="1q0-9t-jr2"/>
+                <constraint firstItem="ilT-WH-eP1" firstAttribute="bottom" secondItem="vFc-S5-m38" secondAttribute="bottom" constant="-10" id="BnY-6z-7N9"/>
+                <constraint firstItem="UYr-xu-qt8" firstAttribute="top" secondItem="vFc-S5-m38" secondAttribute="bottom" constant="1" id="Cm7-J9-Lvf"/>
+                <constraint firstItem="ilT-WH-eP1" firstAttribute="trailing" secondItem="vFc-S5-m38" secondAttribute="trailing" id="DDk-Vg-7HR"/>
+                <constraint firstItem="ilT-WH-eP1" firstAttribute="leading" secondItem="vFc-S5-m38" secondAttribute="leading" id="H5L-zE-bKI"/>
+                <constraint firstItem="UYr-xu-qt8" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="LSY-cm-oNV"/>
+                <constraint firstItem="vFc-S5-m38" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="X1k-3k-5AF"/>
+                <constraint firstAttribute="trailing" secondItem="UYr-xu-qt8" secondAttribute="trailing" id="gOy-Hr-JyY"/>
+                <constraint firstItem="vFc-S5-m38" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="m8U-pE-rwt"/>
+                <constraint firstAttribute="bottom" secondItem="UYr-xu-qt8" secondAttribute="bottom" id="vSF-mk-zNq"/>
+            </constraints>
+            <point key="canvasLocation" x="138.5" y="153.5"/>
+        </customView>
+        <customObject id="SiG-Dd-8ll" customClass="LatestViewItem" customModule="SKPlayer" customModuleProvider="target">
+            <connections>
+                <outlet property="descView" destination="ilT-WH-eP1" id="i7q-RY-Aqy"/>
+                <outlet property="infoView" destination="IlF-4C-Z1k" id="JXB-le-9e5"/>
+                <outlet property="picView" destination="vFc-S5-m38" id="ail-5x-wVT"/>
+                <outlet property="rtView" destination="oY2-r3-S93" id="5tW-gi-cSy"/>
+                <outlet property="scoreView" destination="vhg-VY-R3a" id="VlC-Ni-7Hg"/>
+                <outlet property="titleView" destination="GQ2-hG-CFK" id="Hv5-Cz-kuA"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="cE5-Ie-siC"/>
+            </connections>
+        </customObject>
+    </objects>
+    <resources>
+        <image name="Icon" width="512" height="512"/>
+    </resources>
+</document>

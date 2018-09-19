@@ -12,7 +12,7 @@ class MenuViewItem: NSCollectionViewItem {
     @IBOutlet weak var titleView: NSTextField!
     override var isSelected: Bool{
         didSet{
-            (self.view as! SelectedView).isSelected = self.isSelected
+            (self.view as! HoverView).isSelected = self.isSelected
         }
     }
     override func viewDidLoad() {

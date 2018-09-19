@@ -35,7 +35,7 @@ extension Part{
         if sections.isEmpty {
             return nil
         }
-        return sections[currentIndex]
+        return sections[currentIndex % sections.count]
     }
 }
 func indexParser(_ url: String = "http://www.btbtdy.net", results:@escaping ([Part])->Void)->Void{

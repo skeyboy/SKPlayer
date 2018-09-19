@@ -10,12 +10,18 @@ import Cocoa
 import SnapKit
 class ViewController: NSViewController {
     var menuVC : MenuViewController?
-    
-    @IBOutlet weak var searchView: NSSearchField!
+    var latestVC: LatestViewController?
+    @IBOutlet weak var searchView: QXSearchField!
     @IBOutlet weak var contentView: NSView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.searchView.recentSearches = ["32","法撒旦法师"]
+        self.searchView.searchFocus = {() in
+            
+        }
+        self.searchView.search = {(query) in
+            
+        }
         // Do any additional setup after loading the view.
         self.searchView.delegate = self
         self.menuVC = self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("menu")) as? MenuViewController
@@ -26,15 +32,13 @@ class ViewController: NSViewController {
             maker.top.left.bottom.equalTo(self.view)
             maker.width.equalTo(100)
         })
-//
-//        self.contentView.snp.makeConstraints { (maker) in
-//            maker.top.right.bottom.equalTo(self.view)
-//            maker.left.equalTo((self.menuVC?.view.snp.right)!)
-//        }
+
         let index =   self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("index"))
         
+        let latest = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("latest"))
+
         addSubChildController(index as! NSViewController)
-        
+        addSubChildController(latest as! NSViewController)
         
     }
     func addSubChildController(_ childController: NSViewController){

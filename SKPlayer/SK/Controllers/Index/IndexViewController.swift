@@ -86,7 +86,7 @@ extension IndexViewController: NSCollectionViewDataSource{
         let detailVC: DetailViewController = detailWin.contentViewController as! DetailViewController
         
         
-        detailVC.model = section.sectionItems[indexPath.item]
+        detailVC.detailDoor = (section.sectionItems[indexPath.item].title,section.sectionItems[indexPath.item].link ) as? DetailDoor
         let session = NSApp.beginModalSession(for: detailWin.window!)
         
         while NSApp.runModalSession(session) == NSApplication.ModalResponse.continue {

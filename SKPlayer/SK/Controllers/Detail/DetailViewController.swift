@@ -9,6 +9,9 @@
 import Cocoa
 import Kingfisher
 let UnKnown = "未知"
+
+/// 0 titie 1 query
+typealias DetailDoor = (String?, String)
 class DetailViewController: NSViewController {
     let parser:DetailParser = DetailParser()
     @IBOutlet weak var yearView: NSTextField!
@@ -22,10 +25,12 @@ class DetailViewController: NSViewController {
     @IBOutlet weak var mainsView: NSTextField!
     @IBOutlet weak var desView: NSTextField!
     @IBOutlet weak var updateView: NSTextField!
-    var model: IndexItemModel?{
+    
+    /// 0 titie 1 query
+    var detailDoor: DetailDoor? {
         didSet{
-            self.view.window?.title = model?.title ?? "详情"
-            self.parser.detailParser((model?.link!)!) { (detail) in
+            self.view.window?.title = self.detailDoor!.0 ?? "详情"
+            self.parser.detailParser((self.detailDoor?.1)!) { (detail) in
                 DispatchQueue.main.async {
                     self.coverImageView.kf.setImage(with: URL.init(string: detail.coverSrc!)!)
                     do{
@@ -50,6 +55,7 @@ class DetailViewController: NSViewController {
             }
         }
     }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.

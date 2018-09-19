@@ -20,6 +20,7 @@ class MenuViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        self.menuCollection.isSelectable = true
         self.menuCollection.delegate = self
         self.menuCollection.dataSource = self
         

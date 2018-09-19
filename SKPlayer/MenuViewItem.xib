@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,7 +13,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView identifier="menu_item" id="Hz6-mo-xeY" customClass="SelectedView" customModule="SKPlayer" customModuleProvider="target">
+        <customView identifier="menu_item" id="Hz6-mo-xeY" customClass="HoverView" customModule="SKPlayer" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="100" height="55"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -25,6 +25,15 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qGb-b0-Mfl">
+                    <rect key="frame" x="0.0" y="0.0" width="6" height="55"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" controlSize="mini" lineBreakMode="clipping" title="Label" drawsBackground="YES" usesSingleLineMode="YES" id="0iW-80-USw">
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Ew1-kS-l9W" secondAttribute="trailing" constant="4" id="5G6-Gs-e7u"/>
@@ -33,6 +42,27 @@
                 <constraint firstItem="Ew1-kS-l9W" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="UGQ-is-zam"/>
                 <constraint firstItem="Ew1-kS-l9W" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="17" id="uEO-aa-c5R"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHovered" value="YES"/>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidt">
+                    <real key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="strokeHoverColor">
+                    <color key="value" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="fillHoverColor">
+                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderHoverWidth">
+                    <real key="value" value="2"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderNormalWidth">
+                    <real key="value" value="0.0"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="indicator" destination="qGb-b0-Mfl" id="hvb-qK-kDM"/>
+            </connections>
             <point key="canvasLocation" x="-4" y="115.5"/>
         </customView>
         <collectionViewItem identifier="CollectionViewItem" id="TiA-Nt-t2R" customClass="MenuViewItem" customModule="SKPlayer" customModuleProvider="target">
