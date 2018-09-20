@@ -721,10 +721,10 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="hW0-Yn-VF6">
                                 <rect key="frame" x="100" y="718" width="1150" height="50"/>
                                 <subviews>
-                                    <searchField wantsLayer="YES" verticalHuggingPriority="750" ambiguous="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPV-cw-TC9" customClass="QXSearchField" customModule="SKPlayer" customModuleProvider="target">
+                                    <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPV-cw-TC9" customClass="QXSearchField" customModule="SKPlayer" customModuleProvider="target">
                                         <rect key="frame" x="201" y="14" width="300" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="QaZ-gJ-v0J"/>
+                                            <constraint firstAttribute="width" constant="300" id="fIX-An-3tD"/>
                                         </constraints>
                                         <searchFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" usesSingleLineMode="YES" bezelStyle="round" id="H2d-Ae-Mww">
                                             <font key="font" metaFont="system" size="17"/>
@@ -749,6 +749,7 @@
                                     </textField>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="kPV-cw-TC9" firstAttribute="leading" secondItem="yd8-vD-oKf" secondAttribute="trailing" constant="55" id="0xV-Uk-nVd"/>
                                     <constraint firstItem="kPV-cw-TC9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yd8-vD-oKf" secondAttribute="trailing" constant="8" symbolic="YES" id="5mP-2i-6Jd"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kPV-cw-TC9" secondAttribute="trailing" constant="129" id="8fI-aH-Yhi"/>
                                     <constraint firstItem="cwJ-pH-kHM" firstAttribute="top" secondItem="hW0-Yn-VF6" secondAttribute="top" constant="4" id="CT1-D7-WRq"/>

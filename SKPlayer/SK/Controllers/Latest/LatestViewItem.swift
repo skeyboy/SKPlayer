@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AppKit
 import Kingfisher
 class LatestViewItem: NSCollectionViewItem {
     @IBOutlet weak var picView: NSImageView!
@@ -23,18 +24,40 @@ class LatestViewItem: NSCollectionViewItem {
             }
             self.titleView.stringValue = self.todayItem!.title ?? UnKnown
             self.descView.stringValue = self.todayItem!.totalDesc ?? UnKnown
-            
+            self.createShare()
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
+       
+    }
+    func createShare( ) -> Void {
         let menu = NSMenu(title: "保存")
-        menu.addItem(withTitle: "查看", action: nil, keyEquivalent: "")
+        let shareItem = NSMenuItem(title: "分享",  action: #selector(share(sender:)), keyEquivalent: "")
+        
+        let shateItems = [
+            NSAttributedString.init(string: self.todayItem!.title ?? ""),
+            self.todayItem!.picLink!
+            ] as [Any]
+        let services = NSSharingService(named: NSSharingService.Name.cloudSharing)
+        services?.perform(withItems: shateItems)
+        services?.delegate = self
+        shareItem.representedObject = services
+        menu.addItem(shareItem)
         menu.addItem(withTitle: "收藏", action: nil, keyEquivalent: "")
         menu.addItem(withTitle: "保存图片", action: #selector(save(sender:)), keyEquivalent: "")
-                self.view.menu = menu
+        self.view.menu = menu
+    }
+    @objc func share( sender: NSMenuItem) ->Void{
+        // Items to share
+        let shateItems = [
+            NSAttributedString.init(string: self.todayItem!.title ?? ""),
+            self.todayItem!.picLink!
+            ] as [Any]
+        (sender.representedObject as! NSSharingService).perform(withItems: shateItems)
+//         NSSharingServicePicker(items: shateItems).show(relativeTo: self.view.visibleRect, of: self.view, preferredEdge: NSRectEdge.minX)
     }
     @objc func save( sender: NSMenuItem) -> Void{
         let panel: NSSavePanel = NSSavePanel()
@@ -45,8 +68,7 @@ class LatestViewItem: NSCollectionViewItem {
         
         [panel .begin(completionHandler: { resp in
             if resp == NSApplication.ModalResponse.OK {
-                print(panel.url)
-                var data = self.picView.image?.tiffRepresentation
+                let data = self.picView.image?.tiffRepresentation
                 if let data = data {
                    try! data.write(to: panel.url!, options: Data.WritingOptions.atomicWrite)
                 }
@@ -57,6 +79,16 @@ class LatestViewItem: NSCollectionViewItem {
     override func viewDidAppear() {
         super.viewDidAppear()
         self.descView.alphaValue = 0.8
+    }
+    
+}
+
+extension LatestViewItem: NSSharingServiceDelegate{
+    func sharingService(_ sharingService: NSSharingService, sourceWindowForShareItems items: [Any], sharingContentScope: UnsafeMutablePointer<NSSharingService.SharingContentScope>) -> NSWindow? {
+        return self.view.window
+    }
+     public func sharingService(_ sharingService: NSSharingService, sourceFrameOnScreenForShareItem item: Any) -> NSRect{
+        return self.view.visibleRect
     }
     
 }
