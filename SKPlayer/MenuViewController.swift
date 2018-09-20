@@ -14,7 +14,15 @@ class Menu {
     var menuTitle: String?
     
 }
+
+enum Type: Int{
+    case indexView = 0
+    case latestView = 1
+    case menuView = 2
+    case unknown
+}
 class MenuViewController: NSViewController {
+    weak var contentVC: ContainerController?
     var menuItems:[Menu] = [Menu]()
     @IBOutlet weak var menuCollection: NSCollectionView!
     override func viewDidLoad() {
@@ -74,10 +82,15 @@ extension MenuViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
         let item: MenuViewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MenuViewItem"), for: indexPath) as! MenuViewItem
+        item.indexPath = indexPath
         let menu: Menu = self.menuItems[indexPath.section]
         
         item.titleView.stringValue = menu.menuTitle ?? "未知"
-        
+        item.hoverBack = {(index) in
+            MainQueue.async {
+                self.selected(item: index!)
+            }
+        }
         item.isSelected = false
         return item
     }
@@ -87,6 +100,35 @@ extension MenuViewController: NSCollectionViewDataSource{
     }
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         collectionView.deselectItems(at: indexPaths)
+        selected(item: indexPaths.first!)
     }
     
+    func selected(item indexPath: IndexPath) -> Void {
+        if let containerVC = self.contentVC {
+            var type: Type = Type.indexView
+            
+            switch indexPath.section {
+                
+            case 0: type = .indexView
+                break
+            case 1 ... 5:
+                type = .menuView
+                break
+            case 8:
+                type = .latestView
+                break
+            default:
+                type = .unknown
+            }
+            
+            
+            if type != Type.unknown {
+                
+                let menuHO: Menu =    self.menuItems[indexPath.section]
+                
+                containerVC.change(type: type, href: menuHO.menuHref!)
+                
+            }
+        }
+    }
 }

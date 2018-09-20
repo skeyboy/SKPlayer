@@ -15,6 +15,9 @@ class HoverView: NSView {
     @IBInspectable  var isHovered: Bool = false {
         didSet{
              self.setNeedsDisplay(self.frame)
+            if (self.hoverSelectedResponse != nil) {
+                hoverSelectedResponse!(self, self.isHovered)
+            }
         }
     }
     @IBInspectable var strokeHoverColor: NSColor = NSColor.lightGray
@@ -37,11 +40,9 @@ class HoverView: NSView {
     var hoverSelectedResponse:HoverSelectedResponse?
     var isSelected: Bool = false{
         didSet{
-            self.indicator.isHidden = false
-            self.displayIfNeeded()
-            if (self.hoverSelectedResponse != nil) {
-                hoverSelectedResponse!(self, self.isSelected)
-            }
+            self.indicator.isHidden = !self.isSelected
+            self.setNeedsDisplay(self.visibleRect)
+           
         }
     }
 
@@ -88,6 +89,6 @@ extension HoverView{
             self.isHovered = true
         }
         self.borderHoverWidth = 2
-        super.mouseExited(with: event)
+        super.mouseEntered(with: event)
     }
 }

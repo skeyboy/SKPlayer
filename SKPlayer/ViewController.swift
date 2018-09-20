@@ -10,7 +10,7 @@ import Cocoa
 import SnapKit
 class ViewController: NSViewController {
     var menuVC : MenuViewController?
-    var latestVC: LatestViewController?
+    var containerVC: ContainerController?
     @IBOutlet weak var searchView: QXSearchField!
     @IBOutlet weak var contentView: NSView!
     override func viewDidLoad() {
@@ -33,13 +33,12 @@ class ViewController: NSViewController {
             maker.width.equalTo(100)
         })
 
-        let index =   self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("index"))
+        self.containerVC = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("ContainerController")) as? ContainerController
+        self.addSubChildController(self.containerVC!)
         
-        let latest = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("latest"))
+        self.menuVC?.contentVC = self.containerVC
+       
 
-        addSubChildController(index as! NSViewController)
-        addSubChildController(latest as! NSViewController)
-        
     }
     func addSubChildController(_ childController: NSViewController){
         self.addChildViewController(childController)

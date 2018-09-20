@@ -34,7 +34,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="169" height="42"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GQ2-hG-CFK">
-                            <rect key="frame" x="-2" y="25" width="95" height="17"/>
+                            <rect key="frame" x="-2" y="25" width="92" height="17"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" title="法兰西 Yishion" id="Qok-tb-DsX">
                                 <font key="font" usesAppearanceFont="YES"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -66,7 +66,7 @@
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="19" id="pek-Fe-leI"/>
                             </constraints>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="111天" id="xeg-bs-Owd">
-                                <font key="font" metaFont="system" size="12"/>
+                                <font key="font" metaFont="cellTitle"/>
                                 <color key="textColor" red="0.58424812559999995" green="0.58435159920000002" blue="0.58424162859999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
@@ -86,14 +86,13 @@
                     </constraints>
                 </customView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ilT-WH-eP1">
-                    <rect key="frame" x="-2" y="53" width="173" height="17"/>
+                    <rect key="frame" x="10" y="53" width="149" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="17" id="HUU-zK-Ues"/>
+                        <constraint firstAttribute="height" constant="21" id="HUU-zK-Ues"/>
                     </constraints>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="ri8-o5-sj3">
+                    <textFieldCell key="cell" lineBreakMode="clipping" borderStyle="border" alignment="center" title="Label" drawsBackground="YES" id="ri8-o5-sj3">
                         <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
@@ -101,8 +100,8 @@
                 <constraint firstAttribute="trailing" secondItem="vFc-S5-m38" secondAttribute="trailing" id="1q0-9t-jr2"/>
                 <constraint firstItem="ilT-WH-eP1" firstAttribute="bottom" secondItem="vFc-S5-m38" secondAttribute="bottom" constant="-10" id="BnY-6z-7N9"/>
                 <constraint firstItem="UYr-xu-qt8" firstAttribute="top" secondItem="vFc-S5-m38" secondAttribute="bottom" constant="1" id="Cm7-J9-Lvf"/>
-                <constraint firstItem="ilT-WH-eP1" firstAttribute="trailing" secondItem="vFc-S5-m38" secondAttribute="trailing" id="DDk-Vg-7HR"/>
-                <constraint firstItem="ilT-WH-eP1" firstAttribute="leading" secondItem="vFc-S5-m38" secondAttribute="leading" id="H5L-zE-bKI"/>
+                <constraint firstItem="ilT-WH-eP1" firstAttribute="trailing" secondItem="vFc-S5-m38" secondAttribute="trailing" constant="-10" id="DDk-Vg-7HR"/>
+                <constraint firstItem="ilT-WH-eP1" firstAttribute="leading" secondItem="vFc-S5-m38" secondAttribute="leading" constant="10" id="H5L-zE-bKI"/>
                 <constraint firstItem="UYr-xu-qt8" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="LSY-cm-oNV"/>
                 <constraint firstItem="vFc-S5-m38" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="X1k-3k-5AF"/>
                 <constraint firstAttribute="trailing" secondItem="UYr-xu-qt8" secondAttribute="trailing" id="gOy-Hr-JyY"/>

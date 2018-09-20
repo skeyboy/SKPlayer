@@ -38,6 +38,9 @@
 		53B0B058215246A100E892D1 /* Latest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0B057215246A100E892D1 /* Latest.swift */; };
 		53B0B05D215253C700E892D1 /* LatestViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0B05B215253C700E892D1 /* LatestViewItem.swift */; };
 		53B0B05E215253C700E892D1 /* LatestViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53B0B05C215253C700E892D1 /* LatestViewItem.xib */; };
+		53D5650721532BC900705888 /* LatestHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5650621532BC900705888 /* LatestHeaderView.swift */; };
+		53D5650921532BE600705888 /* LatestHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53D5650821532BE600705888 /* LatestHeaderView.xib */; };
+		53D5650B2153376300705888 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5650A2153376300705888 /* ContainerController.swift */; };
 		53E99B6521491242001DE9CC /* MacClickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E99B6221491242001DE9CC /* MacClickView.m */; };
 		53E99B6621491242001DE9CC /* MacProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E99B6421491242001DE9CC /* MacProgressHUD.m */; };
 		53EC895321474CF00056B7EB /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EC895221474CF00056B7EB /* Index.swift */; };
@@ -91,6 +94,9 @@
 		53B0B057215246A100E892D1 /* Latest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Latest.swift; sourceTree = "<group>"; };
 		53B0B05B215253C700E892D1 /* LatestViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestViewItem.swift; sourceTree = "<group>"; };
 		53B0B05C215253C700E892D1 /* LatestViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LatestViewItem.xib; sourceTree = "<group>"; };
+		53D5650621532BC900705888 /* LatestHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestHeaderView.swift; sourceTree = "<group>"; };
+		53D5650821532BE600705888 /* LatestHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LatestHeaderView.xib; sourceTree = "<group>"; };
+		53D5650A2153376300705888 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
 		53E99B6121491242001DE9CC /* MacClickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacClickView.h; sourceTree = "<group>"; };
 		53E99B6221491242001DE9CC /* MacClickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacClickView.m; sourceTree = "<group>"; };
 		53E99B6321491242001DE9CC /* MacProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacProgressHUD.h; sourceTree = "<group>"; };
@@ -205,6 +211,8 @@
 				53B0B05421523B1600E892D1 /* LatestViewController.swift */,
 				53B0B05B215253C700E892D1 /* LatestViewItem.swift */,
 				53B0B05C215253C700E892D1 /* LatestViewItem.xib */,
+				53D5650621532BC900705888 /* LatestHeaderView.swift */,
+				53D5650821532BE600705888 /* LatestHeaderView.xib */,
 			);
 			path = Latest;
 			sourceTree = "<group>";
@@ -248,6 +256,7 @@
 				53F8A5C02147A0F300C18A9E /* Cloud */,
 				53EC8954214763E40056B7EB /* Detail */,
 				53EC894F21474C9A0056B7EB /* Index */,
+				53D5650A2153376300705888 /* ContainerController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -407,6 +416,7 @@
 				53F8A5C62147A18400C18A9E /* CloudViewItem.xib in Resources */,
 				5378254A21467B17009939DD /* Main.storyboard in Resources */,
 				538073D82146D037005CA6CD /* IndexHeaderView.xib in Resources */,
+				53D5650921532BE600705888 /* LatestHeaderView.xib in Resources */,
 				531D0EED2148F1E600BAF27F /* CloudViewBTItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +485,8 @@
 				53F8A5C22147A11A00C18A9E /* CloudPlayerController.swift in Sources */,
 				53043DDA2147C8D4001019EA /* PlayerWindow.swift in Sources */,
 				53B0B05021522A1400E892D1 /* HoverView.swift in Sources */,
+				53D5650721532BC900705888 /* LatestHeaderView.swift in Sources */,
+				53D5650B2153376300705888 /* ContainerController.swift in Sources */,
 				538073D32146B12A005CA6CD /* IndexViewItem.swift in Sources */,
 				531D0EEC2148F1E600BAF27F /* CloudViewBTItem.swift in Sources */,
 				5378255A214699F5009939DD /* MenuViewItem.swift in Sources */,

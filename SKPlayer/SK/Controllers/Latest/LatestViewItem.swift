@@ -30,6 +30,26 @@ class LatestViewItem: NSCollectionViewItem {
         super.viewDidLoad()
         // Do view setup here.
         
+        let menu = NSMenu(title: "保存")
+        menu.addItem(withTitle: "查看", action: nil, keyEquivalent: "")
+        menu.addItem(withTitle: "收藏", action: nil, keyEquivalent: "")
+        menu.addItem(withTitle: "保存图片", action: #selector(save(sender:)), keyEquivalent: "")
+                self.view.menu = menu
+    }
+    @objc func save( sender: NSMenuItem) -> Void{
+        let panel: NSOpenPanel = NSOpenPanel()
+        panel.canCreateDirectories = true
+        panel.canChooseDirectories = true
+        [panel .begin(completionHandler: { resp in
+            if resp == NSApplication.ModalResponse.OK {
+                print(panel.url)
+            }
+        })]
+        
+    }
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        self.descView.alphaValue = 0.8
     }
     
 }
