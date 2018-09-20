@@ -37,12 +37,19 @@ class LatestViewItem: NSCollectionViewItem {
                 self.view.menu = menu
     }
     @objc func save( sender: NSMenuItem) -> Void{
-        let panel: NSOpenPanel = NSOpenPanel()
+        let panel: NSSavePanel = NSSavePanel()
+        panel.message = "选择图片保存地址"
+        panel.nameFieldStringValue = "\(self.todayItem!.picLink!.hashValue)"
+        panel.allowedFileTypes = ["jpg", "png","jpeg"]
         panel.canCreateDirectories = true
-        panel.canChooseDirectories = true
+        
         [panel .begin(completionHandler: { resp in
             if resp == NSApplication.ModalResponse.OK {
                 print(panel.url)
+                var data = self.picView.image?.tiffRepresentation
+                if let data = data {
+                   try! data.write(to: panel.url!, options: Data.WritingOptions.atomicWrite)
+                }
             }
         })]
         
