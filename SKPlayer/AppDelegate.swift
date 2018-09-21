@@ -18,7 +18,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
 //        SKMenuView.init(frame: NSRect.zero).updateMenu()
     }
-
+//    func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
+//        var menu: NSMenu = NSMenu(title: "")
+//
+//        menu.addItem(withTitle: "历史", action: nil, keyEquivalent: "")
+//        return nil
+//    }
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
@@ -27,11 +32,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return false
     }
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-        if flag {
+//        if flag {
             NSApp.windows.first?.makeKeyAndOrderFront(self)
             return true
-        }
+//        }
         return false
     }
 }
 
+extension Int{
+    var indexSet: IndexSet{
+        return IndexSet(integer: self)
+    }
+}
+
+extension Array{
+    var indexSet: IndexSet {
+        return IndexSet(integer: self.count)
+    }
+    func indexSets(from index: Int) -> IndexSet {
+      return  IndexSet(integersIn: Range(NSRange(location: index, length: index <= self.count-1 ? self.count - index : 0 ))!)
+    }
+    func indexSets(from index: Int,  to:Int) -> IndexSet {
+        if index > to {
+            assert(false, "from 必须 小于 to")
+        }
+        let finallyTo  =  ( to <= self.count - 1 ? to : self.count - 1 )
+        
+        return IndexSet(integersIn: Range(NSRange(location: index, length:  finallyTo - index ))!)
+    }
+}

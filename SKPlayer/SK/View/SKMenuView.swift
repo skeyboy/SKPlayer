@@ -33,23 +33,23 @@ class SKMenuItem{
 
 class SKMenuView: NSView {
     weak var allVC: AllViewController?
-  weak  var skMenuCollectionView: NSCollectionView?{
+    weak  var skMenuCollectionView: NSCollectionView?{
         didSet{
             self.skMenuCollectionView?.delegate = self
             self.skMenuCollectionView?.dataSource = self
-            self.viewDidload()
+            //            self.viewDidload()
         }
     }
     var skMenus:[SKMenu] = [SKMenu]()
     lazy var lock: NSRecursiveLock = NSRecursiveLock()
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-
+        
         // Drawing code here.
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        
     }
     func update() -> Void {
         
@@ -70,6 +70,7 @@ class SKMenuView: NSView {
         }
     }
     func viewDidload( href: String = "http://www.btbtdy.net/btfl/dy1.html" ) -> Void {
+        
         self.updateMenu(href) { (ts) in
             if !self.skMenus.isEmpty {
                 self.skMenus.removeAll()
@@ -85,36 +86,39 @@ class SKMenuView: NSView {
 
 extension SKMenuView : Parser{
     func updateMenu(_ menuURL: String, result:@escaping ([SKMenu])->Void){
-         var skMenus: [SKMenu] = [SKMenu]()
-
+        var skMenus: [SKMenu] = [SKMenu]()
+        self.showProgressHUD(title: "努力加载", message: "loading", mode: ProgressHUDMode.determinate)
         parser(menuURL) { (ji, resp, error) in
-            
+            self.hideProgressHUD()
             
             if let allVC =  self.allVC {
-                allVC.update(nodes:ji?.xPath("//div[@class='list_su']/ul/li"))
+                MainQueue.async {
+                    
+                    allVC.update(nodes:ji?.xPath("//div[@class='list_su']/ul/li"))
+                }
             }
             let  items: [JiNode]? = ji?.xPath("//div[@class='s_index']/dl")
             
             if let items = items {
                 
                 self.lock.lock()
-             items.forEach({ (node) in
-                
-                let title = node.firstChild?.xPath("./text()").first!.rawContent ?? UnKnown
-                let skMenu:SKMenu = SKMenu(kind: title)
-                
-                 let subs = node.xPath("./dd/a")
-                
-                subs.forEach({ (subNode) in
-                    let href = subNode.attributes["href"]!
-                    let subTitle = subNode.xPath("./text()").first!.rawContent!
-                    let on: Bool = subNode.attributes["class"] == "current"
-                    let subMenu: SKMenuItem = SKMenuItem(on: on, title: subTitle, link: href)
+                items.forEach({ (node) in
                     
-                    skMenu.subMenus.append(subMenu)
+                    let title = node.firstChild?.xPath("./text()").first!.rawContent ?? UnKnown
+                    let skMenu:SKMenu = SKMenu(kind: title)
+                    
+                    let subs = node.xPath("./dd/a")
+                    
+                    subs.forEach({ (subNode) in
+                        let href = subNode.attributes["href"]!
+                        let subTitle = subNode.xPath("./text()").first!.rawContent!
+                        let on: Bool = subNode.attributes["class"] == "current"
+                        let subMenu: SKMenuItem = SKMenuItem(on: on, title: subTitle, link: href)
+                        
+                        skMenu.subMenus.append(subMenu)
+                    })
+                    skMenus.append(skMenu)
                 })
-                skMenus.append(skMenu)
-             })
                 result(skMenus)
                 self.lock.unlock()
             }
@@ -156,9 +160,9 @@ extension SKMenuView: NSCollectionViewDelegate{
                 self.skMenus.removeAll()
                 self.skMenus.append(contentsOf: ts)
                 self.skMenuCollectionView?.reloadData()
-//                self.skMenuCollectionView?.reloadSections(IndexSet(integer: indexPaths.first!.section))
-//
-//                self.skMenuCollectionView?.reloadSections(IndexSet(integer: self.skMenus.count))
+                //                self.skMenuCollectionView?.reloadSections(IndexSet(integer: indexPaths.first!.section))
+                //
+                //                self.skMenuCollectionView?.reloadSections(IndexSet(integer: self.skMenus.count))
                 
             }
         }

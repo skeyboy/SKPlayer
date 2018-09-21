@@ -13,9 +13,11 @@ class SKMenuViewitem: NSCollectionViewItem {
         didSet{
             self.meneTitleView.stringValue = self.item!.title
             if self.item!.on {
-                self.view.layer?.borderWidth = 2
+                self.meneTitleView.layer?.backgroundColor = NSColor.linkColor.cgColor
+                self.meneTitleView.textColor = NSColor.white
             }else {
-                self.view.layer?.borderWidth = 0
+                self.meneTitleView.layer?.backgroundColor = NSColor.white.cgColor
+                self.meneTitleView.textColor = NSColor.black
             }
             
         }
@@ -25,7 +27,7 @@ class SKMenuViewitem: NSCollectionViewItem {
         super.viewDidLoad()
         // Do view setup here.
         self.view.wantsLayer = true
-        self.view.layer?.borderColor = NSColor.linkColor.cgColor
+        self.meneTitleView.wantsLayer = true
     }
     
 }

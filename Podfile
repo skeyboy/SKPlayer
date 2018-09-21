@@ -13,5 +13,6 @@ pod 'Alamofire'
 pod 'Kingfisher'
 # pod 'MLHudAlert'
   # Pods for SKPlayer
+  pod 'HProgregressHUD', :podspec=>'https://github.com/hanxiaoqing19910916/HProgregressHUD/blob/master/HProgressHUD.podspec'
 
 end

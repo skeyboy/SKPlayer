@@ -41,6 +41,7 @@ class MenuViewController: NSViewController {
         self.menuCollection.collectionViewLayout = flowLayout
         self.menuCollection.reloadData()
         self.menuCollection.backgroundColors = [NSColor.gray]
+        
         self.parser(HOST_URL) { (ji, resp, error) in
             let menus:[JiNode] = (ji?.xPath("//div[@class='head02 lf']/ul/li/a"))!
             for node in menus {
@@ -54,7 +55,9 @@ class MenuViewController: NSViewController {
                 
                 self.menuItems.append(menu)
             }
+            self.menuItems.removeSubrange(Range(NSRange(location: 9, length: 5))!)
             MainQueue.async {
+                
                 self.menuCollection.reloadData()
                 
             }

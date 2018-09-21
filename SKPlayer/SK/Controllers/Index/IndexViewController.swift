@@ -30,9 +30,9 @@ class IndexViewController: NSViewController {
         layout.sectionHeadersPinToVisibleBounds = true
         self.indexCollection.collectionViewLayout = layout
         
-        
+self.view.showProgressHUD(title: "", message: "T##String", mode: ProgressHUDMode.determinate)
         indexParser("http://www.btbtdy.net/") { (results) in
-            
+self.view.hideProgressHUD()
             self.indexParts.insert(contentsOf: results, at: 0)
             
             let group = DispatchGroup.init()

@@ -29,10 +29,7 @@ class AllViewController: NSViewController {
         // Do view setup here.
         self.skMenuView.allVC = self
         self.skMenuView.skMenuCollectionView = self.skMenuCollectionView
-        
-        
-        
-        
+
         let layout:NSCollectionViewFlowLayout = NSCollectionViewFlowLayout()
         layout.itemSize = IndexSectionSize
         layout.estimatedItemSize = IndexSectionSize
@@ -43,6 +40,10 @@ class AllViewController: NSViewController {
         
     }
     
+    
+    /// 用于从外部传递数据使用
+    ///
+    /// - Parameter nodes: nodes description
     func update( nodes:[JiNode]?) -> Void {
         if !self.allItems.isEmpty {
             self.allItems.removeAll()

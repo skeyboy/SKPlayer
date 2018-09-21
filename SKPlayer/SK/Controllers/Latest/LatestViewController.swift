@@ -20,10 +20,15 @@ class LatestViewController: NSViewController, Parser {
     override func viewDidAppear() {
         super.viewDidAppear()
         if self.todays.isEmpty {
-            self.parseToday(url: "http://www.btbtdy.net/previews.html#today") { (ts) in
-                self.todays.append(contentsOf: ts)
+            
+            self.view.showProgressHUD(title: "", message: "T##String", mode: ProgressHUDMode.determinate)
+
+             self.parseToday(url: "http://www.btbtdy.net/previews.html#today") { (ts) in
                 
-                let group = DispatchGroup.init()
+                self.view.hideProgressHUD()
+                
+                self.todays.append(contentsOf: ts)
+                 let group = DispatchGroup.init()
               let queue =  DispatchQueue.init(label: "Latest", qos: DispatchQoS.default, attributes: DispatchQueue.Attributes.concurrent, autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency.inherit, target: MainQueue)
                 for i in 0 ... self.todays.count - 1 {
                     
@@ -102,3 +107,5 @@ extension LatestViewController: NSCollectionViewDelegateFlowLayout{
         return self.todays[section].items.isEmpty ? NSZeroSize : NSSize(width: 75, height: 46)
     }
 }
+
+
