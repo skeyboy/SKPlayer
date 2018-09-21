@@ -15,11 +15,35 @@ class LatestViewController: NSViewController, Parser {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        self.parseToday(url: "http://www.btbtdy.net/previews.html#today") { (ts) in
-            self.todays.append(contentsOf: ts)
-            MainQueue.async {
+       
+    }
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        if self.todays.isEmpty {
+            self.parseToday(url: "http://www.btbtdy.net/previews.html#today") { (ts) in
+                self.todays.append(contentsOf: ts)
                 
-                self.todayCollectionView.reloadData()
+                let group = DispatchGroup.init()
+              let queue =  DispatchQueue.init(label: "Latest", qos: DispatchQoS.default, attributes: DispatchQueue.Attributes.concurrent, autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency.inherit, target: MainQueue)
+                for i in 0 ... self.todays.count - 1 {
+                    
+                queue.async(group: group, qos: DispatchQoS.background, flags: DispatchWorkItemFlags.barrier, execute: {
+                    MainQueue.async {
+                        
+                        let section = IndexSet(integer: i)
+                       self.todayCollectionView.insertSections(section)
+                    }
+                })
+                    
+                }
+                group.notify(queue: DispatchQueue.main, execute: {
+                    self.todayCollectionView.performBatchUpdates({
+                        
+                    }, completionHandler: { (completed) in
+                        
+                    })
+                })
+
             }
         }
     }

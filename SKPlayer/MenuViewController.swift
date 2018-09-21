@@ -18,7 +18,7 @@ class Menu {
 enum Type: Int{
     case indexView = 0
     case latestView = 1
-    case menuView = 2
+    case allView = 2
     case unknown
 }
 class MenuViewController: NSViewController {
@@ -112,7 +112,7 @@ extension MenuViewController: NSCollectionViewDataSource{
             case 0: type = .indexView
                 break
             case 1 ... 5:
-                type = .menuView
+                type = .allView
                 break
             case 8:
                 type = .latestView

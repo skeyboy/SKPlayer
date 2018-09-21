@@ -15,14 +15,13 @@ class IndexViewController: NSViewController {
     var indexs:[[IndexItemModel]] = [[IndexItemModel]]()
     var indexParts:[Part] = [Part]()
     @IBOutlet weak var indexCollection: NSCollectionView!
+    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
-        //        let layout: NSCollectionViewGridLayout = NSCollectionViewGridLayout.init()
-        //        layout.maximumItemSize = NSSize(width: 300, height: 200)
-        //        layout.minimumItemSize = NSSize(width: 150, height: 100)
-        //
+       
         let layout:NSCollectionViewFlowLayout = NSCollectionViewFlowLayout()
         layout.itemSize = IndexSectionSize
         layout.estimatedItemSize = IndexSectionSize
@@ -35,7 +34,19 @@ class IndexViewController: NSViewController {
         indexParser("http://www.btbtdy.net/") { (results) in
             
             self.indexParts.insert(contentsOf: results, at: 0)
-            self.indexCollection.reloadData()
+            
+            let group = DispatchGroup.init()
+            let queue =  DispatchQueue.init(label: "Index", qos: DispatchQoS.default, attributes: DispatchQueue.Attributes.concurrent, autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency.inherit, target: MainQueue)
+            
+            for i in 0 ... self.indexParts.count - 1 {
+                let section = IndexSet(arrayLiteral: i)
+                queue.async(group: group, qos: DispatchQoS.background, flags: DispatchWorkItemFlags.barrier, execute: {
+                    self.indexCollection.insertSections(section)
+                })
+            }
+            group.notify(queue: MainQueue, execute: {
+                
+            })
         }
     }
     

@@ -1078,6 +1078,116 @@
             </objects>
             <point key="canvasLocation" x="-623" y="1328"/>
         </scene>
+        <!--汇总有彩蛋-->
+        <scene sceneID="vGa-fQ-3n7">
+            <objects>
+                <viewController title="汇总有彩蛋" storyboardIdentifier="all" id="3Vz-BI-xNm" customClass="AllViewController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Nug-PJ-WzP">
+                        <rect key="frame" x="0.0" y="0.0" width="1150" height="768"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="pKQ-Bz-Vy2" customClass="SKMenuView" customModule="SKPlayer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="505" width="1150" height="263"/>
+                                <subviews>
+                                    <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjI-44-NBN">
+                                        <rect key="frame" x="0.0" y="0.0" width="1150" height="263"/>
+                                        <clipView key="contentView" id="tfO-TI-UjI">
+                                            <rect key="frame" x="1" y="1" width="1148" height="261"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <collectionView selectable="YES" id="5yP-vG-oOy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="1148" height="158"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" id="yMG-NB-cUD">
+                                                        <size key="itemSize" width="60" height="17"/>
+                                                    </collectionViewFlowLayout>
+                                                    <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <connections>
+                                                        <binding destination="bnL-1U-Ypy" name="content" keyPath="values.skMenuCollectionView" id="9SW-bs-sQL"/>
+                                                    </connections>
+                                                </collectionView>
+                                            </subviews>
+                                        </clipView>
+                                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="ZJC-nS-LTu">
+                                            <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="qlE-4L-203">
+                                            <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                    </scrollView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="kjI-44-NBN" firstAttribute="top" secondItem="pKQ-Bz-Vy2" secondAttribute="top" id="Fm7-ZS-bLi"/>
+                                    <constraint firstAttribute="height" constant="263" id="G2t-m8-FJt"/>
+                                    <constraint firstItem="kjI-44-NBN" firstAttribute="leading" secondItem="pKQ-Bz-Vy2" secondAttribute="leading" id="nxT-sA-HdT"/>
+                                    <constraint firstAttribute="trailing" secondItem="kjI-44-NBN" secondAttribute="trailing" id="omK-Wp-PJx"/>
+                                    <constraint firstAttribute="bottom" secondItem="kjI-44-NBN" secondAttribute="bottom" id="zh5-0l-eXb"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="18f-mN-MzE">
+                                <rect key="frame" x="0.0" y="0.0" width="1150" height="506"/>
+                                <subviews>
+                                    <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXB-dz-5ea">
+                                        <rect key="frame" x="0.0" y="0.0" width="1150" height="506"/>
+                                        <clipView key="contentView" id="Wyn-Jv-QnO">
+                                            <rect key="frame" x="1" y="1" width="1148" height="504"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <collectionView selectable="YES" id="lai-cd-OFX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="1148" height="158"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="Jvk-Hf-TzE">
+                                                        <size key="itemSize" width="50" height="50"/>
+                                                    </collectionViewFlowLayout>
+                                                    <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="3Vz-BI-xNm" id="vWs-ke-8VR"/>
+                                                        <outlet property="delegate" destination="3Vz-BI-xNm" id="Mpe-jP-9zr"/>
+                                                    </connections>
+                                                </collectionView>
+                                            </subviews>
+                                        </clipView>
+                                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="YQW-at-d5m">
+                                            <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="un2-cn-l5Y">
+                                            <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                    </scrollView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="iXB-dz-5ea" secondAttribute="trailing" id="5cU-Rq-ZmF"/>
+                                    <constraint firstItem="iXB-dz-5ea" firstAttribute="leading" secondItem="18f-mN-MzE" secondAttribute="leading" id="Bey-bq-Fhc"/>
+                                    <constraint firstItem="iXB-dz-5ea" firstAttribute="top" secondItem="18f-mN-MzE" secondAttribute="top" id="Q5U-dS-gaI"/>
+                                    <constraint firstAttribute="bottom" secondItem="iXB-dz-5ea" secondAttribute="bottom" id="Qlk-EW-8lT"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="18f-mN-MzE" firstAttribute="firstBaseline" secondItem="tfO-TI-UjI" secondAttribute="baseline" id="29L-yk-AjA"/>
+                            <constraint firstAttribute="bottom" secondItem="18f-mN-MzE" secondAttribute="bottom" id="CRb-Qc-dPP"/>
+                            <constraint firstItem="18f-mN-MzE" firstAttribute="leading" secondItem="Nug-PJ-WzP" secondAttribute="leading" id="Wac-00-uzw"/>
+                            <constraint firstAttribute="trailing" secondItem="pKQ-Bz-Vy2" secondAttribute="trailing" id="cgi-jh-fIg"/>
+                            <constraint firstItem="pKQ-Bz-Vy2" firstAttribute="top" secondItem="Nug-PJ-WzP" secondAttribute="top" id="jLd-Kv-Lbx"/>
+                            <constraint firstItem="pKQ-Bz-Vy2" firstAttribute="leading" secondItem="Nug-PJ-WzP" secondAttribute="leading" id="uWN-h9-rvI"/>
+                            <constraint firstAttribute="trailing" secondItem="18f-mN-MzE" secondAttribute="trailing" id="xTn-7f-6PB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="allCollectionView" destination="lai-cd-OFX" id="itb-cs-TEv"/>
+                        <outlet property="skMenuCollectionView" destination="5yP-vG-oOy" id="ZJS-sO-ih2"/>
+                        <outlet property="skMenuView" destination="pKQ-Bz-Vy2" id="mZ8-1K-uQH"/>
+                    </connections>
+                </viewController>
+                <customObject id="rEX-xa-xbv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="bnL-1U-Ypy"/>
+            </objects>
+            <point key="canvasLocation" x="-225" y="3546"/>
+        </scene>
         <!--资源列表-->
         <scene sceneID="9Hk-mf-AFx">
             <objects>

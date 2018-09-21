@@ -14,6 +14,13 @@
 		530D7D412150D0A600854DB8 /* BTInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 530D7D402150D0A600854DB8 /* BTInfo.m */; };
 		531D0EEC2148F1E600BAF27F /* CloudViewBTItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D0EEA2148F1E600BAF27F /* CloudViewBTItem.swift */; };
 		531D0EED2148F1E600BAF27F /* CloudViewBTItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 531D0EEB2148F1E600BAF27F /* CloudViewBTItem.xib */; };
+		534271412154D65100562CC5 /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534271402154D65100562CC5 /* AllViewController.swift */; };
+		534271BF2154EED600562CC5 /* SKMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534271BE2154EED600562CC5 /* SKMenuHeaderView.swift */; };
+		534271C12154EEE800562CC5 /* SKMenuHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 534271C02154EEE800562CC5 /* SKMenuHeaderView.xib */; };
+		53544B0C2153AB3D0066B48B /* SKMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53544B0B2153AB3D0066B48B /* SKMenuView.swift */; };
+		53544B0E2153AB480066B48B /* SKMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53544B0D2153AB480066B48B /* SKMenuView.xib */; };
+		53544B112153ABA60066B48B /* SKMenuViewitem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53544B0F2153ABA60066B48B /* SKMenuViewitem.swift */; };
+		53544B122153ABA60066B48B /* SKMenuViewitem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53544B102153ABA60066B48B /* SKMenuViewitem.xib */; };
 		5360D37A2149FC24003516B5 /* BTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5360D3792149FC24003516B5 /* BTViewController.swift */; };
 		5360D37D2149FF76003516B5 /* BT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5360D37C2149FF76003516B5 /* BT.swift */; };
 		5378254321467B16009939DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378254221467B16009939DD /* AppDelegate.swift */; };
@@ -67,6 +74,13 @@
 		530D7D402150D0A600854DB8 /* BTInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTInfo.m; sourceTree = "<group>"; };
 		531D0EEA2148F1E600BAF27F /* CloudViewBTItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudViewBTItem.swift; sourceTree = "<group>"; };
 		531D0EEB2148F1E600BAF27F /* CloudViewBTItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CloudViewBTItem.xib; sourceTree = "<group>"; };
+		534271402154D65100562CC5 /* AllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
+		534271BE2154EED600562CC5 /* SKMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKMenuHeaderView.swift; sourceTree = "<group>"; };
+		534271C02154EEE800562CC5 /* SKMenuHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SKMenuHeaderView.xib; sourceTree = "<group>"; };
+		53544B0B2153AB3D0066B48B /* SKMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKMenuView.swift; sourceTree = "<group>"; };
+		53544B0D2153AB480066B48B /* SKMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SKMenuView.xib; sourceTree = "<group>"; };
+		53544B0F2153ABA60066B48B /* SKMenuViewitem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKMenuViewitem.swift; sourceTree = "<group>"; };
+		53544B102153ABA60066B48B /* SKMenuViewitem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SKMenuViewitem.xib; sourceTree = "<group>"; };
 		5360D3792149FC24003516B5 /* BTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTViewController.swift; sourceTree = "<group>"; };
 		5360D37C2149FF76003516B5 /* BT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BT.swift; sourceTree = "<group>"; };
 		5378253F21467B16009939DD /* SKPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +151,27 @@
 				53043DD92147C8D4001019EA /* PlayerWindow.swift */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		5342713F2154D63700562CC5 /* All */ = {
+			isa = PBXGroup;
+			children = (
+				534271402154D65100562CC5 /* AllViewController.swift */,
+			);
+			path = All;
+			sourceTree = "<group>";
+		};
+		53544B0A2153AB0E0066B48B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53544B0B2153AB3D0066B48B /* SKMenuView.swift */,
+				53544B0D2153AB480066B48B /* SKMenuView.xib */,
+				53544B0F2153ABA60066B48B /* SKMenuViewitem.swift */,
+				53544B102153ABA60066B48B /* SKMenuViewitem.xib */,
+				534271BE2154EED600562CC5 /* SKMenuHeaderView.swift */,
+				534271C02154EEE800562CC5 /* SKMenuHeaderView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5360D3782149FB02003516B5 /* BT */ = {
@@ -239,6 +274,7 @@
 		53EC894D21474C9A0056B7EB /* SK */ = {
 			isa = PBXGroup;
 			children = (
+				53544B0A2153AB0E0066B48B /* View */,
 				53A1B7B5214FB1380037D7DC /* BT */,
 				53E99B6021491242001DE9CC /* MacProgressHUD */,
 				53EC895021474CC70056B7EB /* Parser */,
@@ -250,6 +286,7 @@
 		53EC894E21474C9A0056B7EB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5342713F2154D63700562CC5 /* All */,
 				53B0B05321523B0100E892D1 /* Latest */,
 				5360D3782149FB02003516B5 /* BT */,
 				53043DD42147C22A001019EA /* Player */,
@@ -412,7 +449,10 @@
 				538073D42146B12A005CA6CD /* IndexViewItem.xib in Resources */,
 				5378255B214699F5009939DD /* MenuViewItem.xib in Resources */,
 				53B0B05E215253C700E892D1 /* LatestViewItem.xib in Resources */,
+				53544B0E2153AB480066B48B /* SKMenuView.xib in Resources */,
+				534271C12154EEE800562CC5 /* SKMenuHeaderView.xib in Resources */,
 				5378254721467B17009939DD /* Assets.xcassets in Resources */,
+				53544B122153ABA60066B48B /* SKMenuViewitem.xib in Resources */,
 				53F8A5C62147A18400C18A9E /* CloudViewItem.xib in Resources */,
 				5378254A21467B17009939DD /* Main.storyboard in Resources */,
 				538073D82146D037005CA6CD /* IndexHeaderView.xib in Resources */,
@@ -482,13 +522,17 @@
 				53EC895321474CF00056B7EB /* Index.swift in Sources */,
 				5360D37A2149FC24003516B5 /* BTViewController.swift in Sources */,
 				530D7D412150D0A600854DB8 /* BTInfo.m in Sources */,
+				534271BF2154EED600562CC5 /* SKMenuHeaderView.swift in Sources */,
 				53F8A5C22147A11A00C18A9E /* CloudPlayerController.swift in Sources */,
+				534271412154D65100562CC5 /* AllViewController.swift in Sources */,
 				53043DDA2147C8D4001019EA /* PlayerWindow.swift in Sources */,
 				53B0B05021522A1400E892D1 /* HoverView.swift in Sources */,
 				53D5650721532BC900705888 /* LatestHeaderView.swift in Sources */,
 				53D5650B2153376300705888 /* ContainerController.swift in Sources */,
 				538073D32146B12A005CA6CD /* IndexViewItem.swift in Sources */,
+				53544B0C2153AB3D0066B48B /* SKMenuView.swift in Sources */,
 				531D0EEC2148F1E600BAF27F /* CloudViewBTItem.swift in Sources */,
+				53544B112153ABA60066B48B /* SKMenuViewitem.swift in Sources */,
 				5378255A214699F5009939DD /* MenuViewItem.swift in Sources */,
 				53EC895F2147779E0056B7EB /* Parser.swift in Sources */,
 				53EC89572147656E0056B7EB /* DetailViewController.swift in Sources */,

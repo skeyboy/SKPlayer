@@ -9,6 +9,7 @@
 import Cocoa
 import AppKit
 import Kingfisher
+import CoreGraphics
 class LatestViewItem: NSCollectionViewItem {
     @IBOutlet weak var picView: NSImageView!
     @IBOutlet weak var descView: NSTextField!
@@ -68,7 +69,7 @@ class LatestViewItem: NSCollectionViewItem {
         
         [panel .begin(completionHandler: { resp in
             if resp == NSApplication.ModalResponse.OK {
-                let data = self.picView.image?.tiffRepresentation
+                let data = self.picView!.image!.tiffRepresentation
                 if let data = data {
                    try! data.write(to: panel.url!, options: Data.WritingOptions.atomicWrite)
                 }
@@ -88,7 +89,25 @@ extension LatestViewItem: NSSharingServiceDelegate{
         return self.view.window
     }
      public func sharingService(_ sharingService: NSSharingService, sourceFrameOnScreenForShareItem item: Any) -> NSRect{
+      
         return self.view.visibleRect
     }
     
+}
+
+extension NSView {
+    var screen: NSImage {
+        
+        let screenRect = self.bounds
+        let screenSize = screenRect.size
+        self.lockFocus()
+        let offScreenRep =         self.bitmapImageRepForCachingDisplay(in: self.frame)
+        self.cacheDisplay(in: self.frame, to: offScreenRep!)
+        self.unlockFocus()
+        let img: NSImage = NSImage(size: screenSize)
+        img.addRepresentation(offScreenRep!)
+        
+        return img
+    
+    }
 }

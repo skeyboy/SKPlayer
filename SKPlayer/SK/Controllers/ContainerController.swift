@@ -18,9 +18,11 @@ class ContainerController: NSViewController {
         let index =   self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("index"))
         
         let latest = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("latest"))
+        let all = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("all")) as! AllViewController
         
         addSubChildController(index as! NSViewController)
         addSubChildController(latest as! NSViewController)
+        addSubChildController(all as NSViewController)
         self.view.subviews[0].isHidden = false
     }
     func addSubChildController(_ childController: NSViewController){
@@ -44,8 +46,8 @@ class ContainerController: NSViewController {
         case .latestView:
             showLatest(type: type)
             break
-        case .menuView:
-            
+        case .allView:
+            ( self.childViewControllers[type.rawValue] as! AllViewController).newHref = href
             break
         default:
             print("\(type) => \(href) \n")
