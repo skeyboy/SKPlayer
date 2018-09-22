@@ -8,6 +8,7 @@
 
 import Cocoa
 import VLCKit
+import Kingfisher
 let HOST_URL = "http://www.btbtdy.net"
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -17,6 +18,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
 //        SKMenuView.init(frame: NSRect.zero).updateMenu()
+        
+        
+        
+        KingfisherManager.shared.cache.maxMemoryCost = 1024 * 1024 * 10
     }
 //    func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
 //        var menu: NSMenu = NSMenu(title: "")

@@ -79,6 +79,16 @@ extension IndexViewController: NSCollectionViewDataSource{
         return item
     }
     
+    public func collectionView(_ collectionView: NSCollectionView, willDisplay aItem: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath){
+    
+        let item:IndexViewItem = aItem as! IndexViewItem
+        let currentSection: Section = self.indexParts[indexPath.section].currentSection!
+        
+        let indexModel: IndexItemModel = currentSection.sectionItems[indexPath.item]
+        item.indexModel = indexModel
+        item.indexPath = indexPath
+        
+    }
     
     func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
         return true

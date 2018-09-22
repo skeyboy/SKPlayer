@@ -25,6 +25,9 @@ class LatestViewItem: NSCollectionViewItem {
             }
             self.titleView.stringValue = self.todayItem!.title ?? UnKnown
             self.descView.stringValue = self.todayItem!.totalDesc ?? UnKnown
+            self.scoreView.stringValue = self.todayItem!.score
+            self.infoView.stringValue = self.todayItem!.info ?? UnKnown
+            self.rtView.stringValue = self.todayItem!.rt ?? UnKnown
             self.createShare()
         }
     }
@@ -32,21 +35,30 @@ class LatestViewItem: NSCollectionViewItem {
         super.viewDidLoad()
         // Do view setup here.
         
-       
+        
     }
     func createShare( ) -> Void {
         let menu = NSMenu(title: "保存")
-        let shareItem = NSMenuItem(title: "分享",  action: #selector(share(sender:)), keyEquivalent: "")
         
         let shateItems = [
             NSAttributedString.init(string: self.todayItem!.title ?? ""),
-            self.todayItem!.picLink!
+            self.todayItem!.picLink!, self.todayItem!.totalDesc
             ] as [Any]
-        let services = NSSharingService(named: NSSharingService.Name.cloudSharing)
-        services?.perform(withItems: shateItems)
-        services?.delegate = self
-        shareItem.representedObject = services
-        menu.addItem(shareItem)
+        var allServices: [NSSharingService] = [NSSharingService]()
+        let services = NSSharingService.sharingServices(forItems: shateItems)
+        allServices.append(contentsOf: services)
+        allServices.append(contentsOf:  [NSSharingService.Name.sendViaAirDrop,. addToIPhoto,.useAsDesktopPicture,.addToSafariReadingList, .addToAperture, .cloudSharing].map { (item) -> NSSharingService in
+            return NSSharingService(named: item)!
+        })
+        for  service: NSSharingService in allServices {
+            let shareItem: NSMenuItem = NSMenuItem(title: service.title,  action: #selector(share(sender:)), keyEquivalent: "")
+            service.delegate = self
+            shareItem.target = self
+            shareItem.image = service.image
+            shareItem.representedObject = service
+            menu.addItem(shareItem)
+        }
+        
         menu.addItem(withTitle: "收藏", action: nil, keyEquivalent: "")
         menu.addItem(withTitle: "保存图片", action: #selector(save(sender:)), keyEquivalent: "")
         self.view.menu = menu
@@ -58,7 +70,7 @@ class LatestViewItem: NSCollectionViewItem {
             self.todayItem!.picLink!
             ] as [Any]
         (sender.representedObject as! NSSharingService).perform(withItems: shateItems)
-//         NSSharingServicePicker(items: shateItems).show(relativeTo: self.view.visibleRect, of: self.view, preferredEdge: NSRectEdge.minX)
+        //         NSSharingServicePicker(items: shateItems).show(relativeTo: self.view.visibleRect, of: self.view, preferredEdge: NSRectEdge.minX)
     }
     @objc func save( sender: NSMenuItem) -> Void{
         let panel: NSSavePanel = NSSavePanel()
@@ -71,7 +83,7 @@ class LatestViewItem: NSCollectionViewItem {
             if resp == NSApplication.ModalResponse.OK {
                 let data = self.picView!.image!.tiffRepresentation
                 if let data = data {
-                   try! data.write(to: panel.url!, options: Data.WritingOptions.atomicWrite)
+                    try! data.write(to: panel.url!, options: Data.WritingOptions.atomicWrite)
                 }
             }
         })]
@@ -88,8 +100,8 @@ extension LatestViewItem: NSSharingServiceDelegate{
     func sharingService(_ sharingService: NSSharingService, sourceWindowForShareItems items: [Any], sharingContentScope: UnsafeMutablePointer<NSSharingService.SharingContentScope>) -> NSWindow? {
         return self.view.window
     }
-     public func sharingService(_ sharingService: NSSharingService, sourceFrameOnScreenForShareItem item: Any) -> NSRect{
-      
+    public func sharingService(_ sharingService: NSSharingService, sourceFrameOnScreenForShareItem item: Any) -> NSRect{
+        
         return self.view.visibleRect
     }
     
@@ -108,6 +120,6 @@ extension NSView {
         img.addRepresentation(offScreenRep!)
         
         return img
-    
+        
     }
 }

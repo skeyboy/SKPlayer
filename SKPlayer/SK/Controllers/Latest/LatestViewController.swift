@@ -68,10 +68,15 @@ extension LatestViewController: NSCollectionViewDataSource{
     }
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let latestItem: LatestViewItem =    collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier.init("LatestViewItem"), for: indexPath) as! LatestViewItem
+       
+        return latestItem
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath) {
+        let latestItem: LatestViewItem =    item as! LatestViewItem
         let todayItem: TodayItem = self.todays[indexPath.section].items[indexPath.item]
         
         latestItem.todayItem = todayItem
-        return latestItem
     }
 }
 extension LatestViewController: NSCollectionViewDelegate{

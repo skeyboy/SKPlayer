@@ -17,7 +17,7 @@ class LatestHeaderView: NSView {
     }
     override func layoutSubtreeIfNeeded() {
         super.layoutSubtreeIfNeeded()
-        self.titieView.textColor = self.tintTextColor
+//        self.titieView.textColor = self.tintTextColor
     }
     
 }

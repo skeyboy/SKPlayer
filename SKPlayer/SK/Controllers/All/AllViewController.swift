@@ -8,13 +8,16 @@
 
 import Cocoa
 import Ji
+let PageSection = 1
 class AllViewController: NSViewController {
     
     
     var newHref: String?{
         didSet{
-            
-            self.skMenuView.viewDidload(href: HOST_URL +  self.newHref!)
+            MainQueue.async {
+                
+                self.skMenuView.viewDidload(href: HOST_URL +  self.newHref!)
+            }
         }
     }
     
@@ -22,7 +25,7 @@ class AllViewController: NSViewController {
     @IBOutlet weak var skMenuCollectionView: NSCollectionView!
     
     lazy var allItems:[IndexItemModel] = [IndexItemModel]()
-    
+     var page: Page?
     @IBOutlet weak var allCollectionView: NSCollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +33,7 @@ class AllViewController: NSViewController {
         self.skMenuView.allVC = self
         self.skMenuView.skMenuCollectionView = self.skMenuCollectionView
 
-        let layout:NSCollectionViewFlowLayout = NSCollectionViewFlowLayout()
+        let layout:NSCollectionViewFlowLayout = AllCollectionFlowLayout()
         layout.itemSize = IndexSectionSize
         layout.estimatedItemSize = IndexSectionSize
         layout.sectionHeadersPinToVisibleBounds = true
@@ -40,11 +43,15 @@ class AllViewController: NSViewController {
         
     }
     
-    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
+    }
     /// 用于从外部传递数据使用
     ///
     /// - Parameter nodes: nodes description
-    func update( nodes:[JiNode]?) -> Void {
+    func update( nodes:[JiNode]?, page: Page) -> Void {
+        self.page = page
         if !self.allItems.isEmpty {
             self.allItems.removeAll()
         }
@@ -71,7 +78,12 @@ class AllViewController: NSViewController {
             indexItemModel.score = score
             self.allItems.append(indexItemModel)
         }
-        self.allCollectionView.reloadData()
+        
+        MainQueue.async {
+            self.allCollectionView.reloadData()
+            self.allCollectionView.scrollToItems(at: [IndexPath(item: 0, section: 0)], scrollPosition: NSCollectionView.ScrollPosition.top)
+        }
+        
     }
 }
 
@@ -82,7 +94,13 @@ extension AllViewController: NSCollectionViewDelegate{
         
         
         let indexPath = indexPaths.first!
-       
+        if indexPath.section == PageSection {
+            let pageItem: PageItem = self.page!.pages[indexPath.item]
+            if let link = pageItem.link {
+                self.newHref = link
+            }
+            return
+        }
         
         let detailWin: DetailWindowController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("detail_window")) as! DetailWindowController
         let detailVC: DetailViewController = detailWin.contentViewController as! DetailViewController
@@ -102,19 +120,63 @@ extension AllViewController: NSCollectionViewDelegate{
 }
 extension AllViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == PageSection && self.page != nil {
+            return self.page!.pages.count
+        }
         return self.allItems.count
+    }
+    
+    func numberOfSections(in collectionView: NSCollectionView) -> Int {
+        if self.page == nil {
+            return 1
+        }
+        return 2
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
+        if indexPath.section == PageSection {
+            
+            
+            let pageViewItem: AllPageViewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier.init("AllPageViewItem"), for: indexPath) as! AllPageViewItem
+           
+            let pageItem = self.page!.pages[indexPath.item] as PageItem
+            pageViewItem.pageItem = pageItem
+            
+            
+            return pageViewItem
+        }
+        
         let item:IndexViewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier.init("IndexViewItem"), for: indexPath) as! IndexViewItem
-        let indexModel: IndexItemModel = self.allItems[indexPath.item]
-        item.indexModel = indexModel
-        item.indexPath = indexPath
+//        let indexModel: IndexItemModel = self.allItems[indexPath.item]
+//        item.indexModel = indexModel
+//        item.indexPath = indexPath
         
         return item
     }
     
-    
+    public func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath){
+        if indexPath.section == PageSection {
+            return
+        }
+        let aItem:IndexViewItem = item as! IndexViewItem
+        let indexModel: IndexItemModel = self.allItems[indexPath.item]
+        aItem.indexModel = indexModel
+        aItem.indexPath = indexPath
+    }
+
 }
 
+extension AllViewController : NSCollectionViewDelegateFlowLayout{
+    public func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize{
+        
+        
+        if indexPath.section != PageSection {
+            return CGSize(width: 216, height: 352)
+        } else {
+            return CGSize(width: 44, height: 44)
+        }
+    }
+   
+    
+}

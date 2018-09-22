@@ -8,8 +8,9 @@
 
 import Foundation
 import Ji
-
-class Detail{
+import RealmSwift
+import Realm
+class Detail: Object{
     var coverSrc: String?
     var title: String?
     var year: String?
@@ -20,6 +21,7 @@ class Detail{
     var lang: String?
     var imdb: String?
     var des: String?
+
     var resources: Resuorces = Resuorces()
 }
 extension Detail{
@@ -30,11 +32,11 @@ extension Detail{
         return !resources.cloudPlayer.isEmpty || !resources.cloudDown.isEmpty
     }
 }
-class Resuorces{
+class Resuorces: Object{
     var cloudPlayer: [CloudPlayer] = [CloudPlayer]()
     var cloudDown: [CloudDown] = [CloudDown]()
 }
-class CloudPlayer{
+class CloudPlayer: Object{
     var link: String?
     var title: String?
 }

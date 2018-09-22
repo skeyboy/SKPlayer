@@ -9,9 +9,20 @@
 import Cocoa
 import Ji
 
+
+class Page{
+    lazy var pages: [PageItem] = [PageItem]()
+}
+class PageItem{
+    var on: Bool = false
+    var title: String = "1"
+    var link: String?
+}
+
 class SKMenu {
     var kind: String
     lazy var subMenus: [SKMenuItem] = [SKMenuItem]()
+
     init(kind: String = "选择类型") {
         self.kind = kind
     }
@@ -37,7 +48,6 @@ class SKMenuView: NSView {
         didSet{
             self.skMenuCollectionView?.delegate = self
             self.skMenuCollectionView?.dataSource = self
-            //            self.viewDidload()
         }
     }
     var skMenus:[SKMenu] = [SKMenu]()
@@ -47,27 +57,13 @@ class SKMenuView: NSView {
         
         // Drawing code here.
     }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
+  
     func update() -> Void {
         
-        self.skMenuCollectionView?.reloadData()
-        return
-        let group = DispatchGroup.init()
-        let queue =  DispatchQueue.init(label: "Latest", qos: DispatchQoS.default, attributes: DispatchQueue.Attributes.concurrent, autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency.inherit, target: MainQueue)
-        for i in 0 ... self.skMenus.count - 1 {
-            
-            queue.async(group: group, qos: DispatchQoS.background, flags: DispatchWorkItemFlags.barrier, execute: {
-                MainQueue.async {
-                    
-                    let section = IndexSet(integer: i)
-                    self.skMenuCollectionView?.insertSections(section)
-                }
-            })
-            
+        MainQueue.async {
+            self.skMenuCollectionView?.reloadData()
         }
+        
     }
     func viewDidload( href: String = "http://www.btbtdy.net/btfl/dy1.html" ) -> Void {
         
@@ -93,8 +89,10 @@ extension SKMenuView : Parser{
             
             if let allVC =  self.allVC {
                 MainQueue.async {
+                    var page = ji?.xPath("//div[@class='pages']")?.first!
                     
-                    allVC.update(nodes:ji?.xPath("//div[@class='list_su']/ul/li"))
+                    allVC.update(nodes:ji?.xPath("//div[@class='list_su']/ul/li"), page: self.parsePages(pages: page?.children))
+                    
                 }
             }
             let  items: [JiNode]? = ji?.xPath("//div[@class='s_index']/dl")
@@ -124,7 +122,24 @@ extension SKMenuView : Parser{
             }
         }
     }
-    
+    func parsePages( pages: [JiNode]?) -> Page {
+        let page: Page = Page()
+        if let pages = pages {
+            pages.forEach { (node) in
+                let pageItem = PageItem()
+                pageItem.title = node.xPath("./text()").first!.rawContent!
+                if node.tagName == "a"{
+                    pageItem.link = node.attributes["href"]
+                    
+                }else{
+                    pageItem.on = true
+                }
+                page.pages.append(pageItem)
+            }
+        }
+        
+        return page
+    }
 }
 extension SKMenuView: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {

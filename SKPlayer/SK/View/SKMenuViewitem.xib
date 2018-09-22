@@ -14,7 +14,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="Hz6-mo-xeY">
+        <customView id="Hz6-mo-xeY" customClass="HoverView" customModule="SKPlayer" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="60" height="17"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -32,6 +32,20 @@
                 <constraint firstItem="Vme-Mc-Fiu" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="vA7-DZ-mmL"/>
                 <constraint firstItem="Vme-Mc-Fiu" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="vOr-VW-Vhy"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="fillHoverColor">
+                    <color key="value" red="0.0092939678579568863" green="0.37267547845840454" blue="0.78428095579147339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="strokeHoverColor">
+                    <color key="value" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="strokeNormolColor">
+                    <color key="value" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="fillNormolColor">
+                    <color key="value" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="-58" y="39.5"/>
         </customView>
         <customObject id="gt4-1b-eRG" customClass="SKMenuViewitem" customModule="SKPlayer" customModuleProvider="target">

@@ -57,7 +57,6 @@ class MenuViewController: NSViewController {
             }
             self.menuItems.removeSubrange(Range(NSRange(location: 9, length: 5))!)
             MainQueue.async {
-                
                 self.menuCollection.reloadData()
                 
             }
