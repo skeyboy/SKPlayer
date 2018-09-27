@@ -81,7 +81,10 @@ class AllViewController: NSViewController {
         
         MainQueue.async {
             self.allCollectionView.reloadData()
+            if !self.allItems.isEmpty   {
             self.allCollectionView.scrollToItems(at: [IndexPath(item: 0, section: 0)], scrollPosition: NSCollectionView.ScrollPosition.top)
+            }
+            
         }
         
     }
@@ -94,7 +97,7 @@ extension AllViewController: NSCollectionViewDelegate{
         
         
         let indexPath = indexPaths.first!
-        if indexPath.section == PageSection {
+        if indexPath.section == PageSection  {
             let pageItem: PageItem = self.page!.pages[indexPath.item]
             if let link = pageItem.link {
                 self.newHref = link

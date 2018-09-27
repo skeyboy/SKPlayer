@@ -29,39 +29,44 @@ class DetailViewController: NSViewController {
     /// 0 titie 1 query
     var detailDoor: DetailDoor? {
         didSet{
+        }
+    }
+    func fetchDetailInfo() -> Void {
+        if (self.view.window != nil) {
+            
             self.view.window?.title = self.detailDoor!.0 ?? "详情"
-            self.parser.detailParser((self.detailDoor?.1)!) { (detail) in
-                DispatchQueue.main.async {
-                    self.coverImageView.kf.setImage(with: URL.init(string: detail.coverSrc!)!)
-                    do{
-                        self.titleView.stringValue = detail.title ?? UnKnown
-                        self.yearView.stringValue =   detail.year ?? UnKnown
-                        self.updateView.stringValue = "更新:" +  detail.update!
-                        self.stateView.stringValue = "状态:" + detail.state!
-                        self.kindView.stringValue = "类型:" + detail.kind!
-                        self.langView.stringValue = "语言:" +   detail.lang!
-                        self.imbdView.stringValue = "imbd:" + detail.imdb!
-                        self.mainsView.stringValue = "主演:" +  detail.mains!
-                        self.desView.stringValue = "简介:" + detail.des!
-                        
-                    }catch{
-                        print("unwrap出错")
-                    }
-                    if  detail.isNotEmpty  {
-                        self.createCloudResourceWin(resources: detail.resources)
-                    }
+        }
+        self.parser.detailParser((self.detailDoor?.1)!) { (detail) in
+            DispatchQueue.main.async {
+                self.coverImageView.kf.setImage(with: URL.init(string: detail.coverSrc!)!)
+                do{
+                    self.titleView.stringValue = detail.title ?? UnKnown
+                    self.yearView.stringValue =   detail.year ?? UnKnown
+                    self.updateView.stringValue = "更新:" +  detail.update!
+                    self.stateView.stringValue = "状态:" + detail.state!
+                    self.kindView.stringValue = "类型:" + detail.kind!
+                    self.langView.stringValue = "语言:" +   detail.lang!
+                    self.imbdView.stringValue = "imbd:" + detail.imdb!
+                    self.mainsView.stringValue = "主演:" +  detail.mains!
+                    self.desView.stringValue = "简介:" + detail.des!
                     
+                }catch{
+                    print("unwrap出错")
                 }
+                if  detail.isNotEmpty  {
+                    self.createCloudResourceWin(resources: detail.resources)
+                }
+                
             }
         }
     }
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
     }
     override func viewDidAppear() {
         super.viewDidAppear()
+        self.fetchDetailInfo()
         
     }
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
@@ -87,7 +92,6 @@ extension DetailViewController{
         
         let win: NSWindow = NSWindow.init(contentViewController: cloudPlayerVC)
         win.styleMask = [.miniaturizable, .closable]
-        
         
         let frame: CGRect = self.view.window!.frame
         let winFrame: CGRect = cloudPlayerVC.view.frame
