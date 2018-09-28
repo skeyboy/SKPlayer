@@ -19,6 +19,8 @@ enum Type: Int{
     case indexView = 0
     case latestView = 1
     case allView = 2
+    case rate = 3
+    case new = 4
     case unknown
 }
 class MenuViewController: NSViewController {
@@ -118,6 +120,12 @@ extension MenuViewController: NSCollectionViewDataSource{
                 break
             case 8:
                 type = .latestView
+                break
+            case 6 :
+                type = .new
+                break
+            case 7 :
+                type = .rate
                 break
             default:
                 type = .unknown

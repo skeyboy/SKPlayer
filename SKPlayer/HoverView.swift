@@ -10,7 +10,7 @@ import Cocoa
 typealias HoverSelectedResponse = (HoverView, Bool)->Void
 
 class HoverView: NSView {
-    
+    var indexPath: IndexPath?
     @IBOutlet weak var indicator: NSTextField!
     @IBInspectable  var isHovered: Bool = false {
         didSet{

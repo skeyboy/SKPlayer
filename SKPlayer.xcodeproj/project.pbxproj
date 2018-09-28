@@ -14,6 +14,12 @@
 		530D7D412150D0A600854DB8 /* BTInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 530D7D402150D0A600854DB8 /* BTInfo.m */; };
 		531D0EEC2148F1E600BAF27F /* CloudViewBTItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D0EEA2148F1E600BAF27F /* CloudViewBTItem.swift */; };
 		531D0EED2148F1E600BAF27F /* CloudViewBTItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 531D0EEB2148F1E600BAF27F /* CloudViewBTItem.xib */; };
+		533673C6215DC220007FEDEB /* SKPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533673C5215DC220007FEDEB /* SKPageController.swift */; };
+		533673C8215DC234007FEDEB /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533673C7215DC234007FEDEB /* RatingViewController.swift */; };
+		533673CB215DCDD2007FEDEB /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533673CA215DCDD2007FEDEB /* Rate.swift */; };
+		533673CE215DCEBF007FEDEB /* RateViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533673CC215DCEBF007FEDEB /* RateViewItem.swift */; };
+		533673CF215DCEBF007FEDEB /* RateViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 533673CD215DCEBF007FEDEB /* RateViewItem.xib */; };
+		533673D1215DF870007FEDEB /* NewPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533673D0215DF870007FEDEB /* NewPageController.swift */; };
 		534271412154D65100562CC5 /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534271402154D65100562CC5 /* AllViewController.swift */; };
 		534271BF2154EED600562CC5 /* SKMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534271BE2154EED600562CC5 /* SKMenuHeaderView.swift */; };
 		534271C12154EEE800562CC5 /* SKMenuHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 534271C02154EEE800562CC5 /* SKMenuHeaderView.xib */; };
@@ -77,6 +83,12 @@
 		530D7D402150D0A600854DB8 /* BTInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTInfo.m; sourceTree = "<group>"; };
 		531D0EEA2148F1E600BAF27F /* CloudViewBTItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudViewBTItem.swift; sourceTree = "<group>"; };
 		531D0EEB2148F1E600BAF27F /* CloudViewBTItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CloudViewBTItem.xib; sourceTree = "<group>"; };
+		533673C5215DC220007FEDEB /* SKPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKPageController.swift; sourceTree = "<group>"; };
+		533673C7215DC234007FEDEB /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		533673CA215DCDD2007FEDEB /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		533673CC215DCEBF007FEDEB /* RateViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewItem.swift; sourceTree = "<group>"; };
+		533673CD215DCEBF007FEDEB /* RateViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RateViewItem.xib; sourceTree = "<group>"; };
+		533673D0215DF870007FEDEB /* NewPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPageController.swift; sourceTree = "<group>"; };
 		534271402154D65100562CC5 /* AllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
 		534271BE2154EED600562CC5 /* SKMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKMenuHeaderView.swift; sourceTree = "<group>"; };
 		534271C02154EEE800562CC5 /* SKMenuHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SKMenuHeaderView.xib; sourceTree = "<group>"; };
@@ -155,6 +167,26 @@
 				53043DD92147C8D4001019EA /* PlayerWindow.swift */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		533673B6215DBCF5007FEDEB /* Rating */ = {
+			isa = PBXGroup;
+			children = (
+				533673C5215DC220007FEDEB /* SKPageController.swift */,
+				533673C7215DC234007FEDEB /* RatingViewController.swift */,
+				533673CC215DCEBF007FEDEB /* RateViewItem.swift */,
+				533673CD215DCEBF007FEDEB /* RateViewItem.xib */,
+				533673D0215DF870007FEDEB /* NewPageController.swift */,
+			);
+			path = Rating;
+			sourceTree = "<group>";
+		};
+		533673C9215DCD7F007FEDEB /* Rate */ = {
+			isa = PBXGroup;
+			children = (
+				533673CA215DCDD2007FEDEB /* Rate.swift */,
+			);
+			path = Rate;
 			sourceTree = "<group>";
 		};
 		5342713F2154D63700562CC5 /* All */ = {
@@ -283,6 +315,7 @@
 		53EC894E21474C9A0056B7EB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				533673B6215DBCF5007FEDEB /* Rating */,
 				5342713F2154D63700562CC5 /* All */,
 				53B0B05321523B0100E892D1 /* Latest */,
 				5360D3782149FB02003516B5 /* BT */,
@@ -310,6 +343,7 @@
 		53EC895021474CC70056B7EB /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				533673C9215DCD7F007FEDEB /* Rate */,
 				53B0B0562152468D00E892D1 /* Latest */,
 				5360D37B2149FF6D003516B5 /* BT */,
 				53EC8955214763FA0056B7EB /* Detail */,
@@ -452,6 +486,7 @@
 				5378254721467B17009939DD /* Assets.xcassets in Resources */,
 				53544B122153ABA60066B48B /* SKMenuViewitem.xib in Resources */,
 				53F8A5C62147A18400C18A9E /* CloudViewItem.xib in Resources */,
+				533673CF215DCEBF007FEDEB /* RateViewItem.xib in Resources */,
 				5378254A21467B17009939DD /* Main.storyboard in Resources */,
 				538073D82146D037005CA6CD /* IndexHeaderView.xib in Resources */,
 				53D5650921532BE600705888 /* LatestHeaderView.xib in Resources */,
@@ -518,12 +553,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				53043DD82147C8BD001019EA /* PlayerWindowController.swift in Sources */,
+				533673C8215DC234007FEDEB /* RatingViewController.swift in Sources */,
 				53EC895B21476FEB0056B7EB /* DetailWindow.swift in Sources */,
 				53B0B0522152349700E892D1 /* QXSearchField.swift in Sources */,
 				53EC895321474CF00056B7EB /* Index.swift in Sources */,
 				5360D37A2149FC24003516B5 /* BTViewController.swift in Sources */,
 				530D7D412150D0A600854DB8 /* BTInfo.m in Sources */,
 				534271BF2154EED600562CC5 /* SKMenuHeaderView.swift in Sources */,
+				533673CE215DCEBF007FEDEB /* RateViewItem.swift in Sources */,
 				53F8A5C22147A11A00C18A9E /* CloudPlayerController.swift in Sources */,
 				534271412154D65100562CC5 /* AllViewController.swift in Sources */,
 				53043DDA2147C8D4001019EA /* PlayerWindow.swift in Sources */,
@@ -532,7 +569,9 @@
 				53D5650721532BC900705888 /* LatestHeaderView.swift in Sources */,
 				53D5650B2153376300705888 /* ContainerController.swift in Sources */,
 				538073D32146B12A005CA6CD /* IndexViewItem.swift in Sources */,
+				533673D1215DF870007FEDEB /* NewPageController.swift in Sources */,
 				53544B0C2153AB3D0066B48B /* SKMenuView.swift in Sources */,
+				533673C6215DC220007FEDEB /* SKPageController.swift in Sources */,
 				531D0EEC2148F1E600BAF27F /* CloudViewBTItem.swift in Sources */,
 				53544B112153ABA60066B48B /* SKMenuViewitem.swift in Sources */,
 				53C5BC862155432800173066 /* ProgressHUD.swift in Sources */,
@@ -556,6 +595,7 @@
 				538073D02146AE33005CA6CD /* IndexViewController.swift in Sources */,
 				53F8A5C82147A99C00C18A9E /* CloudPlayerWindowController.swift in Sources */,
 				538073CE2146A7B0005CA6CD /* SelectedView.swift in Sources */,
+				533673CB215DCDD2007FEDEB /* Rate.swift in Sources */,
 				53FED95F2156859500B08227 /* AllCollectionFlowLayout.swift in Sources */,
 				53F8A5C52147A18400C18A9E /* CloudViewItem.swift in Sources */,
 			);
