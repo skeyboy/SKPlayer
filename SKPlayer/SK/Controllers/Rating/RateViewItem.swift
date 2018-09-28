@@ -40,7 +40,11 @@ class RateViewItem: NSCollectionViewItem {
         self.view.layer?.borderColor = NSColor.gridColor.cgColor
         (self.view as! HoverView).hoverSelectedResponse = {(hView, hovered) in
             self.view.layer?.borderWidth = hovered ? 0 : 2
+            var dXY = hovered ? -7 : 7
+            self.view.frame = NSInsetRect(self.view.frame, CGFloat(dXY), CGFloat(dXY))
+
         }
+        
     }
     
 }
