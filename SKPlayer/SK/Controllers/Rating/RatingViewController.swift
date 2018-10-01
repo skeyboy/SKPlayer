@@ -58,15 +58,15 @@ extension RatingViewController: NSCollectionViewDelegate{
         
         detailVC.detailDoor = (rate.title, rate.href) as? DetailDoor
         
-        self.presentViewControllerAsModalWindow(detailVC)
-//        let session = NSApp.beginModalSession(for: detailWin.window!)
-//
-//        while NSApp.runModalSession(session) == NSApplication.ModalResponse.continue {
-//            print("...")
-//
-//            NSApp.endModalSession(session)
-//        }
-//
+//        self.presentViewControllerAsModalWindow(detailVC)
+        let session = NSApp.beginModalSession(for: detailWin.window!)
+
+        while NSApp.runModalSession(session) == NSApplication.ModalResponse.continue {
+            print("...")
+
+            NSApp.endModalSession(session)
+        }
+
     }
 }
 extension RatingViewController: NSCollectionViewDataSource{

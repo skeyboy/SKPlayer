@@ -92,14 +92,17 @@ extension DetailViewController{
         
         let win: NSWindow = NSWindow.init(contentViewController: cloudPlayerVC)
         win.styleMask = [.miniaturizable, .closable]
-        
-        let frame: CGRect = self.view.window!.frame
-        let winFrame: CGRect = cloudPlayerVC.view.frame
-        let winX = frame.origin.x
-        let winY =  frame.origin.y - winFrame.size.height - 5
-        
-        let newWinFrame = NSRect(x:winX , y: winY, width: frame.size.width, height: winFrame.size.height)
-        win.setFrame(newWinFrame, display: true)
-        self.view.window?.addChildWindow(win, ordered: NSWindow.OrderingMode.below)
+        if self.view.window != nil {
+            
+            let frame: CGRect = self.view.window!.frame
+            let winFrame: CGRect = cloudPlayerVC.view.frame
+            let winX = frame.origin.x
+            let winY =  frame.origin.y - winFrame.size.height - 5
+            
+            let newWinFrame = NSRect(x:winX , y: winY, width: frame.size.width, height: winFrame.size.height)
+            win.setFrame(newWinFrame, display: true)
+            self.view.window?.addChildWindow(win, ordered: NSWindow.OrderingMode.below)
+        }
     }
+    
 }

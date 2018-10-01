@@ -41,8 +41,8 @@ class HoverView: NSView {
     var isSelected: Bool = false{
         didSet{
             self.indicator.isHidden = !self.isSelected
-            self.setNeedsDisplay(self.visibleRect)
-           
+            self.setNeedsDisplay(self.frame)
+
         }
     }
 
@@ -62,7 +62,7 @@ class HoverView: NSView {
             strokeColor = self.strokeNormolColor
         }
         if self.isSelected {
-            fillColor = NSColor.white
+//            fillColor = NSColor.white
         }
         fillColor?.set()
         bPath.fill()

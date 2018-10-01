@@ -41,7 +41,6 @@ class LatestViewItem: NSCollectionViewItem {
             self.view.layer?.borderWidth = hovered ? 0 : 2
             let dXY = hovered ? -7 : 7
             self.view.frame = NSInsetRect(self.view.frame, CGFloat(dXY), CGFloat(dXY))
-            
         }
         
     }
@@ -50,7 +49,7 @@ class LatestViewItem: NSCollectionViewItem {
         
         let shateItems = [
             NSAttributedString.init(string: self.todayItem!.title ?? ""),
-            self.todayItem!.picLink!, self.todayItem!.totalDesc
+            self.todayItem!.picLink!, self.todayItem!.totalDesc ?? UnKnown
             ] as [Any]
         var allServices: [NSSharingService] = [NSSharingService]()
         let services = NSSharingService.sharingServices(forItems: shateItems)

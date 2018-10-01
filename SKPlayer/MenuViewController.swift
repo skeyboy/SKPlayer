@@ -92,7 +92,7 @@ extension MenuViewController: NSCollectionViewDataSource{
         item.titleView.stringValue = menu.menuTitle ?? "未知"
         item.hoverBack = {(index) in
             MainQueue.async {
-                self.selected(item: index!)
+//                self.selected(item: index!)
             }
         }
         item.isSelected = false

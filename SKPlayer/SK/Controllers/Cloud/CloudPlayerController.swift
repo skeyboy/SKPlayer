@@ -7,8 +7,7 @@
 //
 
 import Cocoa
-import VLCKit
-typealias CloudPlayerSelectedResult = (CloudPlayer?)->Void
+ typealias CloudPlayerSelectedResult = (CloudPlayer?)->Void
 class CloudPlayerController: NSViewController {
     var prepareCallBack: CloudPlayerSelectedResult?
     var session: NSApplication.ModalSession?
@@ -27,6 +26,9 @@ extension CloudPlayerController: NSCollectionViewDelegate{
 }
 extension CloudPlayerController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.resources == nil {
+            return 0
+        }
         if section == 0{
             return (self.resources?.cloudPlayer.count)!
         }

@@ -908,7 +908,7 @@
         <scene sceneID="ORf-51-5Bd">
             <objects>
                 <windowController storyboardIdentifier="detail_window" id="YW1-58-WgS" customClass="DetailWindowController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="资源简介" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" titlebarAppearsTransparent="YES" id="rM2-9O-nOU" customClass="DetailWindow" customModule="SKPlayer" customModuleProvider="target">
+                    <window key="window" title="资源简介" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" hidesOnDeactivate="YES" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" titlebarAppearsTransparent="YES" id="rM2-9O-nOU" customClass="DetailWindow" customModule="SKPlayer" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -1071,7 +1071,7 @@
                         <outlet property="titleView" destination="GpC-we-DcW" id="32f-YB-C3J"/>
                         <outlet property="updateView" destination="dtk-ci-gFN" id="yIE-3U-Zcb"/>
                         <outlet property="yearView" destination="5Pm-uW-8pX" id="tQg-2Y-vZn"/>
-                        <segue destination="B2N-dU-lEd" kind="modal" identifier="show_player" id="moe-HN-khc"/>
+                        <segue destination="B2N-dU-lEd" kind="show" identifier="show_player" id="moe-HN-khc"/>
                     </connections>
                 </viewController>
                 <customObject id="Dzc-Zc-ORM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1431,11 +1431,11 @@
                                             </subviews>
                                             <nil key="backgroundColor"/>
                                         </clipView>
-                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="B4P-Br-MbS">
+                                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="B4P-Br-MbS">
                                             <rect key="frame" x="1" y="116" width="232.39033508300781" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="mX6-iQ-CwZ">
+                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="mX6-iQ-CwZ">
                                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>

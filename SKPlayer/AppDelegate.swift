@@ -7,8 +7,7 @@
 //
 
 import Cocoa
-import VLCKit
-import Kingfisher
+ import Kingfisher
 let HOST_URL = "http://www.btbtdy.net"
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {

@@ -7,12 +7,12 @@ target 'SKPlayer' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 pod 'Ji'
-pod 'VLCKit'
+#pod 'VLCKit'
 pod 'SnapKit'
 pod 'Alamofire'
 pod 'Kingfisher'
 pod 'RealmSwift'
-
+pod "GCDWebServer", "~> 3.0"
 # pod 'MLHudAlert'
   # Pods for SKPlayer
 

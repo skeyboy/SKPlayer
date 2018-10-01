@@ -9,6 +9,10 @@
 import Cocoa
 
 class LatestViewController: NSViewController, Parser {
+    var hoveredIndexPath: IndexPath?
+    var session: NSApplication.ModalSession?
+    
+    var detailWin: DetailWindowController?
     @IBOutlet weak var todayCollectionView: NSCollectionView!
     var todays:[Today] = [Today]()
     
@@ -75,27 +79,45 @@ extension LatestViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath) {
         let latestItem: LatestViewItem =    item as! LatestViewItem
         let todayItem: TodayItem = self.todays[indexPath.section].items[indexPath.item]
-        
+        (latestItem.view as! HoverView).indexPath = indexPath
+        (latestItem.view as! HoverView).hoverSelectedResponse = {(hView, hovered) in
+            if hovered {
+                
+           
+                if self.hoveredIndexPath == hView.indexPath{
+                    return
+                }
+                self.hoveredIndexPath = hView.indexPath
+                self.collectionView(collectionView, didSelectItemsAt: [hView.indexPath!])
+            }
+        }
         latestItem.todayItem = todayItem
     }
 }
 extension LatestViewController: NSCollectionViewDelegate{
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         
+        if session != nil{
+            
+            NSApp.endModalSession(session!)
+            detailWin?.window?.performClose(nil)
+            session = nil
+        }
+        
+        let point =   collectionView.item(at: indexPaths.first!)?.view.convert(collectionView.item(at: indexPaths.first!)!.view.frame.origin, to: self.view)
+        
         let todayItem: TodayItem = self.todays[indexPaths.first!.section].items[indexPaths.first!.item]
         
-        let detailWin: DetailWindowController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("detail_window")) as! DetailWindowController
-        let detailVC: DetailViewController = detailWin.contentViewController as! DetailViewController
+         detailWin = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("detail_window")) as! DetailWindowController
+        detailWin?.window!.setFrameOrigin(point!)
+        let detailVC: DetailViewController = detailWin?.contentViewController as! DetailViewController
+       
         
         
         detailVC.detailDoor = (todayItem.title, todayItem.href) as? DetailDoor
-        let session = NSApp.beginModalSession(for: detailWin.window!)
-        
-        while NSApp.runModalSession(session) == NSApplication.ModalResponse.continue {
-            print("...")
-            
-            NSApp.endModalSession(session)
-        }
+         session = NSApp.beginModalSession(for: detailWin!.window!)
+        NSApp.runModalSession(session!)
+//       detailWin?.window?.makeKeyAndOrderFront(nil)
     }
 }
 extension LatestViewController: NSCollectionViewDelegateFlowLayout{
