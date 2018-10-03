@@ -19,30 +19,30 @@ class LatestViewController: NSViewController, Parser {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-       
+        
     }
     override func viewDidAppear() {
         super.viewDidAppear()
         if self.todays.isEmpty {
             
             self.view.showProgressHUD(title: "", message: "T##String", mode: ProgressHUDMode.determinate)
-
-             self.parseToday(url: "http://www.btbtdy.net/previews.html#today") { (ts) in
+            
+            self.parseToday(url: "http://www.btbtdy.net/previews.html#today") { (ts) in
                 
                 self.view.hideProgressHUD()
                 
                 self.todays.append(contentsOf: ts)
-                 let group = DispatchGroup.init()
-              let queue =  DispatchQueue.init(label: "Latest", qos: DispatchQoS.default, attributes: DispatchQueue.Attributes.concurrent, autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency.inherit, target: MainQueue)
+                let group = DispatchGroup.init()
+                let queue =  DispatchQueue.init(label: "Latest", qos: DispatchQoS.default, attributes: DispatchQueue.Attributes.concurrent, autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency.inherit, target: MainQueue)
                 for i in 0 ... self.todays.count - 1 {
                     
-                queue.async(group: group, qos: DispatchQoS.background, flags: DispatchWorkItemFlags.barrier, execute: {
-                    MainQueue.async {
-                        
-                        let section = IndexSet(integer: i)
-                       self.todayCollectionView.insertSections(section)
-                    }
-                })
+                    queue.async(group: group, qos: DispatchQoS.background, flags: DispatchWorkItemFlags.barrier, execute: {
+                        MainQueue.async {
+                            
+                            let section = IndexSet(integer: i)
+                            self.todayCollectionView.insertSections(section)
+                        }
+                    })
                     
                 }
                 group.notify(queue: DispatchQueue.main, execute: {
@@ -52,7 +52,7 @@ class LatestViewController: NSViewController, Parser {
                         
                     })
                 })
-
+                
             }
         }
     }
@@ -67,12 +67,12 @@ extension LatestViewController: NSCollectionViewDataSource{
         return self.todays[section].items.count
     }
     func numberOfSections(in collectionView: NSCollectionView) -> Int {
-       
+        
         return self.todays.count
     }
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let latestItem: LatestViewItem =    collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier.init("LatestViewItem"), for: indexPath) as! LatestViewItem
-       
+        
         return latestItem
     }
     
@@ -83,12 +83,25 @@ extension LatestViewController: NSCollectionViewDataSource{
         (latestItem.view as! HoverView).hoverSelectedResponse = {(hView, hovered) in
             if hovered {
                 
-           
+                
                 if self.hoveredIndexPath == hView.indexPath{
                     return
                 }
                 self.hoveredIndexPath = hView.indexPath
-                self.collectionView(collectionView, didSelectItemsAt: [hView.indexPath!])
+                NSAnimationContext.runAnimationGroup({ (ctx) in
+                    NSAnimationContext.current.duration = 0.25
+                    self.detailWin?.window?.center()
+                    self.detailWin?.contentViewController?.view.animator().alphaValue = 0.25
+//                    let contentViewSize = self.detailWin?.contentViewController?.view.frame.size;
+//                    self.detailWin?.contentViewController?.view.setFrameSize(NSSize(width: Int(Float(contentViewSize!.width) * 0.25), height: Int(Float(contentViewSize!.height) * 0.25)))
+//                    self.detailWin?.window?.setContentSize(NSSize.zero)
+//                    self.detailWin?.window?.animator().setContentSize(NSSize(width: Int(Float(contentViewSize!.width) * 0.25), height: Int(Float(contentViewSize!.height) * 0.25)))
+                    self.detailWin?.window?.center()
+                    
+                }, completionHandler: {
+                    self.collectionView(collectionView, didSelectItemsAt: [hView.indexPath!])
+                })
+                
             }
         }
         latestItem.todayItem = todayItem
@@ -108,16 +121,16 @@ extension LatestViewController: NSCollectionViewDelegate{
         
         let todayItem: TodayItem = self.todays[indexPaths.first!.section].items[indexPaths.first!.item]
         
-         detailWin = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("detail_window")) as! DetailWindowController
+        detailWin = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("detail_window")) as! DetailWindowController
         detailWin?.window!.setFrameOrigin(point!)
         let detailVC: DetailViewController = detailWin?.contentViewController as! DetailViewController
-       
+        
         
         
         detailVC.detailDoor = (todayItem.title, todayItem.href) as? DetailDoor
-         session = NSApp.beginModalSession(for: detailWin!.window!)
+        session = NSApp.beginModalSession(for: detailWin!.window!)
         NSApp.runModalSession(session!)
-//       detailWin?.window?.makeKeyAndOrderFront(nil)
+        //       detailWin?.window?.makeKeyAndOrderFront(nil)
     }
 }
 extension LatestViewController: NSCollectionViewDelegateFlowLayout{

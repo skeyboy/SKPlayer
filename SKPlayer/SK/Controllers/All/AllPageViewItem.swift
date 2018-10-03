@@ -7,7 +7,11 @@
 //
 
 import Cocoa
-
+extension NSColor{
+    open class var  linkColor: NSColor{
+        return NSColor.lightGray
+    }
+}
 class AllPageViewItem: NSCollectionViewItem {
     var pageItem: PageItem?{
         didSet{

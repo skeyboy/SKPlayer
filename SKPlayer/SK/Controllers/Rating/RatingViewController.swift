@@ -9,9 +9,10 @@
 import Cocoa
 import Ji
 class RatingViewController: NSViewController {
+    var nextViewCOntroller: NSViewController?
     var link: String?
     var items: [Rate] = [Rate]()
-    
+    var session: NSApplication.ModalSession?
     @IBOutlet weak var titieView: NSTextField!
     @IBOutlet weak var ratingView: NSCollectionView!
     override func viewDidLoad() {
@@ -46,25 +47,27 @@ class RatingViewController: NSViewController {
 }
 extension RatingViewController: NSCollectionViewDelegate{
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        if self.nextViewCOntroller != nil {
+            self.nextViewCOntroller?.view.window?.performClose(nil)
+        }
         let indexPath = indexPaths.first!
         
         let rate = self.items[indexPath.item]
         
         
-        
         let detailWin: DetailWindowController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("detail_window")) as! DetailWindowController
         let detailVC: DetailViewController = detailWin.contentViewController as! DetailViewController
-        
+        self.nextViewCOntroller = detailVC
         
         detailVC.detailDoor = (rate.title, rate.href) as? DetailDoor
         
 //        self.presentViewControllerAsModalWindow(detailVC)
-        let session = NSApp.beginModalSession(for: detailWin.window!)
+         session = NSApp.beginModalSession(for: detailWin.window!)
 
-        while NSApp.runModalSession(session) == NSApplication.ModalResponse.continue {
+        while NSApp.runModalSession(session!) == NSApplication.ModalResponse.continue {
             print("...")
 
-            NSApp.endModalSession(session)
+            NSApp.endModalSession(session!)
         }
 
     }

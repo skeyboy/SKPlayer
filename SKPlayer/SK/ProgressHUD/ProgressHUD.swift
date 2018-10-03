@@ -376,8 +376,7 @@ private class ProgressHUD: NSView {
         if indicatorF.size.height > 0.0 {
             totalSize.height += settings.padding
         }
-
-        var labelSize: CGSize = titleLabel.string.count > 0 ? titleLabel.string.size(withAttributes: [NSAttributedString.Key.font: titleLabel.font!]) : CGSize.zero
+        var labelSize: CGSize = titleLabel.string.count > 0 ? titleLabel.string.size(withAttributes: [:]) : CGSize.zero
         if labelSize.width > 0.0 {
             labelSize.width += 10.0
         }
@@ -387,7 +386,7 @@ private class ProgressHUD: NSView {
         if labelSize.height > 0.0 && indicatorF.size.height > 0.0 {
             totalSize.height += settings.padding
         }
-        var detailsLabelSize: CGSize = messageLabel.string.count > 0 ? messageLabel.string.size(withAttributes: [NSAttributedString.Key.font: messageLabel.font!]) : CGSize.zero
+        var detailsLabelSize: CGSize = messageLabel.string.count > 0 ? messageLabel.string.size(withAttributes: [:]) : CGSize.zero
         if detailsLabelSize.width > 0.0 {
             detailsLabelSize.width += 10.0
         }
