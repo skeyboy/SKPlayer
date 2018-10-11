@@ -9,6 +9,7 @@
 import Foundation
 import Ji
 import Alamofire
+var SKParserTaskContainer:[String:DataRequest] = [String: DataRequest]()
 protocol Parser {
     
 }
@@ -34,11 +35,16 @@ typealias ParserResult = (Ji?, URLResponse?, Error?)-> Void
 extension Parser{
     func parser(_ url:String, result: @escaping ParserResult) -> Void {
         
+        if let request = SKParserTaskContainer[url] {
+            request.resume()
+        }
         
-        Alamofire.request(url).responseData { (resp) in
+        let request = Alamofire.request(url)
+        SKParserTaskContainer[url] = request
+        request.responseData { (resp) in
             if resp.result.isSuccess {
                 let ji =  Ji.init(data: resp.result.value, isXML: false)
-                
+                SKParserTaskContainer[url] = nil
                 result(ji, resp.response, resp.error)
              }
             }.downloadProgress { (progress) in

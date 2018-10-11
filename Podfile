@@ -13,6 +13,9 @@ pod 'Alamofire'
 pod 'Kingfisher'
 pod 'RealmSwift'
 pod "GCDWebServer", "~> 3.0"
+#pod "OpenSSL"
+pod "boost"
+#pod 'libtorrent', :git=>'/Volumes/Documents/GitHub/libtorrent-ios'
 # pod 'MLHudAlert'
   # Pods for SKPlayer
 

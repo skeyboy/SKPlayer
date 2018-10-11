@@ -25,8 +25,9 @@ extension Shakeable where Self: NSView{
         if let shakeBegin =  shakeBegin{
             shakeBegin()
         }
-        animation.toValue = NSValue.init(point: NSPoint(x: CGFloat(self.center.x +
-            CGFloat(offSet!)), y: self.center.y))
+        let toValue = NSPoint(x: CGFloat(self.center.x +
+            CGFloat(offSet!)), y: self.center.y)
+        animation.toValue = NSValue.init(point: toValue)
         if let shakeEnd = shakeEnd {
             shakeEnd()
         }

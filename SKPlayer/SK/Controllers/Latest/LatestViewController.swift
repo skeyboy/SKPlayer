@@ -21,6 +21,14 @@ class LatestViewController: NSViewController, Parser {
         // Do view setup here.
         
     }
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+        if session != nil{
+            NSApp.endModalSession(session!)
+            detailWin?.window?.performClose(nil)
+            session = nil
+        }
+    }
     override func viewDidAppear() {
         super.viewDidAppear()
         if self.todays.isEmpty {
@@ -90,12 +98,7 @@ extension LatestViewController: NSCollectionViewDataSource{
                 self.hoveredIndexPath = hView.indexPath
                 NSAnimationContext.runAnimationGroup({ (ctx) in
                     NSAnimationContext.current.duration = 0.25
-                    self.detailWin?.window?.center()
                     self.detailWin?.contentViewController?.view.animator().alphaValue = 0.25
-//                    let contentViewSize = self.detailWin?.contentViewController?.view.frame.size;
-//                    self.detailWin?.contentViewController?.view.setFrameSize(NSSize(width: Int(Float(contentViewSize!.width) * 0.25), height: Int(Float(contentViewSize!.height) * 0.25)))
-//                    self.detailWin?.window?.setContentSize(NSSize.zero)
-//                    self.detailWin?.window?.animator().setContentSize(NSSize(width: Int(Float(contentViewSize!.width) * 0.25), height: Int(Float(contentViewSize!.height) * 0.25)))
                     self.detailWin?.window?.center()
                     
                 }, completionHandler: {
@@ -109,7 +112,9 @@ extension LatestViewController: NSCollectionViewDataSource{
 }
 extension LatestViewController: NSCollectionViewDelegate{
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
-        
+        if self.hoveredIndexPath == indexPaths.first! && self.presentedViewControllers?.count ?? 0 > 0 {
+            return
+        }
         if session != nil{
             
             NSApp.endModalSession(session!)
@@ -129,7 +134,10 @@ extension LatestViewController: NSCollectionViewDelegate{
         
         detailVC.detailDoor = (todayItem.title, todayItem.href) as? DetailDoor
         session = NSApp.beginModalSession(for: detailWin!.window!)
-        NSApp.runModalSession(session!)
+        
+        while  NSApp.runModalSession(session!) != NSApplication.ModalResponse.continue {
+            
+        }
         //       detailWin?.window?.makeKeyAndOrderFront(nil)
     }
 }

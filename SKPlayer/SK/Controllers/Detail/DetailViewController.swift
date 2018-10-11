@@ -45,7 +45,7 @@ class DetailViewController: NSViewController {
                     self.updateView.stringValue = "更新:" +  detail.update!
                     self.stateView.stringValue = "状态:" + detail.state!
                     self.kindView.stringValue = "类型:" + detail.kind!
-                    self.langView.stringValue = "语言:" +   detail.lang!
+                    self.langView.stringValue = "语言:" +  ( detail.lang ?? UnKnown)
                     self.imbdView.stringValue = "imbd:" + detail.imdb!
                     self.mainsView.stringValue = "主演:" +  detail.mains!
                     self.desView.stringValue = "简介:" + detail.des!

@@ -9,7 +9,8 @@
 import Cocoa
 import Ji
 class RatingViewController: NSViewController {
-    var nextViewCOntroller: NSViewController?
+     var detailWin: DetailWindowController?
+    var currentIndexPath: IndexPath?
     var link: String?
     var items: [Rate] = [Rate]()
     var session: NSApplication.ModalSession?
@@ -47,29 +48,36 @@ class RatingViewController: NSViewController {
 }
 extension RatingViewController: NSCollectionViewDelegate{
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
-        if self.nextViewCOntroller != nil {
-            self.nextViewCOntroller?.view.window?.performClose(nil)
-        }
+        
         let indexPath = indexPaths.first!
         
         let rate = self.items[indexPath.item]
+        let viewItem = collectionView.item(at: indexPath)
+        let point =  viewItem!.view.convert(viewItem!.view.bounds.origin, to: self.view)
+
+        showDetail(rate: rate, point: point  )
+
+    }
+    func showDetail(rate: Rate, point: NSPoint) -> Void {
         
-        
-        let detailWin: DetailWindowController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("detail_window")) as! DetailWindowController
-        let detailVC: DetailViewController = detailWin.contentViewController as! DetailViewController
-        self.nextViewCOntroller = detailVC
+        if detailWin != nil {
+            detailWin?.window?.performClose(nil)
+            NSApp.endModalSession(session!)
+        }
+         detailWin = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("detail_window")) as! DetailWindowController
+        let detailVC: DetailViewController = detailWin!.contentViewController as! DetailViewController
         
         detailVC.detailDoor = (rate.title, rate.href) as? DetailDoor
-        
-//        self.presentViewControllerAsModalWindow(detailVC)
-         session = NSApp.beginModalSession(for: detailWin.window!)
+        self.detailWin?.window?.setFrameOrigin(point)
 
+        //        self.presentViewControllerAsModalWindow(detailVC)
+        session = NSApp.beginModalSession(for: detailWin!.window!)
+        
         while NSApp.runModalSession(session!) == NSApplication.ModalResponse.continue {
             print("...")
 
-            NSApp.endModalSession(session!)
+//            NSApp.endModalSession(session!)
         }
-
     }
 }
 extension RatingViewController: NSCollectionViewDataSource{
@@ -84,10 +92,23 @@ extension RatingViewController: NSCollectionViewDataSource{
     }
     func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath) {
         let viewItem = item as! RateViewItem
-        
+        (viewItem.view as! HoverView).indexPath = indexPath
         let rate = self.items[indexPath.item]
         
         viewItem.rate = rate
+        
+        (viewItem.view as! HoverView).hoverSelectedResponse = {(hView, hovered) in
+
+            
+            if (hView.indexPath == self.currentIndexPath ) == true {
+                return
+            }
+            self.currentIndexPath = hView.indexPath
+            let rate = self.items[indexPath.item]
+            
+            let point =  hView.convert(hView.bounds.origin, to: self.view)
+            self.showDetail(rate: rate, point: point)
+        }
     }
     
     
