@@ -1,0 +1,6 @@
+framework module Pods_SKPlayer {
+  umbrella header "Pods-SKPlayer-umbrella.h"
+
+  export *
+  module * { export * }
+}

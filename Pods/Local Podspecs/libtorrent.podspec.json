@@ -1,0 +1,30 @@
+{
+  "name": "libtorrent",
+  "version": "1.0.2",
+  "license": "BSD",
+  "summary": "libtorrent is a C++ implementation of the BitTorrent protocol with the goals of being efficient and easy to use.",
+  "homepage": "https://sourceforge.net/projects/libtorrent",
+  "authors": {
+    "Arvid Norberg": "arvidn@rasterbar.com"
+  },
+  "source": {
+    "git": "https://github.com/steakknife/libtorrent-ios.git"
+  },
+  "source_files": [
+    "src/**/*.{c,cpp}",
+    "include/**/*.{h,hpp}"
+  ],
+  "requires_arc": true,
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.13"
+  },
+  "dependencies": {
+    "boost": [
+
+    ],
+    "OpenSSL": [
+
+    ]
+  }
+}

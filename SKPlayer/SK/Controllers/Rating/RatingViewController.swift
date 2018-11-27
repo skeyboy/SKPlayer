@@ -64,20 +64,20 @@ extension RatingViewController: NSCollectionViewDelegate{
             detailWin?.window?.performClose(nil)
             NSApp.endModalSession(session!)
         }
-         detailWin = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("detail_window")) as! DetailWindowController
+        detailWin = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("detail_window")) as? DetailWindowController
         let detailVC: DetailViewController = detailWin!.contentViewController as! DetailViewController
         
         detailVC.detailDoor = (rate.title, rate.href) as? DetailDoor
-        self.detailWin?.window?.setFrameOrigin(point)
+//        self.detailWin?.window?.setFrameOrigin(point)
 
         //        self.presentViewControllerAsModalWindow(detailVC)
         session = NSApp.beginModalSession(for: detailWin!.window!)
         
-        while NSApp.runModalSession(session!) == NSApplication.ModalResponse.continue {
-            print("...")
-
-//            NSApp.endModalSession(session!)
-        }
+//        while NSApp.runModalSession(session!) == NSApplication.ModalResponse.continue {
+//            print("...")
+//
+////            NSApp.endModalSession(session!)
+//        }
     }
 }
 extension RatingViewController: NSCollectionViewDataSource{
@@ -92,12 +92,12 @@ extension RatingViewController: NSCollectionViewDataSource{
     }
     func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath) {
         let viewItem = item as! RateViewItem
-        (viewItem.view as! HoverView).indexPath = indexPath
+        (viewItem.focusView as! HoverView).indexPath = indexPath
         let rate = self.items[indexPath.item]
         
         viewItem.rate = rate
         
-        (viewItem.view as! HoverView).hoverSelectedResponse = {(hView, hovered) in
+        (viewItem.focusView as HoverView).hoverSelectedResponse = {(hView, hovered) in
 
             
             if (hView.indexPath == self.currentIndexPath ) == true {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -10,6 +10,7 @@
                 <outlet property="ageView" destination="ktB-a2-cVs" id="GTc-h6-nPd"/>
                 <outlet property="areaView" destination="nv0-VW-gFn" id="JW9-1i-H5v"/>
                 <outlet property="emView" destination="Uih-Kj-Gtd" id="Nn1-GQ-TnL"/>
+                <outlet property="focusView" destination="agk-9o-j5O" id="2Wh-uk-jyU"/>
                 <outlet property="nameView" destination="Y9d-N2-ANK" id="8BQ-nk-x0y"/>
                 <outlet property="scoreView" destination="lpA-9c-FkJ" id="OU7-cl-HeJ"/>
                 <outlet property="starringView" destination="Cip-3L-sPL" id="9n6-aW-bQT"/>
@@ -20,28 +21,12 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="Hz6-mo-xeY" customClass="HoverView" customModule="SKPlayer" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="1150" height="54"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="1155" height="53"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="253" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y9d-N2-ANK">
-                    <rect key="frame" x="9" y="18" width="225" height="18"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="凉生，我们可不可以不忧伤" id="uFs-aE-hfu">
-                        <font key="font" size="18" name=".PingFangSC-Regular"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="252" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uih-Kj-Gtd">
-                    <rect key="frame" x="235" y="19" width="58" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="更至18集" id="QIo-UF-IJy">
-                        <font key="font" usesAppearanceFont="YES"/>
-                        <color key="textColor" name="underPageBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cip-3L-sPL">
-                    <rect key="frame" x="860" y="19" width="133" height="19"/>
+                    <rect key="frame" x="874" y="18" width="133" height="21"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="刘佳,梁冠华,吕中,柯.." id="jpx-gK-mMf">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -49,7 +34,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ljx-cj-amR">
-                    <rect key="frame" x="1060" y="20" width="83" height="17"/>
+                    <rect key="frame" x="1074" y="20" width="79" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="2018-09-28" id="Xnz-05-Btg">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -73,7 +58,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lpA-9c-FkJ">
-                    <rect key="frame" x="632" y="18" width="24" height="17"/>
+                    <rect key="frame" x="632" y="18" width="23" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="0.0" id="0Fv-FI-MR3">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -81,10 +66,40 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cit-BS-om3">
-                    <rect key="frame" x="716" y="18" width="44" height="17"/>
+                    <rect key="frame" x="715" y="18" width="44" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="电视剧" id="wRe-V4-tvc">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="agk-9o-j5O" customClass="HoverView" customModule="SKPlayer" customModuleProvider="target">
+                    <rect key="frame" x="20" y="12" width="231" height="33"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="253" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y9d-N2-ANK">
+                            <rect key="frame" x="3" y="-5" width="235" height="33"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="Ij9-bq-uZh"/>
+                            </constraints>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="凉生，我们可不可以不忧伤" id="uFs-aE-hfu">
+                                <font key="font" size="18" name=".PingFangSC-Regular"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Y9d-N2-ANK" firstAttribute="width" secondItem="agk-9o-j5O" secondAttribute="width" id="ac6-GP-MP4"/>
+                        <constraint firstItem="Y9d-N2-ANK" firstAttribute="height" secondItem="agk-9o-j5O" secondAttribute="height" id="dWq-JI-fxr"/>
+                        <constraint firstItem="Y9d-N2-ANK" firstAttribute="leading" secondItem="agk-9o-j5O" secondAttribute="leading" constant="5" id="nKF-S1-IBr"/>
+                        <constraint firstItem="Y9d-N2-ANK" firstAttribute="top" secondItem="agk-9o-j5O" secondAttribute="top" constant="5" id="uZA-N1-mDo"/>
+                    </constraints>
+                </customView>
+                <textField horizontalHuggingPriority="252" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uih-Kj-Gtd">
+                    <rect key="frame" x="303" y="18" width="58" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="更至18集" id="QIo-UF-IJy">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="underPageBackgroundColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
@@ -93,18 +108,19 @@
                 <constraint firstItem="nv0-VW-gFn" firstAttribute="baseline" secondItem="lpA-9c-FkJ" secondAttribute="baseline" id="1ZR-BS-OSW"/>
                 <constraint firstItem="ktB-a2-cVs" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="459" id="4JW-El-Nw8"/>
                 <constraint firstItem="nv0-VW-gFn" firstAttribute="baseline" secondItem="Uih-Kj-Gtd" secondAttribute="firstBaseline" id="5Dp-Dp-eIA"/>
-                <constraint firstItem="Y9d-N2-ANK" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="11" id="9ic-HZ-GSz"/>
                 <constraint firstItem="Cit-BS-om3" firstAttribute="centerY" secondItem="Cip-3L-sPL" secondAttribute="centerY" constant="2" id="DGR-8h-58l"/>
-                <constraint firstItem="Y9d-N2-ANK" firstAttribute="baseline" secondItem="Uih-Kj-Gtd" secondAttribute="baseline" id="F6W-iR-OGU"/>
+                <constraint firstItem="agk-9o-j5O" firstAttribute="centerY" secondItem="ljx-cj-amR" secondAttribute="centerY" id="GhO-c8-7Cf"/>
+                <constraint firstAttribute="bottom" secondItem="agk-9o-j5O" secondAttribute="bottom" constant="12" id="Hh3-3E-uO0"/>
                 <constraint firstItem="lpA-9c-FkJ" firstAttribute="baseline" secondItem="Cit-BS-om3" secondAttribute="firstBaseline" id="N5w-6A-qZF"/>
-                <constraint firstItem="Y9d-N2-ANK" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="Oih-w4-JgR"/>
-                <constraint firstAttribute="trailing" secondItem="ljx-cj-amR" secondAttribute="trailing" constant="9" id="P4p-gz-kAd"/>
+                <constraint firstAttribute="trailing" secondItem="ljx-cj-amR" secondAttribute="trailing" constant="4" id="P4p-gz-kAd"/>
+                <constraint firstItem="Uih-Kj-Gtd" firstAttribute="leading" secondItem="agk-9o-j5O" secondAttribute="trailing" constant="54" id="Tqg-hO-aal"/>
                 <constraint firstItem="Cit-BS-om3" firstAttribute="leading" secondItem="lpA-9c-FkJ" secondAttribute="trailing" constant="64" id="Tse-es-GAr"/>
-                <constraint firstItem="nv0-VW-gFn" firstAttribute="baseline" secondItem="Y9d-N2-ANK" secondAttribute="firstBaseline" id="ZDU-7X-OZW"/>
+                <constraint firstItem="agk-9o-j5O" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="Z5o-iw-F7E"/>
                 <constraint firstItem="ktB-a2-cVs" firstAttribute="baseline" secondItem="Cip-3L-sPL" secondAttribute="baseline" id="a2J-Si-qCu"/>
-                <constraint firstItem="Uih-Kj-Gtd" firstAttribute="leading" secondItem="Y9d-N2-ANK" secondAttribute="trailing" constant="5" id="cVL-vh-Y8Y"/>
                 <constraint firstItem="lpA-9c-FkJ" firstAttribute="baseline" secondItem="nv0-VW-gFn" secondAttribute="firstBaseline" id="d0g-HE-DZL"/>
                 <constraint firstItem="ljx-cj-amR" firstAttribute="leading" secondItem="Cip-3L-sPL" secondAttribute="trailing" constant="71" id="dGY-of-RYs"/>
+                <constraint firstItem="agk-9o-j5O" firstAttribute="centerY" secondItem="Cip-3L-sPL" secondAttribute="centerY" id="fIo-1x-lu2"/>
+                <constraint firstAttribute="trailing" secondItem="agk-9o-j5O" secondAttribute="trailing" constant="904" id="fKv-oI-T3g"/>
                 <constraint firstAttribute="bottom" secondItem="ljx-cj-amR" secondAttribute="bottom" constant="20" symbolic="YES" id="gk6-2g-SEl"/>
                 <constraint firstItem="ktB-a2-cVs" firstAttribute="top" secondItem="nv0-VW-gFn" secondAttribute="top" id="gwR-X2-VPj"/>
                 <constraint firstItem="lpA-9c-FkJ" firstAttribute="baseline" secondItem="Cit-BS-om3" secondAttribute="baseline" id="kf9-Vf-cH5"/>
@@ -112,14 +128,16 @@
                 <constraint firstItem="lpA-9c-FkJ" firstAttribute="leading" secondItem="nv0-VW-gFn" secondAttribute="trailing" constant="57" id="o3s-eQ-QMd"/>
                 <constraint firstItem="Uih-Kj-Gtd" firstAttribute="baseline" secondItem="ktB-a2-cVs" secondAttribute="baseline" id="pDn-MG-ocL"/>
                 <constraint firstItem="nv0-VW-gFn" firstAttribute="leading" secondItem="ktB-a2-cVs" secondAttribute="trailing" constant="60" id="uKI-2R-R4S"/>
+                <constraint firstItem="agk-9o-j5O" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="8" id="yft-K6-gAj"/>
             </constraints>
-            <point key="canvasLocation" x="-82" y="45"/>
+            <point key="canvasLocation" x="-81" y="49"/>
         </customView>
         <customObject id="IA8-WU-opB" customClass="RateViewItem" customModule="SKPlayer" customModuleProvider="target">
             <connections>
                 <outlet property="ageView" destination="ktB-a2-cVs" id="6Rk-8Q-uYd"/>
                 <outlet property="areaView" destination="nv0-VW-gFn" id="DHB-We-L6H"/>
                 <outlet property="emView" destination="Uih-Kj-Gtd" id="e1n-jr-tsV"/>
+                <outlet property="focusView" destination="agk-9o-j5O" id="Pru-y2-Kt6"/>
                 <outlet property="nameView" destination="Y9d-N2-ANK" id="0Kq-tz-dPt"/>
                 <outlet property="scoreView" destination="lpA-9c-FkJ" id="1i7-Rc-N7B"/>
                 <outlet property="starringView" destination="Cip-3L-sPL" id="cYT-5O-cbD"/>

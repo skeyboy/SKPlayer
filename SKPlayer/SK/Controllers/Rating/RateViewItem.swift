@@ -9,7 +9,8 @@
 import Cocoa
 
 class RateViewItem: NSCollectionViewItem {
-   
+    @IBOutlet weak var focusView: HoverView!
+    
     @IBOutlet weak var nameView: NSTextField!
     @IBOutlet weak var emView: NSTextField!
     @IBOutlet weak var ageView: NSTextField!

@@ -119,6 +119,7 @@ extension BTViewController{
         let pastedboard: NSPasteboard = NSPasteboard.general
         pastedboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
         pastedboard.setString(bt.bt, forType: NSPasteboard.PasteboardType.string)
+        finish()
     }
     @objc func queryDownloadMagnet(sender: AnyObject){
         let bt: BT = self.bts![self.btTableView.selectedRow]
@@ -128,6 +129,7 @@ extension BTViewController{
             self.finish()
             bt.openMiWifi { (b) in
                 NSWorkspace.shared.open(URL.init(string: b)!)
+                self.finish()
             }
         }else{
             NSWorkspace.shared.open(URL.init(string: bt.bt)!)
@@ -136,6 +138,7 @@ extension BTViewController{
     }
     @objc func watchBySafariOrChrome(sender: AnyObject){
         queryDownloadMagnet(sender: sender)
+        finish()
     }
   
 }
