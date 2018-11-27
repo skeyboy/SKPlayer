@@ -8,10 +8,34 @@
 
 import Cocoa
 import Ji
+import SnapKit
 let PageSection = 1
 class AllViewController: NSViewController {
     
-    
+    @IBOutlet weak var menuActor: NSButton!
+    private var menuShowed: Bool = true
+    @IBAction func menuController(_ sender: Any) {
+       self.skMenuView.wantsLayer = true
+        
+        NSAnimationContext.current.duration = 0.5
+        NSAnimationContext.runAnimationGroup({ (ctx) in
+            if self.menuShowed == true {
+                self.menuActor.title = "展开"
+                self.skMenuView.snp.updateConstraints { (maker:ConstraintMaker) in
+                    maker.height.equalTo(-5);
+                }
+            } else {
+                self.menuActor.title = "收起"
+
+                self.skMenuView.snp.updateConstraints { (maker:ConstraintMaker) in
+                    maker.height.equalTo(263);
+                }
+            }
+            self.skMenuView.needsLayout = true
+        }, completionHandler: {
+            self.menuShowed = !self.menuShowed
+        })
+    }
     var newHref: String?{
         didSet{
             MainQueue.async {
@@ -160,6 +184,9 @@ extension AllViewController: NSCollectionViewDataSource{
     
     public func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath){
         if indexPath.section == PageSection {
+            return
+        }
+        if indexPath.item >= self.allItems.count && self.allItems.isEmpty{
             return
         }
         let aItem:IndexViewItem = item as! IndexViewItem

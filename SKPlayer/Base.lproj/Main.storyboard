@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1078,10 +1078,10 @@
             </objects>
             <point key="canvasLocation" x="-623" y="1328"/>
         </scene>
-        <!--汇总有彩蛋-->
+        <!--全部-->
         <scene sceneID="vGa-fQ-3n7">
             <objects>
-                <viewController title="汇总有彩蛋" storyboardIdentifier="all" id="3Vz-BI-xNm" customClass="AllViewController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="全部" storyboardIdentifier="all" id="3Vz-BI-xNm" customClass="AllViewController" customModule="SKPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Nug-PJ-WzP">
                         <rect key="frame" x="0.0" y="0.0" width="1150" height="768"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1129,14 +1129,14 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="18f-mN-MzE">
                                 <rect key="frame" x="0.0" y="0.0" width="1150" height="506"/>
                                 <subviews>
-                                    <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXB-dz-5ea">
-                                        <rect key="frame" x="0.0" y="0.0" width="1150" height="506"/>
+                                    <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXB-dz-5ea">
+                                        <rect key="frame" x="0.0" y="0.0" width="1150" height="486"/>
                                         <clipView key="contentView" id="Wyn-Jv-QnO">
-                                            <rect key="frame" x="1" y="1" width="1148" height="504"/>
+                                            <rect key="frame" x="1" y="1" width="1148" height="484"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <collectionView selectable="YES" id="lai-cd-OFX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="1148" height="158"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="1148" height="484"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="Jvk-Hf-TzE">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -1150,19 +1150,31 @@
                                             </subviews>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="YQW-at-d5m">
-                                            <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                            <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="un2-cn-l5Y">
+                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="un2-cn-l5Y">
                                             <rect key="frame" x="234" y="1" width="15" height="143"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ALf-wz-APc">
+                                        <rect key="frame" x="558" y="486" width="35" height="18"/>
+                                        <buttonCell key="cell" type="inline" title="收起" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="eZ4-Uc-pkf">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="11" name=".PingFangSC-Medium"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="menuController:" target="3Vz-BI-xNm" id="mv9-Uj-qGg"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="lai-cd-OFX" firstAttribute="top" secondItem="ALf-wz-APc" secondAttribute="bottom" constant="2" id="4Rv-Ia-oYS"/>
                                     <constraint firstAttribute="trailing" secondItem="iXB-dz-5ea" secondAttribute="trailing" id="5cU-Rq-ZmF"/>
                                     <constraint firstItem="iXB-dz-5ea" firstAttribute="leading" secondItem="18f-mN-MzE" secondAttribute="leading" id="Bey-bq-Fhc"/>
-                                    <constraint firstItem="iXB-dz-5ea" firstAttribute="top" secondItem="18f-mN-MzE" secondAttribute="top" id="Q5U-dS-gaI"/>
+                                    <constraint firstItem="ALf-wz-APc" firstAttribute="centerX" secondItem="18f-mN-MzE" secondAttribute="centerX" id="JxY-qr-Shi"/>
+                                    <constraint firstItem="iXB-dz-5ea" firstAttribute="top" secondItem="18f-mN-MzE" secondAttribute="top" constant="20" id="Q5U-dS-gaI"/>
                                     <constraint firstAttribute="bottom" secondItem="iXB-dz-5ea" secondAttribute="bottom" id="Qlk-EW-8lT"/>
                                 </constraints>
                             </customView>
@@ -1175,10 +1187,12 @@
                             <constraint firstItem="pKQ-Bz-Vy2" firstAttribute="top" secondItem="Nug-PJ-WzP" secondAttribute="top" id="jLd-Kv-Lbx"/>
                             <constraint firstItem="pKQ-Bz-Vy2" firstAttribute="leading" secondItem="Nug-PJ-WzP" secondAttribute="leading" id="uWN-h9-rvI"/>
                             <constraint firstAttribute="trailing" secondItem="18f-mN-MzE" secondAttribute="trailing" id="xTn-7f-6PB"/>
+                            <constraint firstItem="ALf-wz-APc" firstAttribute="top" secondItem="tfO-TI-UjI" secondAttribute="bottom" constant="2" id="zNw-i9-TD2"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="allCollectionView" destination="lai-cd-OFX" id="itb-cs-TEv"/>
+                        <outlet property="menuActor" destination="ALf-wz-APc" id="qqx-YH-YGL"/>
                         <outlet property="skMenuCollectionView" destination="5yP-vG-oOy" id="ZJS-sO-ih2"/>
                         <outlet property="skMenuView" destination="pKQ-Bz-Vy2" id="mZ8-1K-uQH"/>
                     </connections>

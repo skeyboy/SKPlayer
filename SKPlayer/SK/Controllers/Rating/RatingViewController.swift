@@ -120,7 +120,7 @@ extension RatingViewController: Parser {
             
             if let ji = ji {
                 if let ratelist =   ji.xPath("//div[@class='p_listnew']/ul[@class='new-ul']/li") {
-                    if  ratelist.count == 1 {
+                    if  ratelist.count <= 1 {
                         result([Rate]())
                         return
                     }
