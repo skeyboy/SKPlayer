@@ -85,9 +85,14 @@ extension DetailViewController{
         cloudPlayerVC.resources = resources
         cloudPlayerVC.prepareCallBack = {cloudPlayer in
             
+            var player: PlayerViewController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier.init("player")) as! PlayerViewController
+            player.view.isHidden = true
+//            player.view.setFrameSize(NSSize.zero)
+            player.resourceUrl = cloudPlayer?.link
+            player.viewDidLoad()
             
             
-            self.performSegue(withIdentifier: NSStoryboardSegue.Identifier.init("show_player"), sender: cloudPlayer?.link)
+//            self.performSegue(withIdentifier: NSStoryboardSegue.Identifier.init("show_player"), sender: cloudPlayer?.link)
         }
         
         let win: NSWindow = NSWindow.init(contentViewController: cloudPlayerVC)

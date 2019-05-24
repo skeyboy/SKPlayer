@@ -15,6 +15,8 @@ class PlayerViewController: NSViewController {
     var resourceUrl: String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.isHidden  = true
+        self.view.window?.styleMask = [.fullSizeContentView,.borderless]
         // Do view setup here.
         if self.resourceUrl == nil {
             return
@@ -30,7 +32,7 @@ class PlayerViewController: NSViewController {
         NSApp.stopModal(withCode: modal)
         let rURL: URL = URL.init(string: self.playURI)!
         let request = URLRequest.init(url: rURL, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 30)
-        
+        self.view.isHidden = false
         self.webView.mainFrame.load(request)
         self.view.window?.setFrame(NSRect(x: 200, y: 200, width: 1024, height: 768), display: true, animate: true)
         self.view.window?.center()
@@ -38,9 +40,18 @@ class PlayerViewController: NSViewController {
     @objc func chromePlay(sender: NSButton){
         NSApp.stopModal(withCode: modal)
         dismiss(sender)
-
+        
         let rURL: URL = URL.init(string: self.playURI)!
         NSWorkspace.shared.open(rURL)
+    }
+    @objc func cancelPlay(sender: NSButton){
+        NSApp.stopModal(withCode: modal)
+        dismiss(sender)
+    }
+    override func dismiss(_ sender: Any?) {
+        self.view.window?.close()
+        super.dismiss(sender)
+        self.view.window?.close()
     }
     func createPlayer(_ url:String) -> Void {
         
@@ -48,15 +59,19 @@ class PlayerViewController: NSViewController {
         
         let alert: NSAlert = NSAlert.init()
         alert.messageText = "选择播放方式"
-        alert.addButton(withTitle: "内部播放")
+//        alert.addButton(withTitle: "内部播放")
         alert.addButton(withTitle: "浏览器播放")
+        alert.addButton(withTitle: "取消")
         
-        alert.buttons.first!.action = #selector(innerPlay(sender:))
+        alert.buttons.first!.action = #selector(chromePlay(sender:))
         alert.buttons.first?.target = self
         
-        alert.buttons.last!.action = #selector(chromePlay(sender:))
+//        alert.buttons[1].action = #selector(chromePlay(sender:))
+//        alert.buttons[1].target = self
+        
+        alert.buttons.last?.action = #selector(cancelPlay(sender:))
         alert.buttons.last?.target = self
-
+        
         modal =  alert.runModal()
         
     }

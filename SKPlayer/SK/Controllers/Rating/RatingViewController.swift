@@ -9,7 +9,7 @@
 import Cocoa
 import Ji
 class RatingViewController: NSViewController {
-     var detailWin: DetailWindowController?
+    var detailWin: DetailWindowController?
     var currentIndexPath: IndexPath?
     var link: String?
     var items: [Rate] = [Rate]()
@@ -20,13 +20,13 @@ class RatingViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         self.titieView.stringValue = title ?? UnKnown
-
+        
     }
     
     func fetch() -> Void {
         if let link = link {
             self.view.showProgressHUD(title: "", message: "数据更新中……", mode: ProgressHUDMode.determinate)
-
+            
             self.pareseRating(link) { (rates) in
                 self.items.removeAll()
                 self.items.append(contentsOf: rates)
@@ -36,14 +36,14 @@ class RatingViewController: NSViewController {
                 }
                 
                 self.view.hideProgressHUD()
-
+                
             }
         }
     }
     override func viewDidAppear() {
         super.viewDidAppear()
         
-       
+        
     }
 }
 extension RatingViewController: NSCollectionViewDelegate{
@@ -54,9 +54,9 @@ extension RatingViewController: NSCollectionViewDelegate{
         let rate = self.items[indexPath.item]
         let viewItem = collectionView.item(at: indexPath)
         let point =  viewItem!.view.convert(viewItem!.view.bounds.origin, to: self.view)
-
+        
         showDetail(rate: rate, point: point  )
-
+        
     }
     func showDetail(rate: Rate, point: NSPoint) -> Void {
         
@@ -68,16 +68,16 @@ extension RatingViewController: NSCollectionViewDelegate{
         let detailVC: DetailViewController = detailWin!.contentViewController as! DetailViewController
         
         detailVC.detailDoor = (rate.title, rate.href) as? DetailDoor
-//        self.detailWin?.window?.setFrameOrigin(point)
-
+        //        self.detailWin?.window?.setFrameOrigin(point)
+        
         //        self.presentViewControllerAsModalWindow(detailVC)
         session = NSApp.beginModalSession(for: detailWin!.window!)
         
-//        while NSApp.runModalSession(session!) == NSApplication.ModalResponse.continue {
-//            print("...")
-//
-////            NSApp.endModalSession(session!)
-//        }
+        //        while NSApp.runModalSession(session!) == NSApplication.ModalResponse.continue {
+        //            print("...")
+        //
+        ////            NSApp.endModalSession(session!)
+        //        }
     }
 }
 extension RatingViewController: NSCollectionViewDataSource{
@@ -91,24 +91,28 @@ extension RatingViewController: NSCollectionViewDataSource{
         return viewItem
     }
     func collectionView(_ collectionView: NSCollectionView, willDisplay item: NSCollectionViewItem, forRepresentedObjectAt indexPath: IndexPath) {
-        let viewItem = item as! RateViewItem
-        (viewItem.focusView as! HoverView).indexPath = indexPath
+            let viewItem = item as! RateViewItem
         let rate = self.items[indexPath.item]
         
         viewItem.rate = rate
-        
-        (viewItem.focusView as HoverView).hoverSelectedResponse = {(hView, hovered) in
+        if viewItem.focusView is HoverView{
 
+            (viewItem.focusView as! HoverView).indexPath = indexPath
             
-            if (hView.indexPath == self.currentIndexPath ) == true {
-                return
+            (viewItem.focusView as! HoverView).hoverSelectedResponse = {(hView, hovered) in
+                
+                
+                if (hView.indexPath == self.currentIndexPath ) == true {
+                    return
+                }
+                self.currentIndexPath = hView.indexPath
+                let rate = self.items[indexPath.item]
+                
+                let point =  hView.convert(hView.bounds.origin, to: self.view)
+                self.showDetail(rate: rate, point: point)
             }
-            self.currentIndexPath = hView.indexPath
-            let rate = self.items[indexPath.item]
-            
-            let point =  hView.convert(hView.bounds.origin, to: self.view)
-            self.showDetail(rate: rate, point: point)
         }
+        
     }
     
     
@@ -127,8 +131,8 @@ extension RatingViewController: Parser {
                     let values =    ratelist[1 ... ratelist.count - 1].map({ (node) -> Rate in
                         
                         var info = node.xPath("./div[@class='name']/a").first!
-                   let title =     info.xPath("./text()").first?.rawContent ?? UnKnown
-                     let href =   info.attributes["href"]
+                        let title =     info.xPath("./text()").first?.rawContent ?? UnKnown
+                        let href =   info.attributes["href"]
                         
                         let em = node.xPath("//em[@class='em']/text()").first?.rawContent
                         
@@ -141,7 +145,7 @@ extension RatingViewController: Parser {
                         
                         
                         let rate: Rate = Rate()
-                       
+                        
                         rate.title = title
                         rate.em = em
                         rate.year = year
@@ -160,6 +164,6 @@ extension RatingViewController: Parser {
         }
     }
     func value(for item:String, with node:JiNode) -> String {
-       return node.xPath("./div[@class='\(item)']/text()").first?.rawContent ?? UnKnown
+        return node.xPath("./div[@class='\(item)']/text()").first?.rawContent ?? UnKnown
     }
 }

@@ -37,10 +37,13 @@ class LatestViewItem: NSCollectionViewItem {
         
         self.view.wantsLayer = true
         self.view.layer?.borderColor = NSColor.gridColor.cgColor
-        (self.view as! HoverView).hoverSelectedResponse = {(hView, hovered) in
-            self.view.layer?.borderWidth = hovered ? 0 : 2
-            let dXY = hovered ? -7 : 7
-            self.view.frame = NSInsetRect(self.view.frame, CGFloat(dXY), CGFloat(dXY))
+        if self.view is HoverView {
+            
+            (self.view as! HoverView).hoverSelectedResponse = {(hView, hovered) in
+                self.view.layer?.borderWidth = hovered ? 0 : 2
+                let dXY = hovered ? -7 : 7
+                self.view.frame = NSInsetRect(self.view.frame, CGFloat(dXY), CGFloat(dXY))
+            }
         }
         
     }
